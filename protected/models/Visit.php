@@ -44,8 +44,7 @@ class Visit extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id', 'required'),
-			array('id, customer_id', 'numerical', 'integerOnly'=>true),
+			array('customer_id', 'numerical', 'integerOnly'=>true),
 			array('status, way, class', 'length', 'max'=>45),
 			array('time, comment, create_time', 'safe'),
 			// The following rule is used by search().

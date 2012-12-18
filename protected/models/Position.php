@@ -44,8 +44,8 @@ class Position extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, plate_id, well, gene_id, store_type_id', 'required'),
-			array('id, plate_id, gene_id, store_type_id', 'numerical', 'integerOnly'=>true),
+			array('plate_id, well, gene_id, store_type_id', 'required'),
+			array('plate_id, gene_id, store_type_id', 'numerical', 'integerOnly'=>true),
 			array('well', 'length', 'max'=>10),
 			array('comment', 'safe'),
 			// The following rule is used by search().

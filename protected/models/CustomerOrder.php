@@ -44,8 +44,7 @@ class CustomerOrder extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id', 'required'),
-			array('id, customer_id, quantity', 'numerical', 'integerOnly'=>true),
+			array('customer_id, quantity', 'numerical', 'integerOnly'=>true),
 			array('price', 'numerical'),
 			array('status', 'length', 'max'=>45),
 			array('date, comment, create_time', 'safe'),

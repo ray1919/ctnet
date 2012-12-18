@@ -48,8 +48,6 @@ class Customer extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id', 'required'),
-			array('id', 'numerical', 'integerOnly'=>true),
 			array('title, name, tel1, tel2, tel3, email, organization', 'length', 'max'=>45),
 			array('address, comment', 'safe'),
 			// The following rule is used by search().

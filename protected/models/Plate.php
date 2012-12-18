@@ -40,8 +40,7 @@ class Plate extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, name', 'required'),
-			array('id', 'numerical', 'integerOnly'=>true),
+			array('name', 'required'),
 			array('name, type', 'length', 'max'=>45),
 			array('feature', 'length', 'max'=>100),
 			// The following rule is used by search().
