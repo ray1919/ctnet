@@ -12,18 +12,18 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
+		<?php echo $form->label($model,'gene_id'); ?>
+		<?php echo $form->textField($model,'gene_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'symbol'); ?>
-		<?php echo $form->textField($model,'symbol',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->label($model,'gene_symbol'); ?>
+		<?php echo $form->textField($model,'gene_symbol',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->label($model,'gene_name'); ?>
+		<?php echo $form->textField($model,'gene_name',array('size'=>60,'maxlength'=>200)); ?>
 	</div>
 
 	<div class="row">

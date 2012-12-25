@@ -13,6 +13,10 @@
 	<?php echo CHtml::encode($data->customer_id); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('executor')); ?>:</b>
+	<?php echo CHtml::encode($data->executor); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
 	<?php echo CHtml::encode($data->status); ?>
 	<br />
@@ -29,13 +33,17 @@
 	<?php echo CHtml::encode($data->time); ?>
 	<br />
 
+	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('comment')); ?>:</b>
 	<?php echo CHtml::encode($data->comment); ?>
 	<br />
 
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('create_time')); ?>:</b>
 	<?php echo CHtml::encode($data->create_time); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('create_user_id')); ?>:</b>
+	<?php echo CHtml::encode($data->create_user_id); ?>
 	<br />
 
 	*/ ?>

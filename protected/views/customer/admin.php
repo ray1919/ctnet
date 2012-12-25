@@ -53,6 +53,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'tel3',
 		/*
 		'email',
+		'IM',
 		'address',
 		'organization',
 		'comment',

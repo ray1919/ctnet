@@ -24,8 +24,9 @@ $this->menu=array(
 		'id',
 		'plate_id',
 		'well',
-		'gene_id',
+		'primer_id',
 		'store_type_id',
 		'comment',
+		'store_date',
 	),
 )); ?>

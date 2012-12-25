@@ -48,9 +48,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id',
 		'plate_id',
 		'well',
-		'gene_id',
+		'primer_id',
 		'store_type_id',
 		'comment',
+		/*
+		'store_date',
+		*/
 		array(
 			'class'=>'CButtonColumn',
 		),

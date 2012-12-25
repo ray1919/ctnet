@@ -22,6 +22,12 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'executor'); ?>
+		<?php echo $form->textField($model,'executor',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'executor'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
 		<?php echo $form->textField($model,'status',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model,'status'); ?>
@@ -55,6 +61,12 @@
 		<?php echo $form->labelEx($model,'create_time'); ?>
 		<?php echo $form->textField($model,'create_time'); ?>
 		<?php echo $form->error($model,'create_time'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'create_user_id'); ?>
+		<?php echo $form->textField($model,'create_user_id'); ?>
+		<?php echo $form->error($model,'create_user_id'); ?>
 	</div>
 
 	<div class="row buttons">

@@ -7,14 +7,15 @@
  * @property integer $id
  * @property integer $plate_id
  * @property string $well
- * @property integer $gene_id
+ * @property integer $primer_id
  * @property integer $store_type_id
  * @property string $comment
+ * @property string $store_date
  *
  * The followings are the available model relations:
  * @property Plate $plate
+ * @property Primer $primer
  * @property StoreType $storeType
- * @property Gene $gene
  */
 class Position extends CActiveRecord
 {
@@ -44,13 +45,13 @@ class Position extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('plate_id, well, gene_id, store_type_id', 'required'),
-			array('plate_id, gene_id, store_type_id', 'numerical', 'integerOnly'=>true),
+			array('plate_id, well', 'required'),
+			array('plate_id, primer_id, store_type_id', 'numerical', 'integerOnly'=>true),
 			array('well', 'length', 'max'=>10),
-			array('comment', 'safe'),
+			array('comment, store_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, plate_id, well, gene_id, store_type_id, comment', 'safe', 'on'=>'search'),
+			array('id, plate_id, well, primer_id, store_type_id, comment, store_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,8 +64,8 @@ class Position extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'plate' => array(self::BELONGS_TO, 'Plate', 'plate_id'),
+			'primer' => array(self::BELONGS_TO, 'Primer', 'primer_id'),
 			'storeType' => array(self::BELONGS_TO, 'StoreType', 'store_type_id'),
-			'gene' => array(self::BELONGS_TO, 'Gene', 'gene_id'),
 		);
 	}
 
@@ -77,9 +78,10 @@ class Position extends CActiveRecord
 			'id' => 'ID',
 			'plate_id' => 'Plate',
 			'well' => 'Well',
-			'gene_id' => 'Gene',
+			'primer_id' => 'Primer',
 			'store_type_id' => 'Store Type',
 			'comment' => 'Comment',
+			'store_date' => 'Store Date',
 		);
 	}
 
@@ -97,9 +99,10 @@ class Position extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('plate_id',$this->plate_id);
 		$criteria->compare('well',$this->well,true);
-		$criteria->compare('gene_id',$this->gene_id);
+		$criteria->compare('primer_id',$this->primer_id);
 		$criteria->compare('store_type_id',$this->store_type_id);
 		$criteria->compare('comment',$this->comment,true);
+		$criteria->compare('store_date',$this->store_date,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

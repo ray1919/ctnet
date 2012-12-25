@@ -27,8 +27,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'gene_id'); ?>
-		<?php echo $form->textField($model,'gene_id'); ?>
+		<?php echo $form->label($model,'primer_id'); ?>
+		<?php echo $form->textField($model,'primer_id'); ?>
 	</div>
 
 	<div class="row">
@@ -39,6 +39,11 @@
 	<div class="row">
 		<?php echo $form->label($model,'comment'); ?>
 		<?php echo $form->textArea($model,'comment',array('rows'=>6, 'cols'=>50)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'store_date'); ?>
+		<?php echo $form->textField($model,'store_date'); ?>
 	</div>
 
 	<div class="row buttons">

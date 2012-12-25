@@ -42,7 +42,7 @@ class Plate extends CActiveRecord
 		return array(
 			array('name', 'required'),
 			array('name, type', 'length', 'max'=>45),
-			array('feature', 'length', 'max'=>100),
+			array('feature', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, name, type, feature', 'safe', 'on'=>'search'),

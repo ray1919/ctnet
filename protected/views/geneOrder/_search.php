@@ -17,8 +17,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'gene_id'); ?>
-		<?php echo $form->textField($model,'gene_id'); ?>
+		<?php echo $form->label($model,'primer_id'); ?>
+		<?php echo $form->textField($model,'primer_id'); ?>
 	</div>
 
 	<div class="row">

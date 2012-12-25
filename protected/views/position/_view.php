@@ -17,8 +17,8 @@
 	<?php echo CHtml::encode($data->well); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('gene_id')); ?>:</b>
-	<?php echo CHtml::encode($data->gene_id); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('primer_id')); ?>:</b>
+	<?php echo CHtml::encode($data->primer_id); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('store_type_id')); ?>:</b>
@@ -27,6 +27,10 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('comment')); ?>:</b>
 	<?php echo CHtml::encode($data->comment); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('store_date')); ?>:</b>
+	<?php echo CHtml::encode($data->store_date); ?>
 	<br />
 
 

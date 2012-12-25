@@ -16,9 +16,9 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'gene_id'); ?>
-		<?php echo $form->textField($model,'gene_id'); ?>
-		<?php echo $form->error($model,'gene_id'); ?>
+		<?php echo $form->labelEx($model,'primer_id'); ?>
+		<?php echo $form->textField($model,'primer_id'); ?>
+		<?php echo $form->error($model,'primer_id'); ?>
 	</div>
 
 	<div class="row">

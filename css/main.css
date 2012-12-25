@@ -60,8 +60,27 @@ body
 
 #mainmenu ul li
 {
-	display: inline;
+  display: inline;
+  position: relative;
 }
+
+#mainmenu ul li ul
+{
+	display: none;
+  position: absolute;
+  background:white url(bg.gif);
+  color: #6399cd;
+  height: auto;
+  margin-top: 4px;
+}
+
+#mainmenu ul li:hover > ul { display: block; }
+#mainmenu ul li ul li a {
+  color: #fff; padding: 4px 0px; display: block;
+  white-space: nowrap;
+}
+#mainmenu ul li ul li.active a,
+#mainmenu ul li ul li a:hover { color: #6399cd; }
 
 #mainmenu ul li a
 {

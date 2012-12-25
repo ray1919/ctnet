@@ -16,21 +16,21 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
-		<?php echo $form->error($model,'id'); ?>
+		<?php echo $form->labelEx($model,'gene_id'); ?>
+		<?php echo $form->textField($model,'gene_id'); ?>
+		<?php echo $form->error($model,'gene_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'symbol'); ?>
-		<?php echo $form->textField($model,'symbol',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'symbol'); ?>
+		<?php echo $form->labelEx($model,'gene_symbol'); ?>
+		<?php echo $form->textField($model,'gene_symbol',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'gene_symbol'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'name'); ?>
+		<?php echo $form->labelEx($model,'gene_name'); ?>
+		<?php echo $form->textField($model,'gene_name',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->error($model,'gene_name'); ?>
 	</div>
 
 	<div class="row">

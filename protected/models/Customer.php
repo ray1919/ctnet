@@ -11,6 +11,7 @@
  * @property string $tel2
  * @property string $tel3
  * @property string $email
+ * @property string $IM
  * @property string $address
  * @property string $organization
  * @property string $comment
@@ -48,11 +49,11 @@ class Customer extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, name, tel1, tel2, tel3, email, organization', 'length', 'max'=>45),
-			array('address, comment', 'safe'),
+			array('title, name, tel1, tel2, tel3, email, IM', 'length', 'max'=>45),
+			array('address, organization, comment', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, name, tel1, tel2, tel3, email, address, organization, comment', 'safe', 'on'=>'search'),
+			array('id, title, name, tel1, tel2, tel3, email, IM, address, organization, comment', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -83,6 +84,7 @@ class Customer extends CActiveRecord
 			'tel2' => 'Tel2',
 			'tel3' => 'Tel3',
 			'email' => 'Email',
+			'IM' => 'Im',
 			'address' => 'Address',
 			'organization' => 'Organization',
 			'comment' => 'Comment',
@@ -107,6 +109,7 @@ class Customer extends CActiveRecord
 		$criteria->compare('tel2',$this->tel2,true);
 		$criteria->compare('tel3',$this->tel3,true);
 		$criteria->compare('email',$this->email,true);
+		$criteria->compare('IM',$this->IM,true);
 		$criteria->compare('address',$this->address,true);
 		$criteria->compare('organization',$this->organization,true);
 		$criteria->compare('comment',$this->comment,true);

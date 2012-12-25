@@ -28,9 +28,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'gene_id'); ?>
-		<?php echo $form->textField($model,'gene_id'); ?>
-		<?php echo $form->error($model,'gene_id'); ?>
+		<?php echo $form->labelEx($model,'primer_id'); ?>
+		<?php echo $form->textField($model,'primer_id'); ?>
+		<?php echo $form->error($model,'primer_id'); ?>
 	</div>
 
 	<div class="row">
@@ -43,6 +43,12 @@
 		<?php echo $form->labelEx($model,'comment'); ?>
 		<?php echo $form->textArea($model,'comment',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'comment'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'store_date'); ?>
+		<?php echo $form->textField($model,'store_date'); ?>
+		<?php echo $form->error($model,'store_date'); ?>
 	</div>
 
 	<div class="row buttons">

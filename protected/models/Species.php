@@ -10,6 +10,8 @@
  *
  * The followings are the available model relations:
  * @property Gene[] $genes
+ * @property Mirna[] $mirnas
+ * @property Primer[] $primers
  */
 class Species extends CActiveRecord
 {
@@ -58,6 +60,8 @@ class Species extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'genes' => array(self::HAS_MANY, 'Gene', 'tax_id'),
+			'mirnas' => array(self::HAS_MANY, 'Mirna', 'tax_id'),
+			'primers' => array(self::HAS_MANY, 'Primer', 'tax_id'),
 		);
 	}
 

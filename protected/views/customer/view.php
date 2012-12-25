@@ -28,6 +28,7 @@ $this->menu=array(
 		'tel2',
 		'tel3',
 		'email',
+		'IM',
 		'address',
 		'organization',
 		'comment',

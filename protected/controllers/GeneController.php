@@ -71,7 +71,7 @@ class GeneController extends Controller
 		{
 			$model->attributes=$_POST['Gene'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('view','id'=>$model->gene_id));
 		}
 
 		$this->render('create',array(
@@ -95,7 +95,7 @@ class GeneController extends Controller
 		{
 			$model->attributes=$_POST['Gene'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('view','id'=>$model->gene_id));
 		}
 
 		$this->render('update',array(

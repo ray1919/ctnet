@@ -4,17 +4,16 @@
  * This is the model class for table "gene".
  *
  * The followings are the available columns in table 'gene':
- * @property integer $id
- * @property string $symbol
- * @property string $name
+ * @property integer $gene_id
+ * @property string $gene_symbol
+ * @property string $gene_name
  * @property integer $tax_id
  * @property string $synonyms
  * @property string $type_of_gene
  *
  * The followings are the available model relations:
  * @property Species $tax
- * @property GeneOrder[] $geneOrders
- * @property Position[] $positions
+ * @property Primer[] $primers
  */
 class Gene extends CActiveRecord
 {
@@ -44,14 +43,14 @@ class Gene extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, symbol, tax_id', 'required'),
-			array('id, tax_id', 'numerical', 'integerOnly'=>true),
-			array('symbol, type_of_gene', 'length', 'max'=>45),
-			array('name', 'length', 'max'=>200),
+			array('gene_id', 'required'),
+			array('gene_id, tax_id', 'numerical', 'integerOnly'=>true),
+			array('gene_symbol, type_of_gene', 'length', 'max'=>45),
+			array('gene_name', 'length', 'max'=>200),
 			array('synonyms', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, symbol, name, tax_id, synonyms, type_of_gene', 'safe', 'on'=>'search'),
+			array('gene_id, gene_symbol, gene_name, tax_id, synonyms, type_of_gene', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,8 +63,7 @@ class Gene extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'tax' => array(self::BELONGS_TO, 'Species', 'tax_id'),
-			'geneOrders' => array(self::HAS_MANY, 'GeneOrder', 'gene_id'),
-			'positions' => array(self::HAS_MANY, 'Position', 'gene_id'),
+			'primers' => array(self::HAS_MANY, 'Primer', 'gene_fk'),
 		);
 	}
 
@@ -75,9 +73,9 @@ class Gene extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'symbol' => 'Symbol',
-			'name' => 'Name',
+			'gene_id' => 'Gene',
+			'gene_symbol' => 'Gene Symbol',
+			'gene_name' => 'Gene Name',
 			'tax_id' => 'Tax',
 			'synonyms' => 'Synonyms',
 			'type_of_gene' => 'Type Of Gene',
@@ -95,9 +93,9 @@ class Gene extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('symbol',$this->symbol,true);
-		$criteria->compare('name',$this->name,true);
+		$criteria->compare('gene_id',$this->gene_id);
+		$criteria->compare('gene_symbol',$this->gene_symbol,true);
+		$criteria->compare('gene_name',$this->gene_name,true);
 		$criteria->compare('tax_id',$this->tax_id);
 		$criteria->compare('synonyms',$this->synonyms,true);
 		$criteria->compare('type_of_gene',$this->type_of_gene,true);

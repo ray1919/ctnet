@@ -9,8 +9,8 @@
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('gene_id')); ?>:</b>
-	<?php echo CHtml::encode($data->gene_id); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('primer_id')); ?>:</b>
+	<?php echo CHtml::encode($data->primer_id); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('customer_id')); ?>:</b>

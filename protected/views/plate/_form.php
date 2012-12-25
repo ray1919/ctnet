@@ -29,7 +29,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'feature'); ?>
-		<?php echo $form->textField($model,'feature',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->textArea($model,'feature',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'feature'); ?>
 	</div>
 

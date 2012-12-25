@@ -52,6 +52,12 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'IM'); ?>
+		<?php echo $form->textField($model,'IM',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'IM'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'address'); ?>
 		<?php echo $form->textArea($model,'address',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'address'); ?>
@@ -59,7 +65,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'organization'); ?>
-		<?php echo $form->textField($model,'organization',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->textArea($model,'organization',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'organization'); ?>
 	</div>
 

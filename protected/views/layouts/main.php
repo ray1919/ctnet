@@ -30,6 +30,23 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
+				array('label'=>'Primer', 'url'=>array('/primer'),
+          'items'=>array(
+            array('label'=>'Plate', 'url'=>array('/plate')),
+            array('label'=>'Store Type', 'url'=>array('/StoreType')),
+            array('label'=>'Position', 'url'=>array('/position')),
+            array('label'=>'Gene DB', 'url'=>array('/gene')),
+            array('label'=>'miRNA DB', 'url'=>array('/mirna')),
+            array('label'=>'Gene Order', 'url'=>array('/GeneOrder')),
+            ),
+        ),
+				array('label'=>'Customer', 'url'=>array('/customer'),
+          'items'=>array(
+            array('label'=>'Visit', 'url'=>array('/visit')),
+            array('label'=>'Customer Order', 'url'=>array('/CustomerOrder')),
+            array('label'=>'Gene Order', 'url'=>array('/GeneOrder')),
+            ),
+        ),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),

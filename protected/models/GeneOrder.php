@@ -5,7 +5,7 @@
  *
  * The followings are the available columns in table 'gene_order':
  * @property integer $id
- * @property integer $gene_id
+ * @property integer $primer_id
  * @property integer $customer_id
  * @property double $price
  * @property integer $quantity
@@ -15,8 +15,8 @@
  * @property string $create_time
  *
  * The followings are the available model relations:
- * @property Gene $gene
  * @property Customer $customer
+ * @property Primer $primer
  */
 class GeneOrder extends CActiveRecord
 {
@@ -46,13 +46,13 @@ class GeneOrder extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('gene_id, customer_id, quantity', 'numerical', 'integerOnly'=>true),
+			array('primer_id, customer_id, quantity', 'numerical', 'integerOnly'=>true),
 			array('price', 'numerical'),
 			array('status', 'length', 'max'=>45),
 			array('date, comment, create_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, gene_id, customer_id, price, quantity, date, status, comment, create_time', 'safe', 'on'=>'search'),
+			array('id, primer_id, customer_id, price, quantity, date, status, comment, create_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,8 +64,8 @@ class GeneOrder extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'gene' => array(self::BELONGS_TO, 'Gene', 'gene_id'),
 			'customer' => array(self::BELONGS_TO, 'Customer', 'customer_id'),
+			'primer' => array(self::BELONGS_TO, 'Primer', 'primer_id'),
 		);
 	}
 
@@ -76,7 +76,7 @@ class GeneOrder extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'gene_id' => 'Gene',
+			'primer_id' => 'Primer',
 			'customer_id' => 'Customer',
 			'price' => 'Price',
 			'quantity' => 'Quantity',
@@ -99,7 +99,7 @@ class GeneOrder extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('gene_id',$this->gene_id);
+		$criteria->compare('primer_id',$this->primer_id);
 		$criteria->compare('customer_id',$this->customer_id);
 		$criteria->compare('price',$this->price);
 		$criteria->compare('quantity',$this->quantity);
