@@ -1,0 +1,781 @@
+2012/12/18 11:53:52 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('species/admin')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/species/admin
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/species/index
+---
+2012/12/18 14:26:07 [error] [php] Use of undefined constant tax_id - assumed 'tax_id' (/home/zhaorui/public_html/ctnet/protected/views/gene/view.php:30)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): GeneController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): GeneController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/GeneController.php(56): GeneController->render()
+#3 unknown(0): GeneController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): GeneController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): GeneController->filterAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): GeneController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): GeneController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/gene/117
+in /home/zhaorui/public_html/ctnet/protected/views/gene/view.php (30)
+in /home/zhaorui/public_html/ctnet/protected/controllers/GeneController.php (56)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2012/12/18 14:29:22 [error] [exception.CException] exception 'CException' with message 'Property "Species.nametax" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('nametax')
+#1 /home/zhaorui/public_html/yii/framework/web/helpers/CHtml.php(1809): CActiveRecord->__get('nametax')
+#2 /home/zhaorui/public_html/yii/framework/zii/widgets/CDetailView.php(212): CHtml::value(Object(Gene), 'tax.nametax.com...')
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(174): CDetailView->run()
+#4 /home/zhaorui/public_html/ctnet/protected/views/gene/view.php(38): CBaseController->widget('zii.widgets.CDe...', Array)
+#5 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#6 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('view', Array, true)
+#9 /home/zhaorui/public_html/ctnet/protected/controllers/GeneController.php(56): CController->render('view', Array)
+#10 [internal function]: GeneController->actionView('117')
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(GeneController), Array)
+#12 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(GeneController), Object(ReflectionMethod), Array)
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#15 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#20 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#22 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gene/view')
+#23 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#24 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/gene/117
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/gene/index
+---
+2012/12/18 14:34:02 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gene/admin')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/gene/admin
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/site/login
+---
+2012/12/18 14:34:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/zhaorui/public_html/ctnet/protected/controllers/GeneController.php:155
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/GeneController.php(55): GeneController->loadModel('12314214')
+#1 [internal function]: GeneController->actionView('12314214')
+#2 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(GeneController), Array)
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(GeneController), Object(ReflectionMethod), Array)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gene/view')
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~zhaorui/ctnet/gene/12314214
+---
+2012/12/18 14:34:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/zhaorui/public_html/ctnet/protected/controllers/GeneController.php:155
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/GeneController.php(55): GeneController->loadModel('123214')
+#1 [internal function]: GeneController->actionView('123214')
+#2 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(GeneController), Array)
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(GeneController), Object(ReflectionMethod), Array)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gene/view')
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~zhaorui/ctnet/gene/123214
+---
+2012/12/18 14:35:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "storetype".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('storetype')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/storetype
+---
+2012/12/24 16:34:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ctnet.Gene' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `Gene`.
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2012/12/25 09:59:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "company/index".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('company/index')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/company/index
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/primer
+---
+2012/12/25 16:01:04 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('plate/admin')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/plate/admin
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/site/login
+---
+2012/12/26 09:25:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "view".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('view')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/view/
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/primer
+---
+2012/12/26 09:26:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "view/view".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('view/view')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/view/2
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/primer
+---
+2012/12/26 09:26:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "view/view".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('view/view')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/view/7
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/primer
+---
+2012/12/26 09:27:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "view/view".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('view/view')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/view/3
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/primer
+---
+2012/12/26 09:27:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "3".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('3')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/3
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/primer
+---
+2012/12/26 09:27:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "view/view".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('view/view')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/view/1
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/primer
+---
+2012/12/26 09:29:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "primer".' in /home/zhaorui/public_html/yii/framework/web/CController.php:484
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(271): CController->missingAction('primer')
+#1 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('primer')
+#2 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('primer/primer/v...')
+#3 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/primer/view/37
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/primer/index
+---
+2012/12/26 09:29:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "view/view".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('view/view')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/view/2
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/primer
+---
+2013/01/04 16:21:10 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /home/zhaorui/public_html/yii/framework/web/CController.php:1119
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterPostOnly(Object(CFilterChain))
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('delete')
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('position/delete')
+#10 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/position/delete/178
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/site/login
+---
+2013/01/05 09:54:48 [error] [exception.CException] exception 'CException' with message 'Property "CListView.pageSize" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:174
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWidgetFactory.php(162): CComponent->__set('pageSize', 15)
+#1 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(147): CWidgetFactory->createWidget(Object(PositionController), 'zii.widgets.CLi...', Array)
+#2 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(173): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#3 /home/zhaorui/public_html/ctnet/protected/views/position/index.php(21): CBaseController->widget('zii.widgets.CLi...', Array)
+#4 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#5 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#8 /home/zhaorui/public_html/ctnet/protected/controllers/PositionController.php(128): CController->render('index', Array)
+#9 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PositionController->actionIndex()
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#17 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('index')
+#19 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('position/index')
+#20 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/position/index
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/position/4094
+---
+2013/01/05 10:49:04 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/primer/admin.php:56)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): PrimerController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): PrimerController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): PrimerController->render()
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): PrimerController->runAction()
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PrimerController->filterAccessControl()
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): PrimerController->runActionWithFilters()
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): PrimerController->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+in /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php (56)
+in /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php (143)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/01/05 10:52:01 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/primer/admin.php:56)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): PrimerController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): PrimerController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): PrimerController->render()
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): PrimerController->runAction()
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PrimerController->filterAccessControl()
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): PrimerController->runActionWithFilters()
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): PrimerController->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+in /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php (56)
+in /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php (143)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/01/05 10:52:40 [error] [php] Undefined variable: model (/home/zhaorui/public_html/yii/framework/base/CComponent.php(607) : eval()'d code:1)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridColumn.php(145): CDataColumn->renderDataCellContent()
+#1 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(546): CDataColumn->renderDataCell()
+#2 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(517): CGridView->renderTableRow()
+#3 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(427): CGridView->renderTableBody()
+#4 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(161): CGridView->renderItems()
+#5 unknown(0): CGridView->renderSection()
+#6 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(144): preg_replace_callback()
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(129): CGridView->renderContent()
+#8 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(174): CGridView->run()
+#9 /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php(70): PrimerController->widget()
+#10 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require()
+#11 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): PrimerController->renderInternal()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(870): PrimerController->renderFile()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(783): PrimerController->renderPartial()
+#14 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): PrimerController->render()
+#15 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): PrimerController->runAction()
+#18 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#20 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PrimerController->filterAccessControl()
+#21 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#22 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#23 /home/zhaorui/public_html/yii/framework/web/CController.php(266): PrimerController->runActionWithFilters()
+#24 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): PrimerController->run()
+#25 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#26 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#27 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+in /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php (70)
+in /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php (143)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/01/05 10:53:12 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/primer/admin.php:56)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): PrimerController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): PrimerController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): PrimerController->render()
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): PrimerController->runAction()
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PrimerController->filterAccessControl()
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): PrimerController->runActionWithFilters()
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): PrimerController->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+in /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php (56)
+in /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php (143)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/01/05 10:53:19 [error] [php] Undefined variable: data (/home/zhaorui/public_html/ctnet/protected/views/primer/admin.php:56)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): PrimerController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): PrimerController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): PrimerController->render()
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): PrimerController->runAction()
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PrimerController->filterAccessControl()
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): PrimerController->runActionWithFilters()
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): PrimerController->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+in /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php (56)
+in /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php (143)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/01/05 11:09:51 [error] [exception.CException] exception 'CException' with message 'Property "Primer.organism_search" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('organism_search')
+#1 /home/zhaorui/public_html/ctnet/protected/models/Primer.php(126): CActiveRecord->__get('organism_search')
+#2 /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php(45): Primer->search()
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#4 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('admin', Array, true)
+#7 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): CController->render('admin', Array)
+#8 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#18 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('primer/admin')
+#19 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/site/login
+---
+2013/01/05 11:10:40 [error] [exception.CException] exception 'CException' with message 'Property "Primer.organism_search" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('organism_search')
+#1 /home/zhaorui/public_html/ctnet/protected/models/Primer.php(126): CActiveRecord->__get('organism_search')
+#2 /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php(45): Primer->search()
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#4 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('admin', Array, true)
+#7 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): CController->render('admin', Array)
+#8 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#18 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('primer/admin')
+#19 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/site/login
+---
+2013/01/05 11:12:31 [error] [exception.CException] exception 'CException' with message 'Property "Primer.organism_search" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('organism_search')
+#1 /home/zhaorui/public_html/ctnet/protected/models/Primer.php(126): CActiveRecord->__get('organism_search')
+#2 /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php(45): Primer->search()
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#4 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('admin', Array, true)
+#7 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): CController->render('admin', Array)
+#8 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#18 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('primer/admin')
+#19 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/site/login
+---
+2013/01/05 11:12:50 [error] [exception.CException] exception 'CException' with message 'Property "Primer.organism_search" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('organism_search')
+#1 /home/zhaorui/public_html/ctnet/protected/models/Primer.php(126): CActiveRecord->__get('organism_search')
+#2 /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php(45): Primer->search()
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#4 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('admin', Array, true)
+#7 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): CController->render('admin', Array)
+#8 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#18 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('primer/admin')
+#19 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/site/login
+---
+2013/01/05 11:13:06 [error] [exception.CException] exception 'CException' with message 'Property "Primer.organism_search" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('organism_search')
+#1 /home/zhaorui/public_html/ctnet/protected/models/Primer.php(126): CActiveRecord->__get('organism_search')
+#2 /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php(45): Primer->search()
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#4 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('admin', Array, true)
+#7 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): CController->render('admin', Array)
+#8 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#18 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('primer/admin')
+#19 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/site/login
+---
+2013/01/05 11:17:22 [error] [exception.CException] exception 'CException' with message 'Property "Primer.organism_search" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('organism_search')
+#1 /home/zhaorui/public_html/ctnet/protected/models/Primer.php(126): CActiveRecord->__get('organism_search')
+#2 /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php(45): Primer->search()
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#4 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('admin', Array, true)
+#7 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): CController->render('admin', Array)
+#8 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#18 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('primer/admin')
+#19 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/site/login
+---
+2013/01/05 11:17:23 [error] [exception.CException] exception 'CException' with message 'Property "Primer.organism_search" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('organism_search')
+#1 /home/zhaorui/public_html/ctnet/protected/models/Primer.php(126): CActiveRecord->__get('organism_search')
+#2 /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php(45): Primer->search()
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#4 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('admin', Array, true)
+#7 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): CController->render('admin', Array)
+#8 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#18 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('primer/admin')
+#19 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/site/login
+---
+2013/01/05 11:26:27 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/models/Primer.php:118)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): PrimerController->renderInternal()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(870): PrimerController->renderFile()
+#2 /home/zhaorui/public_html/yii/framework/web/CController.php(783): PrimerController->renderPartial()
+#3 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): PrimerController->render()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): PrimerController->runAction()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PrimerController->filterAccessControl()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(266): PrimerController->runActionWithFilters()
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): PrimerController->run()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#15 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#16 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+in /home/zhaorui/public_html/ctnet/protected/models/Primer.php (118)
+in /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php (45)
+in /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php (143)
+2013/01/05 11:44:07 [error] [exception.CException] exception 'CException' with message 'Property "Primer.tax_search" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('tax_search')
+#1 /home/zhaorui/public_html/ctnet/protected/models/Primer.php(126): CActiveRecord->__get('tax_search')
+#2 /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php(45): Primer->search()
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#4 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('admin', Array, true)
+#7 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): CController->render('admin', Array)
+#8 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#18 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('primer/admin')
+#19 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/site/login
+---
+2013/01/05 11:45:05 [error] [exception.CException] exception 'CException' with message 'Property "Primer.tax_search" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('tax_search')
+#1 /home/zhaorui/public_html/ctnet/protected/models/Primer.php(126): CActiveRecord->__get('tax_search')
+#2 /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php(45): Primer->search()
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#4 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('admin', Array, true)
+#7 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): CController->render('admin', Array)
+#8 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#18 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('primer/admin')
+#19 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/site/login
+---
+2013/01/05 11:45:06 [error] [exception.CException] exception 'CException' with message 'Property "Primer.tax_search" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('tax_search')
+#1 /home/zhaorui/public_html/ctnet/protected/models/Primer.php(126): CActiveRecord->__get('tax_search')
+#2 /home/zhaorui/public_html/ctnet/protected/views/primer/admin.php(45): Primer->search()
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#4 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('admin', Array, true)
+#7 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(143): CController->render('admin', Array)
+#8 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PrimerController->actionAdmin()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#18 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('primer/admin')
+#19 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/admin
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/site/login
+---
+2013/01/05 14:28:30 [error] [php] Undefined variable: positionDataProvider (/home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php:65)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#2 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): PrimerController->runAction()
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PrimerController->filterAccessControl()
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(266): PrimerController->runActionWithFilters()
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): PrimerController->run()
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#11 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/1157
+in /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php (65)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/01/05 14:28:52 [error] [php] require(): Filename cannot be empty (/home/zhaorui/public_html/yii/framework/web/CBaseController.php:131)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/zii/widgets/CListView.php(260): PrimerController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(161): CListView->renderItems()
+#2 unknown(0): CListView->renderSection()
+#3 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(144): preg_replace_callback()
+#4 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(129): CListView->renderContent()
+#5 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(174): CListView->run()
+#6 /home/zhaorui/public_html/ctnet/protected/views/primer/view.php(49): PrimerController->widget()
+#7 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require()
+#8 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): PrimerController->renderInternal()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(870): PrimerController->renderFile()
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(783): PrimerController->renderPartial()
+#11 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(66): PrimerController->render()
+#12 unknown(0): PrimerController->actionView()
+#13 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#14 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#15 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): PrimerController->runAction()
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#19 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PrimerController->filterAccessControl()
+#20 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#21 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#22 /home/zhaorui/public_html/yii/framework/web/CController.php(266): PrimerController->runActionWithFilters()
+#23 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): PrimerController->run()
+#24 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#25 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#26 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/1157
+in /home/zhaorui/public_html/ctnet/protected/views/primer/view.php (49)
+in /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php (66)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/01/05 14:51:45 [error] [exception.CException] exception 'CException' with message 'Property "Primer.gene_fk_id" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('gene_fk_id')
+#1 /home/zhaorui/public_html/ctnet/protected/views/primer/view.php(38): CActiveRecord->__get('gene_fk_id')
+#2 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('view', Array, true)
+#6 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(66): CController->render('view', Array)
+#7 [internal function]: PrimerController->actionView('1156')
+#8 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(PrimerController), Array)
+#9 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(PrimerController), Object(ReflectionMethod), Array)
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#17 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#19 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('primer/view')
+#20 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/1156
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/primer
+---

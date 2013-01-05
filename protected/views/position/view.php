@@ -16,16 +16,27 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Position #<?php echo $model->id; ?></h1>
+<h1>View Position <?php echo $model->plate->name; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id',
-		'plate_id',
+		//'id',
+		//'plate_id',
+    array(
+      'label' => 'Plate',
+      'value' => $model->plate->name,
+    ),
 		'well',
-		'primer_id',
-		'store_type_id',
+    array (
+      'label' => 'Primer ID',
+      'name' => 'primer_id',
+    ),
+		//'store_type_id',
+    array(
+      'label' => 'Store Type',
+      'value' => $model->storeType->name,
+    ),
 		'comment',
 		'store_date',
 	),

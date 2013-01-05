@@ -3,35 +3,31 @@
 /* @var $data Position */
 ?>
 
-<div class="view">
+<div class="view" id='_view' onclick="window.open('<?php echo $this->createUrl("position/view",array('id'=>$data->id)) ?>')">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('plate_id')); ?>:</b>
-	<?php echo CHtml::encode($data->plate_id); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('well')); ?>:</b>
+<table>
+<tr>
+<td>
+	<?php echo CHtml::encode($data->plate->name); ?>
+</td>
+<td>
 	<?php echo CHtml::encode($data->well); ?>
-	<br />
+</td>
+<td>
+	<?php echo CHtml::encode($data->primer->gene_symbol); ?>
+</td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('primer_id')); ?>:</b>
-	<?php echo CHtml::encode($data->primer_id); ?>
-	<br />
+<td>
+	<?php echo CHtml::encode($data->primer->gene_id); ?>
+</td>
+<td>
+	<?php echo CHtml::encode($data->primer->primer_id); ?>
+</td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('store_type_id')); ?>:</b>
-	<?php echo CHtml::encode($data->store_type_id); ?>
-	<br />
+<td>
+	<?php echo CHtml::encode($data->storeType->name); ?>
+</td>
+</tr>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('comment')); ?>:</b>
-	<?php echo CHtml::encode($data->comment); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('store_date')); ?>:</b>
-	<?php echo CHtml::encode($data->store_date); ?>
-	<br />
-
-
+</table>
 </div>
