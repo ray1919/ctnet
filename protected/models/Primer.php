@@ -140,4 +140,11 @@ class Primer extends CActiveRecord
     ),
 		));
 	}
+
+  public function getSpecies()
+  {
+    $getStoreType = CHtml::listData(Species::model()->findAll(), 'id', 'name');
+    return $getStoreType;
+  }
+
 }

@@ -3,31 +3,16 @@
 /* @var $data Gene */
 ?>
 
-<div class="view">
+<div class="view" id="_view" onclick="window.open('<?php echo $this->createUrl("gene/view",array('id'=>$data->gene_id)) ?>','_self')">
+<table>
+<tr>
+	<td><?php echo CHtml::encode($data->gene_id); ?></td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('gene_id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->gene_id), array('view', 'id'=>$data->gene_id)); ?>
-	<br />
+	<td><?php echo CHtml::encode($data->gene_symbol); ?></td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('gene_symbol')); ?>:</b>
-	<?php echo CHtml::encode($data->gene_symbol); ?>
-	<br />
+	<td><?php echo CHtml::encode($data->tax->name); ?></td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('gene_name')); ?>:</b>
-	<?php echo CHtml::encode($data->gene_name); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('tax_id')); ?>:</b>
-	<?php echo CHtml::encode($data->tax_id); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('synonyms')); ?>:</b>
-	<?php echo CHtml::encode($data->synonyms); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('type_of_gene')); ?>:</b>
-	<?php echo CHtml::encode($data->type_of_gene); ?>
-	<br />
-
-
+	<td><?php echo CHtml::encode($data->type_of_gene); ?></td>
+</tr>
+</table>
 </div>

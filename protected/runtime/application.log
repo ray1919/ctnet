@@ -1617,3 +1617,60 @@ REQUEST_URI=/~zhaorui/ctnet/index.php/position/create
 in /home/zhaorui/public_html/ctnet/protected/models/Position.php (151)
 in /home/zhaorui/public_html/ctnet/protected/views/position/_form.php (35)
 in /home/zhaorui/public_html/ctnet/protected/views/position/create.php (18)
+2013/01/06 15:47:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php:165
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/PrimerController.php(57): PrimerController->loadModel('4')
+#1 [internal function]: PrimerController->actionView('4')
+#2 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(PrimerController), Array)
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(PrimerController), Object(ReflectionMethod), Array)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('primer/view')
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/primer/4
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/plate
+---
+2013/01/06 16:13:58 [error] [exception.CException] exception 'CException' with message 'Property "Gene.id" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('id')
+#1 /home/zhaorui/public_html/ctnet/protected/views/gene/_view.php(6): CActiveRecord->__get('id')
+#2 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(131): require('/home/zhaorui/p...')
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, false)
+#4 /home/zhaorui/public_html/yii/framework/zii/widgets/CListView.php(260): CBaseController->renderFile('/home/zhaorui/p...', Array)
+#5 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(161): CListView->renderItems()
+#6 [internal function]: CBaseListView->renderSection(Array)
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(144): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{sort...')
+#8 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(129): CBaseListView->renderContent()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(174): CBaseListView->run()
+#10 /home/zhaorui/public_html/ctnet/protected/views/gene/index.php(20): CBaseController->widget('zii.widgets.CLi...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#12 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#14 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#15 /home/zhaorui/public_html/ctnet/protected/controllers/GeneController.php(128): CController->render('index', Array)
+#16 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): GeneController->actionIndex()
+#17 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#18 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#20 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#21 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#22 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#24 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#26 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gene')
+#27 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#28 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/gene
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/storeType/1
+---

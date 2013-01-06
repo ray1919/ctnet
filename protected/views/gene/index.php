@@ -7,7 +7,6 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Gene', 'url'=>array('create')),
 	array('label'=>'Manage Gene', 'url'=>array('admin')),
 );
 ?>

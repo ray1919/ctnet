@@ -17,6 +17,7 @@
  */
 class Gene extends CActiveRecord
 {
+  public $tax_search;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -50,7 +51,7 @@ class Gene extends CActiveRecord
 			array('synonyms', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('gene_id, gene_symbol, gene_name, tax_id, synonyms, type_of_gene', 'safe', 'on'=>'search'),
+			array('gene_id, gene_symbol, gene_name, tax_id, synonyms, type_of_gene, tax_search', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,10 +74,10 @@ class Gene extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'gene_id' => 'Gene',
+			'gene_id' => 'Gene ID',
 			'gene_symbol' => 'Gene Symbol',
 			'gene_name' => 'Gene Name',
-			'tax_id' => 'Tax',
+			'tax_id' => 'Taxomony ID',
 			'synonyms' => 'Synonyms',
 			'type_of_gene' => 'Type Of Gene',
 		);
@@ -100,8 +101,20 @@ class Gene extends CActiveRecord
 		$criteria->compare('synonyms',$this->synonyms,true);
 		$criteria->compare('type_of_gene',$this->type_of_gene,true);
 
+    $criteria->with = array('tax');
+    $criteria->compare('tax.name',$this->tax_search,true);
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+      'sort'=>array(
+          'attributes'=>array(
+              'tax_search'=>array(
+                  'asc'=>'tax.name',
+                  'desc'=>'tax.name DESC',
+              ),
+              '*',
+          ),
+      ),
 		));
 	}
 }

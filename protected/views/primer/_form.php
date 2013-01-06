@@ -41,13 +41,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'tax_id'); ?>
-		<?php echo $form->textField($model,'tax_id'); ?>
+    <?php echo $form->dropDownList($model,'tax_id', $model->getSpecies()); ?>
 		<?php echo $form->error($model,'tax_id'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'type_of_primer'); ?>
-		<?php echo $form->textField($model,'type_of_primer',array('size'=>45,'maxlength'=>45)); ?>
+    <?php echo $form->dropDownList($model,'type_of_primer', array('gene'=>'gene','miRNA'=>'miRNA')); ?>
 		<?php echo $form->error($model,'type_of_primer'); ?>
 	</div>
 
