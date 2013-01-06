@@ -71,9 +71,9 @@ class Species extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
+			'id' => 'Taxomony ID',
 			'name' => 'Name',
-			'common' => 'Common',
+			'common' => 'Genbank common name',
 		);
 	}
 

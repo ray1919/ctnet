@@ -37,6 +37,7 @@
             array('label'=>'Position', 'url'=>array('/position')),
             array('label'=>'Gene DB', 'url'=>array('/gene')),
             array('label'=>'miRNA DB', 'url'=>array('/mirna')),
+            array('label'=>'Species', 'url'=>array('/species')),
             array('label'=>'Gene Order', 'url'=>array('/GeneOrder')),
             ),
         ),

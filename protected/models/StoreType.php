@@ -91,4 +91,5 @@ class StoreType extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
 }

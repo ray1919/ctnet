@@ -70,14 +70,16 @@
 	</div>
 
 	<div class="row">
+    <?php if (!isset($model->create_date)) $model->create_date=date('Y-m-d'); ?>
 		<?php echo $form->labelEx($model,'create_date'); ?>
-		<?php echo $form->textField($model,'create_date'); ?>
+		<?php echo $form->dateField($model,'create_date'); ?>
 		<?php echo $form->error($model,'create_date'); ?>
 	</div>
 
 	<div class="row">
+    <?php $model->update_date=date('Y-m-d'); ?>
 		<?php echo $form->labelEx($model,'update_date'); ?>
-		<?php echo $form->textField($model,'update_date'); ?>
+		<?php echo $form->dateField($model,'update_date'); ?>
 		<?php echo $form->error($model,'update_date'); ?>
 	</div>
 

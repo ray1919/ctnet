@@ -3,7 +3,7 @@
 /* @var $data Primer */
 ?>
 
-<div class="view" id='_view' onclick="window.open('<?php echo $this->createUrl("primer/view",array('id'=>$data->id)) ?>')">
+<div class="view" id='_view' onclick="window.open('<?php echo $this->createUrl("primer/view",array('id'=>$data->id)) ?>','_self')">
 
 <table>
 <tr>

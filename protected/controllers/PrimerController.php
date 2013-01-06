@@ -57,7 +57,7 @@ class PrimerController extends Controller
         'params'=>array(':id'=>$this->loadModel($id)->id),
       ),
       'pagination'=>array(
-        'pageSize'=>5,
+        'pageSize'=>4,
       ),
     ));
 		$this->render('view',array(

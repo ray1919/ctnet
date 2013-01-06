@@ -17,7 +17,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'plate_id'); ?>
-		<?php echo $form->textField($model,'plate_id'); ?>
+    <?php echo $form->dropDownList($model,'plate_id', $model->getPlateName()); ?>
 		<?php echo $form->error($model,'plate_id'); ?>
 	</div>
 
@@ -35,7 +35,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'store_type_id'); ?>
-		<?php echo $form->textField($model,'store_type_id'); ?>
+    <?php echo $form->dropDownList($model,'store_type_id', $model->getStoreType()); ?>
 		<?php echo $form->error($model,'store_type_id'); ?>
 	</div>
 
@@ -46,8 +46,9 @@
 	</div>
 
 	<div class="row">
+		<?php $model->store_date=date('Y-m-d'); ?>
 		<?php echo $form->labelEx($model,'store_date'); ?>
-		<?php echo $form->textField($model,'store_date'); ?>
+		<?php echo $form->dateField($model,'store_date'); ?>
 		<?php echo $form->error($model,'store_date'); ?>
 	</div>
 

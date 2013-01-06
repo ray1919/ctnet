@@ -45,10 +45,13 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
+		//'id',
 		'plate_id',
 		'well',
-		'primer_id',
+		//'primer_id',
+    array( 'header'=>'Gene Symbol',  'name'=>'primer_search1', 'value'=>'$data->primer->gene_symbol' ),
+    array( 'header'=>'Gene ID',  'name'=>'primer_search2', 'value'=>'$data->primer->gene_id' ),
+    array( 'header'=>'Primer ID',  'name'=>'primer_search3', 'value'=>'$data->primer->primer_id' ),
 		'store_type_id',
 		'comment',
 		/*

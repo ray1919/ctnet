@@ -3,7 +3,7 @@
 /* @var $data Position */
 ?>
 
-<div class="view" id='_view' onclick="window.open('<?php echo $this->createUrl("position/view",array('id'=>$data->id)) ?>')">
+<div class="view" id='_view' onclick="window.open('<?php echo $this->createUrl("position/view",array('id'=>$data->id)) ?>','_self')">
 
 <table>
 <tr>

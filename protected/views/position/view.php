@@ -29,8 +29,16 @@ $this->menu=array(
     ),
 		'well',
     array (
-      'label' => 'Primer ID',
-      'name' => 'primer_id',
+      'label' => 'Gene Symbol',
+      'value' => $model->primer->gene_symbol,
+    ),
+    array (
+      'label' => 'Gene ID',
+      'value' => $model->primer->gene_id,
+    ),
+    array (
+      'label' => CHtml::link(CHtml::encode('Primer ID'), array('primer/view', 'id'=>$model->primer_id)),
+      'value' => $model->primer->primer_id,
     ),
 		//'store_type_id',
     array(

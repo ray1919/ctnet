@@ -19,6 +19,9 @@
  */
 class Position extends CActiveRecord
 {
+  public $primer_search1;
+  public $primer_search2;
+  public $primer_search3;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -51,7 +54,7 @@ class Position extends CActiveRecord
 			array('comment, store_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, plate_id, well, primer_id, store_type_id, comment, store_date', 'safe', 'on'=>'search'),
+			array('id, plate_id, well, primer_id, store_type_id, comment, store_date, primer_search1, primer_search2, primer_search3', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -104,8 +107,48 @@ class Position extends CActiveRecord
 		$criteria->compare('comment',$this->comment,true);
 		$criteria->compare('store_date',$this->store_date,true);
 
+    $criteria->with = array( 'primer' );
+    $criteria->compare( 'primer.gene_symbol', $this->primer_search1, true );
+    $criteria->compare( 'primer.gene_id', $this->primer_search2, true );
+    $criteria->compare( 'primer.primer_id', $this->primer_search3, true );
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+      'sort'=>array(
+          'attributes'=>array(
+              'primer_search1'=>array(
+                  'asc'=>'primer.gene_symbol',
+                  'desc'=>'primer.gene_symbol DESC',
+              ),
+              'primer_search2'=>array(
+                  'asc'=>'primer.gene_id',
+                  'desc'=>'primer.gene_id DESC',
+              ),
+              'primer_search3'=>array(
+                  'asc'=>'primer.primer_id',
+                  'desc'=>'primer.primer_id DESC',
+              ),
+              '*',
+          ),
+      ),
 		));
 	}
+
+  public function getStoreType()
+  {
+    $getStoreType = CHtml::listData(StoreType::model()->findAll(), 'id', 'name');
+    return $getStoreType;
+  }
+
+  public function getPlateName()
+  {
+    $getStoreType = CHtml::listData(Plate::model()->findAll(), 'id', 'name');
+    return $getStoreType;
+  }
+
+  public function getPrimerId()
+  {
+    $plate_name = Primer::model()->id;
+    return $plate_name;
+  }
 }
