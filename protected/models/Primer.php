@@ -53,12 +53,12 @@ class Primer extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('tax_id, gene_fk, mirna_fk', 'numerical', 'integerOnly'=>true),
+			array('tax_id, gene_fk, mirna_fk, qc', 'numerical', 'integerOnly'=>true),
 			array('gene_id, gene_symbol, primer_id, barcode, type_of_primer', 'length', 'max'=>45),
 			array('comment, create_date, update_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, gene_id, gene_symbol, primer_id, barcode, tax_id, type_of_primer, gene_fk, mirna_fk, comment, create_date, update_date, tax_search', 'safe', 'on'=>'search'),
+			array('id, gene_id, gene_symbol, primer_id, barcode, tax_id, type_of_primer, gene_fk, mirna_fk, comment, create_date, update_date, tax_search, qc', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -97,6 +97,7 @@ class Primer extends CActiveRecord
 			'create_date' => 'Create Date',
 			'update_date' => 'Update Date',
 			'tax_search' => 'Organsim',
+                        'qc' => 'QC',
 		);
 	}
 
@@ -123,6 +124,7 @@ class Primer extends CActiveRecord
 		$criteria->compare('comment',$this->comment,true);
 		$criteria->compare('create_date',$this->create_date,true);
 		$criteria->compare('update_date',$this->update_date,true);
+		$criteria->compare('qc',$this->qc,true);
 
     $criteria->with = array('tax');
     $criteria->compare('tax.name',$this->tax_search,true);

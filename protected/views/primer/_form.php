@@ -46,8 +46,14 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'qc'); ?>
+                <?php echo $form->textField($model,'qc',array('size'=>10,'maxlength'=>4)); ?>
+		<?php echo $form->error($model,'qc'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'type_of_primer'); ?>
-    <?php echo $form->dropDownList($model,'type_of_primer', array('gene'=>'gene','miRNA'=>'miRNA')); ?>
+                <?php echo $form->dropDownList($model,'type_of_primer', array('gene'=>'gene','miRNA'=>'miRNA')); ?>
 		<?php echo $form->error($model,'type_of_primer'); ?>
 	</div>
 

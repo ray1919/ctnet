@@ -40,8 +40,9 @@
 	</div>
 
 	<div class="row">
+    <?php if (!isset($model->date)) $model->date=date('Y-m-d'); ?>
 		<?php echo $form->labelEx($model,'date'); ?>
-		<?php echo $form->textField($model,'date'); ?>
+		<?php echo $form->dateField($model,'date'); ?>
 		<?php echo $form->error($model,'date'); ?>
 	</div>
 
@@ -55,12 +56,6 @@
 		<?php echo $form->labelEx($model,'comment'); ?>
 		<?php echo $form->textArea($model,'comment',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'comment'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'create_time'); ?>
-		<?php echo $form->textField($model,'create_time'); ?>
-		<?php echo $form->error($model,'create_time'); ?>
 	</div>
 
 	<div class="row buttons">

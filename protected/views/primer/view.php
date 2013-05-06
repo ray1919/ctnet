@@ -13,6 +13,7 @@ $this->menu=array(
 	array('label'=>'Update Primer', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete Primer', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Primer', 'url'=>array('admin')),
+	array('label'=>'Check Primer', 'url'=>array('check', 'id'=>$model->id)),
 );
 ?>
 
@@ -32,6 +33,7 @@ $this->menu=array(
       'value'=>$model->tax->name,
     ),
 		'type_of_primer',
+    'qc',
 		//'gene_fk',
     array(
       'label'=>'Gene Link',

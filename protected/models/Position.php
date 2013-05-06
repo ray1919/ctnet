@@ -22,6 +22,8 @@ class Position extends CActiveRecord
   public $primer_search1;
   public $primer_search2;
   public $primer_search3;
+  public $plate_search;
+  public $st_search;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -54,7 +56,7 @@ class Position extends CActiveRecord
 			array('comment, store_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, plate_id, well, primer_id, store_type_id, comment, store_date, primer_search1, primer_search2, primer_search3', 'safe', 'on'=>'search'),
+			array('id, plate_id, well, primer_id, store_type_id, comment, store_date, primer_search1, primer_search2, primer_search3, plate_search, st_search', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -107,10 +109,12 @@ class Position extends CActiveRecord
 		$criteria->compare('comment',$this->comment,true);
 		$criteria->compare('store_date',$this->store_date,true);
 
-    $criteria->with = array( 'primer' );
+    $criteria->with = array( 'primer', 'plate', 'storeType' );
     $criteria->compare( 'primer.gene_symbol', $this->primer_search1, true );
     $criteria->compare( 'primer.gene_id', $this->primer_search2, true );
     $criteria->compare( 'primer.primer_id', $this->primer_search3, true );
+    $criteria->compare( 'plate.name', $this->plate_search, true );
+    $criteria->compare( 'storeType.name', $this->st_search, true );
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -128,6 +132,14 @@ class Position extends CActiveRecord
                   'asc'=>'primer.primer_id',
                   'desc'=>'primer.primer_id DESC',
               ),
+              'plate_search'=>array(
+                  'asc'=>'plate.name',
+                  'desc'=>'plate.name DESC',
+              ),
+              'st_search'=>array(
+                  'asc'=>'storeType.name',
+                  'desc'=>'storeType.name DESC',
+              ),
               '*',
           ),
       ),
@@ -142,7 +154,7 @@ class Position extends CActiveRecord
 
   public function getPlateName()
   {
-    $getStoreType = CHtml::listData(Plate::model()->findAll(), 'id', 'name');
+    $getStoreType = CHtml::listData(Plate::model()->findAll(array('order'=>'name')), 'id', 'name');
     return $getStoreType;
   }
 

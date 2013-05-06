@@ -3,27 +3,18 @@
 /* @var $data Mirna */
 ?>
 
-<div class="view">
+<div class="view" id="_view" onclick="window.open('<?php echo $this->createUrl("mirna/view",array('id'=>$data->id)) ?>','_self')">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+<table>
+<tr>
+<td><?php echo CHtml::encode($data->id); ?></td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('miRNA_id')); ?>:</b>
-	<?php echo CHtml::encode($data->miRNA_id); ?>
-	<br />
+<td><?php echo CHtml::encode($data->miRNA_id); ?></td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('accession')); ?>:</b>
-	<?php echo CHtml::encode($data->accession); ?>
-	<br />
+<td><?php echo CHtml::encode($data->accession); ?></td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
-	<?php echo CHtml::encode($data->description); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('tax_id')); ?>:</b>
-	<?php echo CHtml::encode($data->tax_id); ?>
-	<br />
-
+<td><?php echo CHtml::encode($data->tax->name); ?></td>
+</tr>
+</table>
 
 </div>

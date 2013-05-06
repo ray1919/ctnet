@@ -53,8 +53,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		//'tax_id',
     array('name'=>'tax_search', 'value'=>'$data->tax->name'),
 		'type_of_primer',
-		/*
+                'qc',
 		'gene_fk',
+		/*
 		'mirna_fk',
 		'comment',
 		'create_date',

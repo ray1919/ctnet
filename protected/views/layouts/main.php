@@ -38,18 +38,18 @@
             array('label'=>'Gene DB', 'url'=>array('/gene')),
             array('label'=>'miRNA DB', 'url'=>array('/mirna')),
             array('label'=>'Species', 'url'=>array('/species')),
-            array('label'=>'Gene Order', 'url'=>array('/GeneOrder')),
+            /*array('label'=>'Gene Order', 'url'=>array('/GeneOrder')),*/
             ),
         ),
 				array('label'=>'Customer', 'url'=>array('/customer'),
           'items'=>array(
             array('label'=>'Visit', 'url'=>array('/visit')),
             array('label'=>'Customer Order', 'url'=>array('/CustomerOrder')),
-            array('label'=>'Gene Order', 'url'=>array('/GeneOrder')),
+            /*array('label'=>'Gene Order', 'url'=>array('/GeneOrder')),*/
             ),
         ),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
+				/*array('label'=>'Contact', 'url'=>array('/site/contact')),*/
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

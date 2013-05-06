@@ -32,7 +32,7 @@ class PrimerController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin'),
+				'actions'=>array('create','update','admin','check'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -178,4 +178,17 @@ class PrimerController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	/**
+	 * Check primer.
+	 */
+	public function actionCheck($id)
+	{
+                $model=$this->loadModel($id);
+
+		$this->render('check',array(
+			'model'=>$model,
+		));
+	}
+
 }

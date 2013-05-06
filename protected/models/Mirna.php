@@ -16,6 +16,7 @@
  */
 class Mirna extends CActiveRecord
 {
+  public $tax_search;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -49,7 +50,7 @@ class Mirna extends CActiveRecord
 			array('description', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, miRNA_id, accession, description, tax_id', 'safe', 'on'=>'search'),
+			array('id, miRNA_id, accession, description, tax_id, tax_search', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,7 +74,7 @@ class Mirna extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'miRNA_id' => 'Mi Rna',
+			'miRNA_id' => 'miRNA ID',
 			'accession' => 'Accession',
 			'description' => 'Description',
 			'tax_id' => 'Tax',
@@ -97,8 +98,20 @@ class Mirna extends CActiveRecord
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('tax_id',$this->tax_id);
 
+    $criteria->with = array('tax');
+    $criteria->compare('tax.name',$this->tax_search,true);
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+      'sort'=>array(
+          'attributes'=>array(
+              'tax_search'=>array(
+                  'asc'=>'tax.name',
+                  'desc'=>'tax.name DESC',
+              ),
+              '*',
+          ),
+      ),
 		));
 	}
 }

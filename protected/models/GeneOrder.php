@@ -112,4 +112,12 @@ class GeneOrder extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+  public function beforeSave(){
+    if (!isset($this->create_time)){
+      $this->create_time = new CDbExpression('NOW()');
+    }
+    return parent::beforeSave();
+  }
+
 }
