@@ -3,6 +3,7 @@
 /* @var $model CustomerOrder */
 
 $this->breadcrumbs=array(
+        $model->customer->title=>array("customer/view", 'id'=>$model->customer->id),
 	'Customer Orders'=>array('index'),
 	'Create',
 );

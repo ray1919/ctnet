@@ -3,11 +3,11 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
+        "Customer"=>array('index'),
 	'Visits',
 );
 
 $this->menu=array(
-	array('label'=>'Create Visit', 'url'=>array('create')),
 	array('label'=>'Manage Visit', 'url'=>array('admin')),
 );
 ?>

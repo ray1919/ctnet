@@ -7,8 +7,9 @@ class VisitController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-
-	/**
+	private $_customer = null; 
+        public $customer_title = "";
+        /**
 	 * @return array action filters
 	 */
 	public function filters()
@@ -16,6 +17,7 @@ class VisitController extends Controller
 		return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
+                        'customerContext + create', //check to ensure valid customer context // index admin
 		);
 	}
 
@@ -63,6 +65,8 @@ class VisitController extends Controller
 	public function actionCreate()
 	{
 		$model=new Visit;
+                $model->customer_id = $this->_customer->id;
+                $this->customer_title = $this->_customer->title;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -87,6 +91,8 @@ class VisitController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
+                $this->loadCustomer($model->customer_id);
+                $this->customer_title = $this->_customer->title;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -168,4 +174,36 @@ class VisitController extends Controller
 			Yii::app()->end();
 		}
 	}
+	protected function loadCustomer($customerId)	 
+	{
+		//if the project property is null, create it based on input id
+		if($this->_customer===null)
+		{
+			$this->_customer= Customer::model()->findByPk($customerId);
+			if($this->_customer===null)
+	        {
+				throw new CHttpException(404,'The requested project does not exist.'); 
+			}
+		}
+
+		return $this->_customer; 
+	} 
+	
+	/**
+	 * In-class defined filter method, configured for use in the above filters() method
+	 * It is called before the actionCreate() action method is run in order to ensure a proper project context
+	 */
+	public function filterCustomerContext($filterChain)
+	{   
+		//set the project identifier based on either the GET input 
+	    //request variables   
+		if(isset($_GET['customer_id']))
+			$this->loadCustomer($_GET['customer_id']);   
+		else
+			throw new CHttpException(403,'Must specify a customer before performing this action.');
+			
+		//complete the running of other filters and execute the requested action
+		$filterChain->run(); 
+	} 
+
 }

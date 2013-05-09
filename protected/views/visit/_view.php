@@ -3,14 +3,14 @@
 /* @var $data Visit */
 ?>
 
-<div class="view">
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('customer_id')); ?>:</b>
-	<?php echo CHtml::encode($data->customer_id); ?>
+<div class="view" id="_view" onclick="window.open('<?php echo $this->createUrl("visit/view",array('id'=>$data->id)) ?>','_self')">
+    <table>
+        <tr>
+        <td width="25%">
+	<?php echo CHtml::link(
+                "<b>".CHtml::encode($data->getAttributeLabel('customer_id')).": </b>".
+                CHtml::encode($data->customer->title),
+                array('view', 'id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('executor')); ?>:</b>
@@ -31,12 +31,13 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('time')); ?>:</b>
 	<?php echo CHtml::encode($data->time); ?>
-	<br />
-
+	</td>
+        <td style="vertical-align: top;">
+            <?php echo substr(CHtml::encode($data->comment),0,700)."......"; ?>
+	</td>
+        </tr>
+    </table>
 	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('comment')); ?>:</b>
-	<?php echo CHtml::encode($data->comment); ?>
-	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('create_time')); ?>:</b>
 	<?php echo CHtml::encode($data->create_time); ?>

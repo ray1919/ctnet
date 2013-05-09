@@ -21,6 +21,7 @@
  */
 class Visit extends CActiveRecord
 {
+        public $customer_search;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -52,7 +53,7 @@ class Visit extends CActiveRecord
 			array('time, comment, create_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, customer_id, executor, status, way, class, time, comment, create_time, create_user_id', 'safe', 'on'=>'search'),
+			array('id, customer_id, executor, status, way, class, time, comment, create_time, create_user_id, customer_search', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -110,8 +111,29 @@ class Visit extends CActiveRecord
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('create_user_id',$this->create_user_id);
 
+                $criteria->with = array( 'customer');
+                $criteria->compare( 'customer.title', $this->customer_search, true );
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'sort'=>array(
+                        'attributes'=>array(
+                            'customer_search'=>array(
+                                'asc'=>'customer.title',
+                                'desc'=>'customer.title DESC',
+                            ),
+                            '*',
+                        ),
+                    ),
 		));
 	}
+        
+        public function getStatusOptions() {
+            return array("跟踪"=>"跟踪","售前"=>"售前","售后"=>"售后","回访"=>"回访","关闭"=>"关闭","其他"=>"其他");
+        }        
+        public function getWayOptions() {
+            return array("来电"=>"来电","去电"=>"去电","Email"=>"Email","拜访"=>"拜访","客户来访"=>"客户来访","其他"=>"其他");
+        }        
+        public function getClassOptions() {
+            return array("没兴趣"=>"没兴趣","潜在客户"=>"潜在客户","明确意向"=>"明确意向","回复资料"=>"回复资料","其他"=>"其他");
+        }
 }

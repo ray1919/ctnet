@@ -17,7 +17,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'customer_id'); ?>
-		<?php echo $form->textField($model,'customer_id'); ?>
+		<?php echo $this->customer_title; ?>
 		<?php echo $form->error($model,'customer_id'); ?>
 	</div>
 
@@ -34,6 +34,7 @@
 	</div>
 
 	<div class="row">
+                <?php if (!isset($model->date)) $model->date=date('Y-m-d'); ?>
 		<?php echo $form->labelEx($model,'date'); ?>
 		<?php echo $form->dateField($model,'date'); ?>
 		<?php echo $form->error($model,'date'); ?>
@@ -52,6 +53,7 @@
 	</div>
 
 	<div class="row">
+                <?php if (!isset($model->create_time)) $model->create_time=date('Y-m-d H:m:s'); ?>
 		<?php echo $form->labelEx($model,'create_time'); ?>
 		<?php echo $form->textField($model,'create_time'); ?>
 		<?php echo $form->error($model,'create_time'); ?>

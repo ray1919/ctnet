@@ -3,7 +3,7 @@
 /* @var $data CustomerOrder */
 ?>
 
-<div class="view">
+<div class="view" id="_view" onclick="window.open('<?php echo $this->createUrl("visit/view",array('id'=>$data->id)) ?>','_self')">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>

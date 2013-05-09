@@ -3,13 +3,14 @@
 /* @var $model Visit */
 
 $this->breadcrumbs=array(
+        'Customer'=>array('index'),
 	'Visits'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
 	array('label'=>'List Visit', 'url'=>array('index')),
-	array('label'=>'Create Visit', 'url'=>array('create')),
+	/*array('label'=>'Create Visit', 'url'=>array('create')),*/
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -33,7 +34,7 @@ You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&g
 or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
 </p>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php /*echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); */?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -45,14 +46,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
-		'customer_id',
-		'executor',
+		/*'id',*/
+		array( 'header'=>'Customer title',  'name'=>'customer_search', 'value'=>'$data->customer->title' ),
+		/*'executor',*/
 		'status',
 		'way',
 		'class',
-		/*
 		'time',
+		/*
 		'comment',
 		'create_time',
 		'create_user_id',

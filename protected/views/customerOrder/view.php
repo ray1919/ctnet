@@ -3,6 +3,8 @@
 /* @var $model CustomerOrder */
 
 $this->breadcrumbs=array(
+        "Customer"=>array('Customer/index'),
+        $model->customer->title=>array("customer/view", 'id'=>$model->customer->id),
 	'Customer Orders'=>array('index'),
 	$model->id,
 );
@@ -21,8 +23,11 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id',
-		'customer_id',
+		/*'id',*/
+		array(
+                    "label"=>'Customer',
+                    "value"=>$model->customer->title,
+                ),
 		'price',
 		'quantity',
 		'date',

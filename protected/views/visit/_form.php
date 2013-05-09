@@ -17,8 +17,8 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'customer_id'); ?>
-		<?php echo $form->textField($model,'customer_id'); ?>
-		<?php echo $form->error($model,'customer_id'); ?>
+		<?php echo $this->customer_title; ?>
+                <?php echo $form->error($model,'customer_id'); ?>
 	</div>
 
 	<div class="row">
@@ -29,25 +29,26 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->dropDownList($model,'status', $model->getStatusOptions()); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'way'); ?>
-		<?php echo $form->textField($model,'way',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->dropDownList($model,'way', $model->getWayOptions()); ?>
 		<?php echo $form->error($model,'way'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'class'); ?>
-		<?php echo $form->textField($model,'class',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->dropDownList($model,'class', $model->getClassOptions()); ?>
 		<?php echo $form->error($model,'class'); ?>
 	</div>
 
 	<div class="row">
+                <?php if (!isset($model->time)) $model->time=date('Y-m-d'); ?>
 		<?php echo $form->labelEx($model,'time'); ?>
-		<?php echo $form->textField($model,'time'); ?>
+		<?php echo $form->dateField($model,'time'); ?>
 		<?php echo $form->error($model,'time'); ?>
 	</div>
 
@@ -58,8 +59,9 @@
 	</div>
 
 	<div class="row">
+                <?php if (!isset($model->create_time)) $model->create_time=date('Y-m-d'); ?>
 		<?php echo $form->labelEx($model,'create_time'); ?>
-		<?php echo $form->textField($model,'create_time'); ?>
+		<?php echo $form->dateField($model,'create_time'); ?>
 		<?php echo $form->error($model,'create_time'); ?>
 	</div>
 

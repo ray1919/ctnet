@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Customers'=>array('index'),
-	$model->name,
+	$model->title,
 );
 
 $this->menu=array(
@@ -13,6 +13,8 @@ $this->menu=array(
 	array('label'=>'Update Customer', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete Customer', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Customer', 'url'=>array('admin')),
+        array('label'=>'Create Visit', 'url'=>array('visit/create', 'customer_id'=>$model->id)),
+        array('label'=>'Create Order', 'url'=>array('CustomerOrder/create', 'customer_id'=>$model->id)),
 );
 ?>
 
@@ -34,3 +36,11 @@ $this->menu=array(
 		'comment',
 	),
 )); ?>
+
+<br />
+<h1>Customer visits</h1>
+<?php $this->widget('zii.widgets.CListView', array(
+    'dataProvider'=>$visitDataProvider,
+    'itemView'=>'/visit/_view',
+)); ?>
+

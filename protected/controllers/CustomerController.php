@@ -51,8 +51,18 @@ class CustomerController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$visitDataProvider=new CActiveDataProvider('Visit', array(
+			'criteria'=>array(
+				'condition'=>'customer_id=:customerId',
+				'params'=>array(':customerId'=>$id),
+			),
+			'pagination'=>array(
+				'pageSize'=>4,
+			),
+		));
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+                        'visitDataProvider'=>$visitDataProvider,
 		));
 	}
 
@@ -122,9 +132,18 @@ class CustomerController extends Controller
 	 */
 	public function actionIndex()
 	{
+                $sql = "select customer_id, GROUP_CONCAT(DISTINCT time SEPARATOR ', ') date from visit GROUP BY customer_id";
+                $command = Yii::app()->db->createCommand($sql); 
+                $rows = $command->queryAll();
+                foreach ($rows as $key => $value) {
+                    if(isset($rows[$key]['customer_id']))
+                        unset($rows[$key]);
+                    $rows[$value['customer_id']] = $value['date'];                    
+                }
 		$dataProvider=new CActiveDataProvider('Customer');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+                        'times'=>$rows,
 		));
 	}
 

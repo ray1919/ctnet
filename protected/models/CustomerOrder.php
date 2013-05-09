@@ -18,6 +18,8 @@
  */
 class CustomerOrder extends CActiveRecord
 {
+        public $customer_search;
+        
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -50,7 +52,7 @@ class CustomerOrder extends CActiveRecord
 			array('date, comment, create_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, customer_id, price, quantity, date, status, comment, create_time', 'safe', 'on'=>'search'),
+			array('id, customer_id, price, quantity, date, status, comment, create_time, customer_search', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -102,9 +104,20 @@ class CustomerOrder extends CActiveRecord
 		$criteria->compare('status',$this->status,true);
 		$criteria->compare('comment',$this->comment,true);
 		$criteria->compare('create_time',$this->create_time,true);
+                $criteria->with = array( 'customer');
+                $criteria->compare( 'customer.title', $this->customer_search, true );
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'sort'=>array(
+                        'attributes'=>array(
+                            'customer_search'=>array(
+                                'asc'=>'customer.title',
+                                'desc'=>'customer.title DESC',
+                            ),
+                            '*',
+                        ),
+                    ),
 		));
 	}
 }

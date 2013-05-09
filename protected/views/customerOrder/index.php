@@ -3,6 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
+        "Customer"=>array('Customer/index'),
 	'Customer Orders',
 );
 

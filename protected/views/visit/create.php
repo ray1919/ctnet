@@ -3,6 +3,7 @@
 /* @var $model Visit */
 
 $this->breadcrumbs=array(
+        $model->customer->title=>array("customer/view", 'id'=>$model->customer->id),
 	'Visits'=>array('index'),
 	'Create',
 );
