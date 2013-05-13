@@ -27,10 +27,19 @@
             <b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
             <?php echo CHtml::encode($data->email); ?>
             <br />
+            
+            <b><?php echo CHtml::encode($data->getAttributeLabel('add_date')); ?>:</b>
+            <?php echo CHtml::encode($data->add_date); ?>
+            <br />
             </td>
             <td style="vertical-align: top;word-wrap: break-word;">
                 <b>Visits:</b>
-                <?php echo $times[$data->id];?> 
+                <?php
+                    if (isset($times[$data->id]))
+                        echo $times[$data->id];
+                    else
+                        echo "none";
+                ?> 
             </td>
           </tr>
         </table>

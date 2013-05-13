@@ -4443,3 +4443,146 @@ Stack trace:
 REQUEST_URI=/~zhaorui/ctnet/index.php/CustomerOrder/create?customer_id=1
 HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/customer/1
 ---
+2013/05/09 10:07:24 [error] [exception.CException] exception 'CException' with message 'Property "CustomerOrder.executor" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('executor')
+#1 /home/zhaorui/public_html/ctnet/protected/views/visit/_view.php(17): CActiveRecord->__get('executor')
+#2 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(131): require('/home/zhaorui/p...')
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, false)
+#4 /home/zhaorui/public_html/yii/framework/zii/widgets/CListView.php(260): CBaseController->renderFile('/home/zhaorui/p...', Array)
+#5 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(161): CListView->renderItems()
+#6 [internal function]: CBaseListView->renderSection(Array)
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(144): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{sort...')
+#8 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(129): CBaseListView->renderContent()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(174): CBaseListView->run()
+#10 /home/zhaorui/public_html/ctnet/protected/views/customer/view.php(51): CBaseController->widget('zii.widgets.CLi...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#12 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#14 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('view', Array, true)
+#15 /home/zhaorui/public_html/ctnet/protected/controllers/CustomerController.php(76): CController->render('view', Array)
+#16 [internal function]: CustomerController->actionView('1')
+#17 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(CustomerController), Array)
+#18 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(CustomerController), Object(ReflectionMethod), Array)
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#20 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#21 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#22 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#23 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#24 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#25 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#26 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#28 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('customer/view')
+#29 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#30 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/customer/1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/customer
+---
+2013/05/09 10:10:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php:161
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(57): VisitController->loadModel('1')
+#1 [internal function]: VisitController->actionView('1')
+#2 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(VisitController), Array)
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(VisitController), Object(ReflectionMethod), Array)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('visit/view')
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/CustomerOrder
+---
+2013/05/09 10:22:52 [error] [exception.CException] exception 'CException' with message 'Property "CActiveDataProvider.order" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:174
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(84): CComponent->__set('order', 'time DESC')
+#1 /home/zhaorui/public_html/ctnet/protected/controllers/CustomerController.php(64): CActiveDataProvider->__construct('Visit', Array)
+#2 [internal function]: CustomerController->actionView('1')
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(CustomerController), Array)
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(CustomerController), Object(ReflectionMethod), Array)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('customer/view')
+#15 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#16 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/customer/1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/customerOrder/3
+---
+2013/05/09 11:15:23 [error] [exception.CException] exception 'CException' with message 'Property "Customer.time" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:174
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(160): CComponent->__set('time', '2013-05-09')
+#1 /home/zhaorui/public_html/ctnet/protected/views/customer/_form.php(73): CActiveRecord->__set('time', '2013-05-09')
+#2 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/ctnet/protected/views/customer/create.php(18): CController->renderPartial('_form', Array)
+#6 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#7 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/CustomerController.php(102): CController->render('create', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): CustomerController->actionCreate()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('customer/create')
+#22 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/customer/create
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/customer/1
+---
+2013/05/09 11:18:14 [error] [php] Undefined offset: 3 (/home/zhaorui/public_html/ctnet/protected/views/customer/_view.php:37)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/zii/widgets/CListView.php(260): CustomerController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(161): CListView->renderItems()
+#2 unknown(0): CListView->renderSection()
+#3 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(144): preg_replace_callback()
+#4 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(129): CListView->renderContent()
+#5 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(174): CListView->run()
+#6 /home/zhaorui/public_html/ctnet/protected/views/customer/index.php(22): CustomerController->widget()
+#7 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require()
+#8 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CustomerController->renderInternal()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CustomerController->renderFile()
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CustomerController->renderPartial()
+#11 /home/zhaorui/public_html/ctnet/protected/controllers/CustomerController.php(160): CustomerController->render()
+#12 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): CustomerController->actionIndex()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CustomerController->runAction()
+#15 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CustomerController->filterAccessControl()
+#18 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#20 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CustomerController->runActionWithFilters()
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CustomerController->run()
+#22 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#23 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#24 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/customer
+in /home/zhaorui/public_html/ctnet/protected/views/customer/_view.php (37)
+in /home/zhaorui/public_html/ctnet/protected/views/customer/index.php (22)
+in /home/zhaorui/public_html/ctnet/protected/controllers/CustomerController.php (160)

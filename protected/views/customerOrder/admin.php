@@ -10,7 +10,6 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List CustomerOrder', 'url'=>array('index')),
-	array('label'=>'Create CustomerOrder', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

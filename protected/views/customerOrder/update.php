@@ -11,7 +11,6 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List CustomerOrder', 'url'=>array('index')),
-	array('label'=>'Create CustomerOrder', 'url'=>array('create')),
 	array('label'=>'View CustomerOrder', 'url'=>array('view', 'id'=>$model->id)),
 	array('label'=>'Manage CustomerOrder', 'url'=>array('admin')),
 );

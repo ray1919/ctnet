@@ -16,6 +16,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+    'application.extensions.yii-mail.*',
 	),
 
 	'modules'=>array(
@@ -30,6 +31,20 @@ return array(
 
 	// application components
 	'components'=>array(
+        'mail'=>array(  
+            'class' => 'application.extensions.yii-mail.YiiMail',  
+            'viewPath' => 'application.views.mail',  
+            'logging' => true,  
+            'dryRun' => false,  
+            'transportType'=>'smtp',     // case sensitive!  
+            'transportOptions'=>array(  
+                'host'=>'smtp.163.com',   // smtp服务器  
+                'username'=>'zzqr@163.com'    // 验证用户  
+                'password'=>'z121rz121r',   // 验证密码  
+                'port'=>'25',           // 端口号  
+                //'encryption'=>'ssl',   
+                ),  
+        ),  
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

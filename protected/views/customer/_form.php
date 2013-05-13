@@ -70,6 +70,13 @@
 	</div>
 
 	<div class="row">
+                <?php if (!isset($model->add_date)) $model->add_date=date('Y-m-d'); ?>
+		<?php echo $form->labelEx($model,'add_date'); ?>
+		<?php echo $form->dateField($model,'add_date'); ?>
+		<?php echo $form->error($model,'add_date'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'comment'); ?>
 		<?php echo $form->textArea($model,'comment',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'comment'); ?>

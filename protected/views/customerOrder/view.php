@@ -11,7 +11,6 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List CustomerOrder', 'url'=>array('index')),
-	array('label'=>'Create CustomerOrder', 'url'=>array('create')),
 	array('label'=>'Update CustomerOrder', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete CustomerOrder', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage CustomerOrder', 'url'=>array('admin')),

@@ -51,18 +51,31 @@ class CustomerController extends Controller
 	 */
 	public function actionView($id)
 	{
+            // display visit and order information on customer page
 		$visitDataProvider=new CActiveDataProvider('Visit', array(
 			'criteria'=>array(
 				'condition'=>'customer_id=:customerId',
 				'params'=>array(':customerId'=>$id),
+                                'order'=>'time DESC',
 			),
 			'pagination'=>array(
-				'pageSize'=>4,
+				'pageSize'=>3,
+			),
+		));
+		$orderDataProvider=new CActiveDataProvider('CustomerOrder', array(
+			'criteria'=>array(
+				'condition'=>'customer_id=:customerId',
+				'params'=>array(':customerId'=>$id),
+                                'order'=>'date DESC',
+			),
+			'pagination'=>array(
+				'pageSize'=>2,
 			),
 		));
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
                         'visitDataProvider'=>$visitDataProvider,
+                        'orderDataProvider'=>$orderDataProvider,
 		));
 	}
 

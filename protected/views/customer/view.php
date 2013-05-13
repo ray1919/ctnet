@@ -33,6 +33,7 @@ $this->menu=array(
 		'IM',
 		'address',
 		'organization',
+                'add_date',
 		'comment',
 	),
 )); ?>
@@ -42,5 +43,11 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$visitDataProvider,
     'itemView'=>'/visit/_view',
+)); ?>
+<br />
+<h1>Customer orders</h1>
+<?php $this->widget('zii.widgets.CListView', array(
+    'dataProvider'=>$orderDataProvider,
+    'itemView'=>'/customerOrder/_view',
 )); ?>
 
