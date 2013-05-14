@@ -4586,3 +4586,771 @@ REQUEST_URI=/~zhaorui/ctnet/index.php/customer
 in /home/zhaorui/public_html/ctnet/protected/views/customer/_view.php (37)
 in /home/zhaorui/public_html/ctnet/protected/views/customer/index.php (22)
 in /home/zhaorui/public_html/ctnet/protected/controllers/CustomerController.php (160)
+2013/05/13 11:10:01 [error] [exception.CException] exception 'CException' with message 'MailController cannot find the requested view "index".' in /home/zhaorui/public_html/yii/framework/web/CController.php:879
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#1 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(35): CController->render('index', Array)
+#2 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#3 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#8 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/mail
+---
+2013/05/13 11:10:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "mailForm".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mailForm')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/mailForm
+---
+2013/05/13 11:11:35 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Expected response code 250 but got code "553", with message "553 You are not authorized to send mail, authentication is required 0b704b47-69c5-441e-ae29-a88e1bf5adb0
+"' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(290): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('553 You are not...', Array)
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(197): Swift_Transport_AbstractSmtpTransport->executeCommand('MAIL FROM: <ray...', Array, Array)
+#2 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(268): Swift_Transport_EsmtpTransport->executeCommand('MAIL FROM: <ray...', Array)
+#3 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(441): Swift_Transport_EsmtpTransport->_doMailFromCommand('ray4@163.com')
+#4 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(477): Swift_Transport_AbstractSmtpTransport->_doMailTransaction(Object(Swift_Message), 'ray4@163.com', Array, Array)
+#5 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(168): Swift_Transport_AbstractSmtpTransport->_sendTo(Object(Swift_Message), 'ray4@163.com', Array, Array)
+#6 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(77): Swift_Transport_AbstractSmtpTransport->send(Object(Swift_Message), Array)
+#7 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#8 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(21): YiiMail->send(Object(YiiMailMessage))
+#9 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#15 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#16 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/mail
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/mail
+---
+2013/05/13 11:16:21 [error] [exception.Swift_RfcComplianceException] exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [man] does not comply with RFC 2822, 3.6.2.' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('man')
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mime/SimpleMessage.php(199): Swift_Mime_SimpleMimeEntity->_setHeaderFieldModel('From', Array)
+#5 [internal function]: Swift_Mime_SimpleMessage->setFrom(Array)
+#6 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMailMessage.php(94): call_user_func_array(Array, Array)
+#7 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(15): YiiMailMessage->__call('setFrom', Array)
+#8 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(15): YiiMailMessage->setFrom(Array)
+#9 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#15 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#16 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/mail
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/mail
+---
+2013/05/13 11:16:46 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Cannot send message without a sender address' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php:146
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(77): Swift_Transport_AbstractSmtpTransport->send(Object(Swift_Message), Array)
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(20): YiiMail->send(Object(YiiMailMessage))
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/mail
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/mail
+---
+2013/05/13 11:17:34 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Cannot send message without a sender address' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php:146
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(77): Swift_Transport_AbstractSmtpTransport->send(Object(Swift_Message), Array)
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(20): YiiMail->send(Object(YiiMailMessage))
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/mail
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/mail
+---
+2013/05/13 11:17:43 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Expected response code 250 but got code "550", with message "550 Invalid User 4745d266-ea8e-4506-adb9-baaf25549bbf
+"' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(290): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('550 Invalid Use...', Array)
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(197): Swift_Transport_AbstractSmtpTransport->executeCommand('MAIL FROM: <zra...', Array, Array)
+#2 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(268): Swift_Transport_EsmtpTransport->executeCommand('MAIL FROM: <zra...', Array)
+#3 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(441): Swift_Transport_EsmtpTransport->_doMailFromCommand('zratcg@gmail.co...')
+#4 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(477): Swift_Transport_AbstractSmtpTransport->_doMailTransaction(Object(Swift_Message), 'zratcg@gmail.co...', Array, Array)
+#5 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(168): Swift_Transport_AbstractSmtpTransport->_sendTo(Object(Swift_Message), 'zratcg@gmail.co...', Array, Array)
+#6 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(77): Swift_Transport_AbstractSmtpTransport->send(Object(Swift_Message), Array)
+#7 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#8 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(20): YiiMail->send(Object(YiiMailMessage))
+#9 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#15 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#16 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/mail
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/mail
+---
+2013/05/13 11:18:12 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Expected response code 250 but got code "550", with message "550 Invalid User 67ef83d9-b403-4d25-abdc-3a4683623ef1
+"' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(290): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('550 Invalid Use...', Array)
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(197): Swift_Transport_AbstractSmtpTransport->executeCommand('MAIL FROM: <zzq...', Array, Array)
+#2 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(268): Swift_Transport_EsmtpTransport->executeCommand('MAIL FROM: <zzq...', Array)
+#3 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(441): Swift_Transport_EsmtpTransport->_doMailFromCommand('zzqr@qq.com')
+#4 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(477): Swift_Transport_AbstractSmtpTransport->_doMailTransaction(Object(Swift_Message), 'zzqr@qq.com', Array, Array)
+#5 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(168): Swift_Transport_AbstractSmtpTransport->_sendTo(Object(Swift_Message), 'zzqr@qq.com', Array, Array)
+#6 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(77): Swift_Transport_AbstractSmtpTransport->send(Object(Swift_Message), Array)
+#7 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#8 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(20): YiiMail->send(Object(YiiMailMessage))
+#9 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#15 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#16 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/mail
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/mail
+---
+2013/05/13 13:32:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "usergroups".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('usergroups')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/usergroups
+---
+2013/05/13 13:33:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "usergroup".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('usergroup')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/usergroup
+---
+2013/05/13 13:44:13 [error] [exception.CException] exception 'CException' with message 'Alias "userGroups.UserGroupsModule" is invalid. Make sure it points to an existing PHP file and the file is readable.' in /home/zhaorui/public_html/yii/framework/YiiBase.php:318
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/YiiBase.php(198): YiiBase::import('userGroups.User...', true)
+#1 /home/zhaorui/public_html/yii/framework/base/CModule.php(283): YiiBase::createComponent('userGroups.User...', 'userGroups', NULL, Array)
+#2 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(338): CModule->getModule('userGroups')
+#3 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(277): CWebApplication->createController('userGroups')
+#4 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('userGroups')
+#5 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/~zhaorui/ctnet/userGroups
+---
+2013/05/13 13:50:03 [error] [exception.CHttpException.500] exception 'CHttpException' with message 'Unable to write the file {/home/zhaorui/public_html/ctnet/protected/components/_old_Controller.php}.' in /home/zhaorui/public_html/ctnet/protected/modules/userGroups/controllers/InstallController.php:66
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/modules/userGroups/controllers/InstallController.php(39): InstallController->createController()
+#1 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): InstallController->actionIndex()
+#2 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#3 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#6 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('userGroups/inst...')
+#7 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/~zhaorui/ctnet/userGroups/install
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/userGroups/install
+---
+2013/05/13 13:51:45 [error] [exception.CException] exception 'CException' with message 'UserIdentity and its behaviors do not have a method or closure named "getGroup".' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/WebUserGroups.php(63): CComponent->__call('getGroup', Array)
+#1 /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/WebUserGroups.php(63): UserIdentity->getGroup()
+#2 /home/zhaorui/public_html/ctnet/protected/models/LoginForm.php(71): WebUserGroups->login(Object(UserIdentity), 0)
+#3 /home/zhaorui/public_html/ctnet/protected/controllers/SiteController.php(94): LoginForm->login()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionLogin()
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('login')
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/login')
+#10 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/site/login
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/site/login
+---
+2013/05/13 14:50:31 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "ctbioscience@sina.com" using 2 possible authenticators' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/Esmtp/AuthHandler.php:179
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(20): YiiMail->send(Object(YiiMailMessage))
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#11 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/~zhaorui/ctnet/mail
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/mail
+---
+2013/05/13 14:51:10 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "ctbioscience@sina.com" using 2 possible authenticators' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/Esmtp/AuthHandler.php:179
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(20): YiiMail->send(Object(YiiMailMessage))
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#11 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/~zhaorui/ctnet/mail
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/mail
+---
+2013/05/13 14:53:31 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "ctbioscience@sina.com" using 2 possible authenticators' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/Esmtp/AuthHandler.php:179
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(20): YiiMail->send(Object(YiiMailMessage))
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#11 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/~zhaorui/ctnet/mail
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/mail
+---
+2013/05/13 14:55:12 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "ctbioscience@sina.com" using 2 possible authenticators' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/Esmtp/AuthHandler.php:179
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(20): YiiMail->send(Object(YiiMailMessage))
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#11 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/~zhaorui/ctnet/mail
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/mail
+---
+2013/05/13 14:55:19 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "ctbioscience@sina.com" using 2 possible authenticators' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/Esmtp/AuthHandler.php:179
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(20): YiiMail->send(Object(YiiMailMessage))
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#11 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/~zhaorui/ctnet/mail
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/mail
+---
+2013/05/13 14:56:27 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "ctbioscience@sina.com" using 2 possible authenticators' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/Esmtp/AuthHandler.php:179
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(20): YiiMail->send(Object(YiiMailMessage))
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#11 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/~zhaorui/ctnet/mail
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/mail
+---
+2013/05/13 14:58:27 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "ctbioscience@sina.com" using 2 possible authenticators' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/Esmtp/AuthHandler.php:179
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/UGMail.php(103): YiiMail->send(Object(YiiMailMessage))
+#5 /home/zhaorui/public_html/ctnet/protected/modules/userGroups/controllers/UserController.php(236): UGMail->send()
+#6 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): UserController->actionInvite()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#10 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#12 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#14 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('invite')
+#16 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('userGroups/user...')
+#17 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#18 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/userGroups/user/invite
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/userGroups/admin/documentation
+---
+2013/05/13 14:59:51 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "ctbioscience@sina.com" using 2 possible authenticators' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/Esmtp/AuthHandler.php:179
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/UGMail.php(103): YiiMail->send(Object(YiiMailMessage))
+#5 /home/zhaorui/public_html/ctnet/protected/modules/userGroups/controllers/UserController.php(236): UGMail->send()
+#6 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): UserController->actionInvite()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#10 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#12 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#14 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('invite')
+#16 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('userGroups/user...')
+#17 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#18 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/userGroups/user/invite
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/userGroups/admin/documentation
+---
+2013/05/13 15:02:11 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Cannot send message without a sender address' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php:146
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(77): Swift_Transport_AbstractSmtpTransport->send(Object(Swift_Message), Array)
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/MailController.php(20): YiiMail->send(Object(YiiMailMessage))
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): MailController->actionIndex()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('mail')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/mail
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/mail
+---
+2013/05/13 15:05:17 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Expected response code 220 but got code "", with message ""' in /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(299): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('', Array)
+#1 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Transport/AbstractSmtpTransport.php(107): Swift_Transport_AbstractSmtpTransport->_readGreeting()
+#2 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/zhaorui/public_html/cbdb/protected/extensions/yii-mail/YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/UGMail.php(103): YiiMail->send(Object(YiiMailMessage))
+#5 /home/zhaorui/public_html/ctnet/protected/modules/userGroups/controllers/UserController.php(236): UGMail->send()
+#6 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): UserController->actionInvite()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#10 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#12 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#14 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('invite')
+#16 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('userGroups/user...')
+#17 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#18 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/userGroups/user/invite
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/userGroups/user/invite
+---
+2013/05/13 15:54:02 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/visit/view.php:33)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): VisitController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): VisitController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(58): VisitController->render()
+#3 unknown(0): VisitController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): VisitController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): VisitController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): VisitController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/6
+in /home/zhaorui/public_html/ctnet/protected/views/visit/view.php (33)
+in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php (58)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/05/13 15:54:22 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/visit/view.php:33)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): VisitController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): VisitController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(58): VisitController->render()
+#3 unknown(0): VisitController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): VisitController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): VisitController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): VisitController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/6
+in /home/zhaorui/public_html/ctnet/protected/views/visit/view.php (33)
+in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php (58)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/05/13 15:55:19 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/visit/view.php:33)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): VisitController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): VisitController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(58): VisitController->render()
+#3 unknown(0): VisitController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): VisitController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): VisitController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): VisitController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/6
+in /home/zhaorui/public_html/ctnet/protected/views/visit/view.php (33)
+in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php (58)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/05/13 15:55:21 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/visit/view.php:33)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): VisitController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): VisitController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(58): VisitController->render()
+#3 unknown(0): VisitController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): VisitController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): VisitController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): VisitController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/6
+in /home/zhaorui/public_html/ctnet/protected/views/visit/view.php (33)
+in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php (58)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/05/13 16:08:03 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/visit/view.php:33)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): VisitController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): VisitController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(58): VisitController->render()
+#3 unknown(0): VisitController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): VisitController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): VisitController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): VisitController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/6
+in /home/zhaorui/public_html/ctnet/protected/views/visit/view.php (33)
+in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php (58)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/05/13 16:10:36 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/visit/view.php:33)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): VisitController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): VisitController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(58): VisitController->render()
+#3 unknown(0): VisitController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): VisitController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): VisitController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): VisitController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/6
+in /home/zhaorui/public_html/ctnet/protected/views/visit/view.php (33)
+in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php (58)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/05/13 16:10:38 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/visit/view.php:33)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): VisitController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): VisitController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(58): VisitController->render()
+#3 unknown(0): VisitController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): VisitController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): VisitController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): VisitController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/6
+in /home/zhaorui/public_html/ctnet/protected/views/visit/view.php (33)
+in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php (58)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/05/13 16:11:08 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/visit/view.php:33)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): VisitController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): VisitController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(58): VisitController->render()
+#3 unknown(0): VisitController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): VisitController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): VisitController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): VisitController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/6
+in /home/zhaorui/public_html/ctnet/protected/views/visit/view.php (33)
+in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php (58)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/05/13 16:11:09 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/visit/view.php:33)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): VisitController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): VisitController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(58): VisitController->render()
+#3 unknown(0): VisitController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): VisitController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): VisitController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): VisitController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/6
+in /home/zhaorui/public_html/ctnet/protected/views/visit/view.php (33)
+in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php (58)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/05/13 16:11:16 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/visit/view.php:33)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): VisitController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): VisitController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(58): VisitController->render()
+#3 unknown(0): VisitController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): VisitController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): VisitController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): VisitController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/6
+in /home/zhaorui/public_html/ctnet/protected/views/visit/view.php (33)
+in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php (58)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/05/13 16:13:19 [error] [exception.CException] exception 'CException' with message 'Property "UserGroupsUser.user_name" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('user_name')
+#1 /home/zhaorui/public_html/ctnet/protected/views/visit/view.php(33): CActiveRecord->__get('user_name')
+#2 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('view', Array, true)
+#6 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(58): CController->render('view', Array)
+#7 [internal function]: VisitController->actionView('6')
+#8 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(VisitController), Array)
+#9 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(VisitController), Object(ReflectionMethod), Array)
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#17 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#19 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('visit/view')
+#20 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/6
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/customer/1
+---
+2013/05/13 16:23:20 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/visit/view.php:32)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): VisitController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): VisitController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(58): VisitController->render()
+#3 unknown(0): VisitController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): VisitController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): VisitController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): VisitController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/8
+in /home/zhaorui/public_html/ctnet/protected/views/visit/view.php (32)
+in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php (58)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/05/13 17:04:41 [error] [exception.CException] exception 'CException' with message 'Property "WebUserGroups.username" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CWebUser.php(141): CComponent->__get('username')
+#1 /home/zhaorui/public_html/ctnet/protected/views/visit/_form.php(25): CWebUser->__get('username')
+#2 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#3 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#5 /home/zhaorui/public_html/ctnet/protected/views/visit/create.php(19): CController->renderPartial('_form', Array)
+#6 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#7 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(83): CController->render('create', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): VisitController->actionCreate()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(206): CFilterChain->run()
+#15 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterCustomerContext(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#19 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#20 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#21 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#22 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#24 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('visit/create')
+#25 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#26 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/create?customer_id=2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/customer/2
+---
+2013/05/13 17:08:18 [error] [php] Trying to get property of non-object (/home/zhaorui/public_html/ctnet/protected/views/visit/view.php:43)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): VisitController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): VisitController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(58): VisitController->render()
+#3 unknown(0): VisitController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): VisitController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): VisitController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): VisitController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/6
+in /home/zhaorui/public_html/ctnet/protected/views/visit/view.php (43)
+in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php (58)
+in /home/zhaorui/public_html/ctnet/index.php (13)

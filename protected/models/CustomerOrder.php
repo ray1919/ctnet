@@ -80,7 +80,7 @@ class CustomerOrder extends CActiveRecord
 			'quantity' => 'Quantity',
 			'date' => 'Date',
 			'status' => 'Status',
-			'comment' => 'Comment',
+			'comment' => 'Content',
 			'create_time' => 'Create Time',
 		);
 	}

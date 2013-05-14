@@ -63,10 +63,12 @@ class Visit extends CActiveRecord
 	public function relations()
 	{
 		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
+    // class name for the relations automatically generated below.
+    Yii::import('application.modules.userGroups.models.*');
 		return array(
 			'customer' => array(self::BELONGS_TO, 'Customer', 'customer_id'),
-			'createUser' => array(self::BELONGS_TO, 'User', 'create_user_id'),
+			//'createUser' => array(self::BELONGS_TO, 'User', 'create_user_id'),
+      'createUser' => array(self::BELONGS_TO, 'UserGroupsUser', 'create_user_id'),
 		);
 	}
 
@@ -83,7 +85,7 @@ class Visit extends CActiveRecord
 			'way' => 'Way',
 			'class' => 'Class',
 			'time' => 'Time',
-			'comment' => 'Comment',
+			'comment' => 'Content',
 			'create_time' => 'Create Time',
 			'create_user_id' => 'Create User',
 		);

@@ -20,6 +20,9 @@ return array(
 	),
 
 	'modules'=>array(
+    'userGroups'=>array(
+        'accessCode'=>'demo',
+    ),
 		// uncomment the following to enable the Gii tool
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
@@ -39,8 +42,8 @@ return array(
             'transportType'=>'smtp',     // case sensitive!  
             'transportOptions'=>array(  
                 'host'=>'smtp.163.com',   // smtp服务器  
-                'username'=>'zzqr@163.com'    // 验证用户  
-                'password'=>'z121rz121r',   // 验证密码  
+                'username'=>'ctbioscience@163.com',    // 验证用户  
+                'password'=>'ctb051989886883',   // 验证密码  
                 'port'=>'25',           // 端口号  
                 //'encryption'=>'ssl',   
                 ),  
@@ -48,6 +51,7 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+      'class'=>'userGroups.components.WebUserGroups',
 		),
 		// uncomment the following to enable URLs in path-format
 		'urlManager'=>array(
@@ -96,6 +100,6 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'zzqr@163.com',
+		'adminEmail'=>'ctbioscience@163.com',
 	),
 );
