@@ -4,16 +4,16 @@
 
 $this->breadcrumbs=array(
         $model->customer->title=>array("customer/view", 'id'=>$model->customer->id),
-	'Customer Orders'=>array('index'),
+	'Orders'=>array('index'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List CustomerOrder', 'url'=>array('index')),
-	array('label'=>'Manage CustomerOrder', 'url'=>array('admin')),
+	array('label'=>'List Orders', 'url'=>array('index')),
+	array('label'=>'Manage Orders', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create CustomerOrder</h1>
+<h1>Create Order</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

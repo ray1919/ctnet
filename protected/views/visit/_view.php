@@ -6,7 +6,7 @@
 <div class="view" id="_view" onclick="window.open('<?php echo $this->createUrl("visit/view",array('id'=>$data->id)) ?>','_self')">
     <table>
         <tr>
-        <td width="25%">
+        <td width="27%">
 	<?php echo CHtml::link(
                 "<b>".CHtml::encode($data->getAttributeLabel('customer_id')).": </b>".
                 CHtml::encode($data->customer->title),
@@ -29,11 +29,15 @@
 	<?php echo CHtml::encode($data->class); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('scheduled')); ?>:</b>
+	<?php echo CHtml::encode($data->scheduled); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('time')); ?>:</b>
 	<?php echo CHtml::encode($data->time); ?>
 	</td>
         <td style="vertical-align: top;">
-            <?php echo substr(CHtml::encode($data->comment),0,700)."......"; ?>
+            <?php echo substr(CHtml::encode($data->comment),0,780)."......"; ?>
 	</td>
         </tr>
     </table>

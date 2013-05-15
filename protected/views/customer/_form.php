@@ -70,6 +70,12 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'source'); ?>
+		<?php echo $form->textArea($model,'source',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'source'); ?>
+	</div>
+
+	<div class="row">
                 <?php if (!isset($model->add_date)) $model->add_date=date('Y-m-d'); ?>
 		<?php echo $form->labelEx($model,'add_date'); ?>
 		<?php echo $form->dateField($model,'add_date'); ?>

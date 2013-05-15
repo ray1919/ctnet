@@ -3,13 +3,13 @@
 /* @var $model CustomerOrder */
 
 $this->breadcrumbs=array(
-        'Customer'=>array('customer/index'),
-	'Customer Orders'=>array('index'),
+        'Contacts'=>array('customer/index'),
+	'Orders'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List CustomerOrder', 'url'=>array('index')),
+	array('label'=>'List Orders', 'url'=>array('index')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Customer Orders</h1>
+<h1>Manage Orders</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

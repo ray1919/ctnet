@@ -14,6 +14,7 @@
  * @property string $IM
  * @property string $address
  * @property string $organization
+ * @property string $source
  * @property string $comment
  *
  * The followings are the available model relations:
@@ -49,11 +50,11 @@ class Customer extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, name, tel1, tel2, tel3, email, IM', 'length', 'max'=>45),
+			array('title, name, tel1, tel2, tel3, email, IM, source', 'length', 'max'=>45),
 			array('address, organization, add_date, comment', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, name, tel1, tel2, tel3, email, IM, address, organization, add_date, comment', 'safe', 'on'=>'search'),
+			array('id, title, name, tel1, tel2, tel3, email, IM, address, organization, source, add_date, comment', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -87,6 +88,7 @@ class Customer extends CActiveRecord
 			'IM' => 'Im',
 			'address' => 'Address',
 			'organization' => 'Organization',
+                        'source' => 'Source',
                         'add_date' => 'Add Date',
 			'comment' => 'Comment',
 		);
@@ -113,6 +115,7 @@ class Customer extends CActiveRecord
 		$criteria->compare('IM',$this->IM,true);
 		$criteria->compare('address',$this->address,true);
 		$criteria->compare('organization',$this->organization,true);
+		$criteria->compare('source',$this->source,true);
 		$criteria->compare('comment',$this->comment,true);
                 $criteria->compare('add_date',$this->add_date,true);
 		return new CActiveDataProvider($this, array(

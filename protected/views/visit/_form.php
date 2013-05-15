@@ -60,6 +60,13 @@
 	</div>
 
 	<div class="row">
+                <?php if (!isset($model->scheduled)) $model->scheduled=date('Y-m-d',strtotime('+1 day')); ?>
+		<?php echo $form->labelEx($model,'scheduled'); ?>
+		<?php echo $form->dateField($model,'scheduled'); ?>
+		<?php echo $form->error($model,'scheduled'); ?>
+	</div>
+
+	<div class="row">
                 <?php if (!isset($model->create_time)) $model->create_time=date('Y-m-d'); ?>
 		<?php echo $form->labelEx($model,'create_time'); ?>
 		<?php echo $form->dateField($model,'create_time'); ?>

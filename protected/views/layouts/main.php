@@ -41,7 +41,7 @@
             /*array('label'=>'Gene Order', 'url'=>array('/GeneOrder')),*/
             ),
         ),
-				array('label'=>'Contact', 'url'=>array('/customer'),
+				array('label'=>'Contacts', 'url'=>array('/customer'),
           'items'=>array(
             array('label'=>'Communication', 'url'=>array('/visit')),
             array('label'=>'Order', 'url'=>array('/CustomerOrder')),
@@ -49,9 +49,10 @@
             ),
         ),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				/*array('label'=>'Contact', 'url'=>array('/site/contact')),*/
+				array('label'=>'Contact Us', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/userGroups'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>'Logout', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                                array('label'=>'('.Yii::app()->user->name.')', 'url'=>array('/userGroups'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>
 	</div><!-- mainmenu -->

@@ -3,13 +3,13 @@
 /* @var $model Visit */
 
 $this->breadcrumbs=array(
-        'Customer'=>array('index'),
-	'Visits'=>array('index'),
+        'Contacts'=>array('index'),
+	'Communication'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List Visit', 'url'=>array('index')),
+	array('label'=>'List Communication', 'url'=>array('index')),
 	/*array('label'=>'Create Visit', 'url'=>array('create')),*/
 );
 
@@ -27,7 +27,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Visits</h1>
+<h1>Manage Communication</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -53,6 +53,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'way',
 		'class',
 		'time',
+                'scheduled',
 		/*
 		'comment',
 		'create_time',

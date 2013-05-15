@@ -12,6 +12,7 @@
  * @property string $class
  * @property string $time
  * @property string $comment
+ * @property string $scheduled
  * @property string $create_time
  * @property integer $create_user_id
  *
@@ -50,10 +51,10 @@ class Visit extends CActiveRecord
 		return array(
 			array('customer_id, create_user_id', 'numerical', 'integerOnly'=>true),
 			array('executor, status, way, class', 'length', 'max'=>45),
-			array('time, comment, create_time', 'safe'),
+			array('time, comment, create_time, scheduled', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, customer_id, executor, status, way, class, time, comment, create_time, create_user_id, customer_search', 'safe', 'on'=>'search'),
+			array('id, customer_id, executor, status, way, class, time, comment, scheduled, create_time, create_user_id, customer_search', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -86,6 +87,7 @@ class Visit extends CActiveRecord
 			'class' => 'Class',
 			'time' => 'Time',
 			'comment' => 'Content',
+                        'scheduled' => 'Next scheduled',
 			'create_time' => 'Create Time',
 			'create_user_id' => 'Create User',
 		);
@@ -110,6 +112,7 @@ class Visit extends CActiveRecord
 		$criteria->compare('class',$this->class,true);
 		$criteria->compare('time',$this->time,true);
 		$criteria->compare('comment',$this->comment,true);
+		$criteria->compare('scheduled',$this->scheduled,true);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('create_user_id',$this->create_user_id);
 

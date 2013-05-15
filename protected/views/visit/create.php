@@ -4,16 +4,16 @@
 
 $this->breadcrumbs=array(
         $model->customer->title=>array("customer/view", 'id'=>$model->customer->id),
-	'Visits'=>array('index'),
+	'Communication'=>array('index'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List Visit', 'url'=>array('index')),
-	array('label'=>'Manage Visit', 'url'=>array('admin')),
+	array('label'=>'List Communication', 'url'=>array('index')),
+	array('label'=>'Manage Communication', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Visit</h1>
+<h1>Create Communication</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-        "Customer"=>array('index'),
-	'Visits',
+        "Contact"=>array('index'),
+	'Communication',
 );
 
 $this->menu=array(
-	array('label'=>'Manage Visit', 'url'=>array('admin')),
+	array('label'=>'Manage Communication', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Visits</h1>
+<h1>Communication</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

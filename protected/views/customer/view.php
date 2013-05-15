@@ -3,22 +3,22 @@
 /* @var $model Customer */
 
 $this->breadcrumbs=array(
-	'Customers'=>array('index'),
+	'Contacts'=>array('index'),
 	$model->title,
 );
 
 $this->menu=array(
-	array('label'=>'List Customer', 'url'=>array('index')),
-	array('label'=>'Create Customer', 'url'=>array('create')),
-	array('label'=>'Update Customer', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Customer', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Customer', 'url'=>array('admin')),
-        array('label'=>'Create Visit', 'url'=>array('visit/create', 'customer_id'=>$model->id)),
+	array('label'=>'List Contact', 'url'=>array('index')),
+	array('label'=>'Create Contact', 'url'=>array('create')),
+	array('label'=>'Update Contact', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Delete Contact', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Manage Contact', 'url'=>array('admin')),
+        array('label'=>'Create Communication', 'url'=>array('visit/create', 'customer_id'=>$model->id)),
         array('label'=>'Create Order', 'url'=>array('CustomerOrder/create', 'customer_id'=>$model->id)),
 );
 ?>
 
-<h1>View Customer #<?php echo $model->id; ?></h1>
+<h1>View Contact #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -33,19 +33,20 @@ $this->menu=array(
 		'IM',
 		'address',
 		'organization',
+                'source',
                 'add_date',
 		'comment',
 	),
 )); ?>
 
 <br />
-<h1>Customer visits</h1>
+<h1>Communication</h1>
 <?php $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$visitDataProvider,
     'itemView'=>'/visit/_view',
 )); ?>
 <br />
-<h1>Customer orders</h1>
+<h1>Orders</h1>
 <?php $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$orderDataProvider,
     'itemView'=>'/customerOrder/_view',

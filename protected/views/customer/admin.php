@@ -3,13 +3,13 @@
 /* @var $model Customer */
 
 $this->breadcrumbs=array(
-	'Customers'=>array('index'),
+	'Contacts'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List Customer', 'url'=>array('index')),
-	array('label'=>'Create Customer', 'url'=>array('create')),
+	array('label'=>'List Contact', 'url'=>array('index')),
+	array('label'=>'Create Contact', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Customers</h1>
+<h1>Manage Contacts</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -51,6 +51,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
                 'add_date',
 		'address',
 		'organization',
+                'source',
 		/*
 		'id',
 		'tel1',

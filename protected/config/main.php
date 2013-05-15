@@ -101,5 +101,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'ctbioscience@163.com',
+		'webmasterEmail'=>'zzqr@163.com',
 	),
 );

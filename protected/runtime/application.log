@@ -5354,3 +5354,99 @@ REQUEST_URI=/~zhaorui/ctnet/index.php/visit/6
 in /home/zhaorui/public_html/ctnet/protected/views/visit/view.php (43)
 in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php (58)
 in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/05/15 09:56:32 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/UserGroupsAccessControl.php:97
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): UserGroupsAccessControl->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('customer')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/customer
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/userGroups/admin/documentation
+---
+2013/05/15 09:56:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/UserGroupsAccessControl.php:97
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): UserGroupsAccessControl->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('customer')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/customer
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/customer
+---
+2013/05/15 09:56:35 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/UserGroupsAccessControl.php:97
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): UserGroupsAccessControl->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('customer')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/customer
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/customer
+---
+2013/05/15 09:57:37 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/UserGroupsAccessControl.php:97
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): UserGroupsAccessControl->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('customer')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/customer
+HTTP_REFERER=http://localhost/~zhaorui/ctnet/index.php/customer
+---
+2013/05/15 11:05:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "userGroups/cron".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('userGroups/cron')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/userGroups/cron
+---
+2013/05/15 11:05:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "userGroups/cron".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('userGroups/cron')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/userGroups/cron
+---
+2013/05/15 12:21:54 [error] [php] Missing argument 2 for CWebUser::setFlash(), called in /home/zhaorui/public_html/ctnet/protected/controllers/SiteController.php on line 73 and defined (/home/zhaorui/public_html/yii/framework/web/auth/CWebUser.php:667)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /home/zhaorui/public_html/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/site/contact
+in /home/zhaorui/public_html/ctnet/protected/controllers/SiteController.php (73)
+in /home/zhaorui/public_html/ctnet/index.php (13)
