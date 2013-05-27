@@ -14,7 +14,7 @@ class PrimerController extends Controller
 	public function filters()
 	{
 		return array(
-			'accessControl', // perform access control for CRUD operations
+			'userGroupsAccessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
@@ -27,17 +27,17 @@ class PrimerController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
+			array('allow',  // allow all users to perform 'admin' and 'index' and 'view' actions
+				'actions'=>array('index','view','admin'),
+				'pbac'=>array('read'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','check'),
-				'users'=>array('@'),
+				'actions'=>array('create','update'),
+				'pbac'=>array('write'),
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			array('allow', // allow admin user to perform 'delete' actions
 				'actions'=>array('delete'),
-				'users'=>array('admin'),
+				'pbac'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),

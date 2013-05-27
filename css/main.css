@@ -60,13 +60,13 @@ body
 
 #mainmenu ul li
 {
-  display: inline;
   position: relative;
+  display: inline;
 }
 
 #mainmenu ul li ul
 {
-	display: none;
+  display: none;
   position: absolute;
   background:white url(bg.gif);
   color: #6399cd;
@@ -151,7 +151,7 @@ div.view
 {
 	padding: 5px;
 	margin: 2px 0;
-	border: 1px solid #C9E0ED;
+	border: 1px solid #DDDDDD;/*#C9E0ED;*/
 }
 
 div.breadcrumbs

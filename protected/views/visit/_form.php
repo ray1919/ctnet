@@ -22,9 +22,9 @@
 	</div>
 
 	<div class="row">
-    <?php if (!isset($model->executor)) $model->executor=Yii::app()->user->name; ?>
+    <?php if (!isset($model->executor)) $model->executor=Yii::app()->user->email; ?>
 		<?php echo $form->labelEx($model,'executor'); ?>
-		<?php echo $form->textField($model,'executor',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->emailField($model,'executor',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model,'executor'); ?>
 	</div>
 
@@ -60,7 +60,13 @@
 	</div>
 
 	<div class="row">
-                <?php if (!isset($model->scheduled)) $model->scheduled=date('Y-m-d',strtotime('+1 day')); ?>
+		<?php echo $form->labelEx($model,'return_visit'); ?>
+		<?php echo $form->dropDownList($model,'return_visit', $model->getReturnVisitOptions()); ?>
+		<?php echo $form->error($model,'return_visit'); ?>
+	</div>
+
+	<div class="row">
+                <?php if (!isset($model->scheduled)) $model->scheduled=date('Y-m-d',strtotime('+30 day')); ?>
 		<?php echo $form->labelEx($model,'scheduled'); ?>
 		<?php echo $form->dateField($model,'scheduled'); ?>
 		<?php echo $form->error($model,'scheduled'); ?>
@@ -73,8 +79,11 @@
 		<?php echo $form->error($model,'create_time'); ?>
 	</div>
 
-  <?php if (!isset($model->create_user_id)) $model->create_user_id=Yii::app()->user->id; ?>
-
+        <?php
+            if (!isset($model->create_user_id)) $model->create_user_id=Yii::app()->user->id;
+            echo $form->hiddenField($model,'create_user_id');
+        ?>
+        
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

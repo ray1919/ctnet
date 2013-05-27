@@ -37,6 +37,10 @@ $this->menu=array(
       "value"=>"<pre>".$model->comment."</pre>",
       'type'=>'raw',
     ),
+    array(
+        'name'=>'return_visit',
+        'value'=>CHtml::encode($model->getReturnVisitText()),
+    ),
     'scheduled',
     'create_time',
     array(
