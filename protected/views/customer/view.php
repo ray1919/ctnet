@@ -15,6 +15,7 @@ $this->menu=array(
 	array('label'=>'Manage Contact', 'url'=>array('admin')),
         array('label'=>'Create Communication', 'url'=>array('visit/create', 'customer_id'=>$model->id)),
         array('label'=>'Create Order', 'url'=>array('CustomerOrder/create', 'customer_id'=>$model->id)),
+        array('label'=>'Create PCR Service', 'url'=>array('PCRService/create', 'customer_id'=>$model->id)),
 );
 ?>
 
@@ -45,10 +46,18 @@ $this->menu=array(
     'dataProvider'=>$visitDataProvider,
     'itemView'=>'/visit/_view',
 )); ?>
+
 <br />
 <h1>Orders</h1>
 <?php $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$orderDataProvider,
     'itemView'=>'/customerOrder/_view',
+)); ?>
+
+<br />
+<h1>PCR Service</h1>
+<?php $this->widget('zii.widgets.CListView', array(
+    'dataProvider'=>$serviceDataProvider,
+    'itemView'=>'/pCRService/_view',
 )); ?>
 

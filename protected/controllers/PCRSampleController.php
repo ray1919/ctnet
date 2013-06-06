@@ -1,6 +1,6 @@
 <?php
 
-class CustomerController extends Controller
+class PCRSampleController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -51,42 +51,8 @@ class CustomerController extends Controller
 	 */
 	public function actionView($id)
 	{
-            // display visit and order information on customer page
-		$visitDataProvider=new CActiveDataProvider('Visit', array(
-			'criteria'=>array(
-				'condition'=>'customer_id=:customerId',
-				'params'=>array(':customerId'=>$id),
-                                'order'=>'time DESC',
-			),
-			'pagination'=>array(
-				'pageSize'=>3,
-			),
-		));
-		$orderDataProvider=new CActiveDataProvider('CustomerOrder', array(
-			'criteria'=>array(
-				'condition'=>'customer_id=:customerId',
-				'params'=>array(':customerId'=>$id),
-                                'order'=>'date DESC',
-			),
-			'pagination'=>array(
-				'pageSize'=>2,
-			),
-		));
-		$serviceDataProvider=new CActiveDataProvider('PCRService', array(
-			'criteria'=>array(
-				'condition'=>'customer_id=:customerId',
-				'params'=>array(':customerId'=>$id),
-                                'order'=>'date DESC',
-			),
-			'pagination'=>array(
-				'pageSize'=>1,
-			),
-		));
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
-                        'visitDataProvider'=>$visitDataProvider,
-                        'orderDataProvider'=>$orderDataProvider,
-                        'serviceDataProvider'=>$serviceDataProvider,
 		));
 	}
 
@@ -96,14 +62,18 @@ class CustomerController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Customer;
+		$model=new PCRSample;
+		if(isset($_GET['service_id']))
+                        $model->service_id = $_GET['service_id'];
+		else
+			throw new CHttpException(403,'Must specify a customer before performing this action.');
 
-		// Uncomment the following line if AJAX validation is needed
+                // Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Customer']))
+		if(isset($_POST['PCRSample']))
 		{
-			$model->attributes=$_POST['Customer'];
+			$model->attributes=$_POST['PCRSample'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -125,9 +95,9 @@ class CustomerController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Customer']))
+		if(isset($_POST['PCRSample']))
 		{
-			$model->attributes=$_POST['Customer'];
+			$model->attributes=$_POST['PCRSample'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -156,18 +126,9 @@ class CustomerController extends Controller
 	 */
 	public function actionIndex()
 	{
-                $sql = "select customer_id, GROUP_CONCAT(DISTINCT time SEPARATOR ', ') date from visit GROUP BY customer_id";
-                $command = Yii::app()->db->createCommand($sql); 
-                $rows = $command->queryAll();
-                foreach ($rows as $key => $value) {
-                    if(isset($rows[$key]['customer_id']))
-                        unset($rows[$key]);
-                    $rows[$value['customer_id']] = $value['date'];                    
-                }
-		$dataProvider=new CActiveDataProvider('Customer');
+		$dataProvider=new CActiveDataProvider('PCRSample');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-                        'times'=>$rows,
 		));
 	}
 
@@ -176,10 +137,10 @@ class CustomerController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Customer('search');
+		$model=new PCRSample('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Customer']))
-			$model->attributes=$_GET['Customer'];
+		if(isset($_GET['PCRSample']))
+			$model->attributes=$_GET['PCRSample'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -193,7 +154,7 @@ class CustomerController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Customer::model()->findByPk($id);
+		$model=PCRSample::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -205,7 +166,7 @@ class CustomerController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='customer-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='pcrsample-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

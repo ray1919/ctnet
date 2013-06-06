@@ -16,11 +16,11 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-    'application.extensions.yii-mail.*',
+                'application.extensions.yii-mail.*',
 	),
 
 	'modules'=>array(
-    'userGroups'=>array(
+        'userGroups'=>array(
         'accessCode'=>'demo',
     ),
 		// uncomment the following to enable the Gii tool

@@ -31,23 +31,27 @@
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Primer', 'url'=>array('/primer'),
-          'items'=>array(
-            array('label'=>'Plate', 'url'=>array('/plate')),
-            array('label'=>'Store Type', 'url'=>array('/StoreType')),
-            array('label'=>'Position', 'url'=>array('/position')),
-            array('label'=>'Gene DB', 'url'=>array('/gene')),
-            array('label'=>'miRNA DB', 'url'=>array('/mirna')),
-            array('label'=>'Species', 'url'=>array('/species')),
-            /*array('label'=>'Gene Order', 'url'=>array('/GeneOrder')),*/
-            ),
-        ),
-				array('label'=>'Contacts', 'url'=>array('/customer'),
-          'items'=>array(
-            array('label'=>'Communication', 'url'=>array('/visit')),
-            array('label'=>'Order', 'url'=>array('/CustomerOrder')),
-            /*array('label'=>'Gene Order', 'url'=>array('/GeneOrder')),*/
-            ),
-        ),
+                                  'items'=>array(
+                                    array('label'=>'Plate', 'url'=>array('/plate')),
+                                    array('label'=>'Store Type', 'url'=>array('/StoreType')),
+                                    array('label'=>'Position', 'url'=>array('/position')),
+                                    array('label'=>'Gene DB', 'url'=>array('/gene')),
+                                    array('label'=>'miRNA DB', 'url'=>array('/mirna')),
+                                    array('label'=>'Species', 'url'=>array('/species')),
+                                    ),
+                                ),
+                                array('label'=>'Contacts', 'url'=>array('/customer'),
+                                  'items'=>array(
+                                    array('label'=>'Communication', 'url'=>array('/visit')),
+                                    array('label'=>'Order', 'url'=>array('/CustomerOrder')),
+                                    /*array('label'=>'Gene Order', 'url'=>array('/GeneOrder')),*/
+                                    ),
+                                ),
+                                array('label'=>'PCR Service', 'url'=>array('/PCRService'),
+                                  'items'=>array(
+                                    array('label'=>'PCR Sample', 'url'=>array('/PCRSample')),
+                                    ),
+                                ),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact Us', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/userGroups'), 'visible'=>Yii::app()->user->isGuest),

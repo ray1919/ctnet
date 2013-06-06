@@ -6414,3 +6414,1321 @@ Stack trace:
 REQUEST_URI=/~zhaorui/ctnet/index.php/customer
 HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/primer
 ---
+2013/05/30 16:36:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/zhaorui/public_html/ctnet/protected/controllers/CustomerController.php:187
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/CustomerController.php(76): CustomerController->loadModel('11')
+#1 [internal function]: CustomerController->actionView('11')
+#2 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(CustomerController), Array)
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(CustomerController), Object(ReflectionMethod), Array)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('customer/view')
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/customer/11
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/customer/1
+---
+2013/05/30 16:41:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/zhaorui/public_html/ctnet/protected/controllers/CustomerController.php:187
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/CustomerController.php(76): CustomerController->loadModel('11')
+#1 [internal function]: CustomerController->actionView('11')
+#2 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(CustomerController), Array)
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(CustomerController), Object(ReflectionMethod), Array)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('customer/view')
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/customer/11
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/customer/1
+---
+2013/05/30 16:42:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php:161
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php(57): VisitController->loadModel('2')
+#1 [internal function]: VisitController->actionView('2')
+#2 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(VisitController), Array)
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(VisitController), Object(ReflectionMethod), Array)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('visit/view')
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/visit
+---
+2013/06/03 16:21:51 [error] [php] Undefined variable: widget (/home/zhaorui/public_html/ctnet/protected/views/storeType/index.php:22)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): StoreTypeController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): StoreTypeController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(128): StoreTypeController->render()
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): StoreTypeController->runAction()
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): UserGroupsAccessControl->filter()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): StoreTypeController->filterUserGroupsAccessControl()
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): StoreTypeController->runActionWithFilters()
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): StoreTypeController->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/storeType/index
+in /home/zhaorui/public_html/ctnet/protected/views/storeType/index.php (22)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (128)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 16:23:31 [error] [php] Undefined variable: columns (/home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php:131)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): StoreTypeController->runAction()
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): UserGroupsAccessControl->filter()
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): StoreTypeController->filterUserGroupsAccessControl()
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): StoreTypeController->runActionWithFilters()
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): StoreTypeController->run()
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/storeType/index
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (131)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/06/03 16:23:42 [error] [php] Undefined variable: dataProvider (/home/zhaorui/public_html/ctnet/protected/views/storeType/index.php:18)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): StoreTypeController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): StoreTypeController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(134): StoreTypeController->render()
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): StoreTypeController->runAction()
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): UserGroupsAccessControl->filter()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): StoreTypeController->filterUserGroupsAccessControl()
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): StoreTypeController->runActionWithFilters()
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): StoreTypeController->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/storeType/index
+in /home/zhaorui/public_html/ctnet/protected/views/storeType/index.php (18)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (134)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 16:27:07 [error] [php] Undefined variable: columns (/home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php:131)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): StoreTypeController->runAction()
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): UserGroupsAccessControl->filter()
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): StoreTypeController->filterUserGroupsAccessControl()
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): StoreTypeController->runActionWithFilters()
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): StoreTypeController->run()
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/storeType/index
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (131)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/06/03 16:34:19 [error] [exception.CException] exception 'CException' with message 'Unknown type "integer".' in /home/zhaorui/public_html/yii/framework/utils/CFormatter.php:116
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CDataColumn.php(135): CFormatter->format('1', 'integer')
+#1 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridColumn.php(145): CDataColumn->renderDataCellContent(0, Object(StoreType))
+#2 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(546): CGridColumn->renderDataCell(0)
+#3 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(630): CGridView->renderTableRow(0)
+#4 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(427): EDataTables->renderTableBody()
+#5 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(161): CGridView->renderItems()
+#6 [internal function]: CBaseListView->renderSection(Array)
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(144): preg_replace_callback('/{(\w+)}/', Array, '{items}')
+#8 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(129): CBaseListView->renderContent()
+#9 /home/zhaorui/public_html/ctnet/protected/views/storeType/index.php(22): CBaseListView->run()
+#10 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#11 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#14 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(135): CController->render('index', Array)
+#15 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#18 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#19 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#20 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#21 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#22 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#23 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#25 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('StoreType')
+#26 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#27 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/StoreType
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/storeType/admin
+---
+2013/06/03 16:34:27 [error] [exception.CException] exception 'CException' with message 'Unknown type "int".' in /home/zhaorui/public_html/yii/framework/utils/CFormatter.php:116
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CDataColumn.php(135): CFormatter->format('1', 'int')
+#1 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridColumn.php(145): CDataColumn->renderDataCellContent(0, Object(StoreType))
+#2 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(546): CGridColumn->renderDataCell(0)
+#3 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(630): CGridView->renderTableRow(0)
+#4 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(427): EDataTables->renderTableBody()
+#5 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(161): CGridView->renderItems()
+#6 [internal function]: CBaseListView->renderSection(Array)
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(144): preg_replace_callback('/{(\w+)}/', Array, '{items}')
+#8 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(129): CBaseListView->renderContent()
+#9 /home/zhaorui/public_html/ctnet/protected/views/storeType/index.php(22): CBaseListView->run()
+#10 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#11 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#14 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(135): CController->render('index', Array)
+#15 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#18 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#19 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#20 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#21 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#22 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#23 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#25 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('StoreType')
+#26 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#27 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/StoreType
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/storeType/admin
+---
+2013/06/03 16:34:37 [error] [exception.CException] exception 'CException' with message 'Unknown type "digit".' in /home/zhaorui/public_html/yii/framework/utils/CFormatter.php:116
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CDataColumn.php(135): CFormatter->format('1', 'digit')
+#1 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridColumn.php(145): CDataColumn->renderDataCellContent(0, Object(StoreType))
+#2 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(546): CGridColumn->renderDataCell(0)
+#3 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(630): CGridView->renderTableRow(0)
+#4 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(427): EDataTables->renderTableBody()
+#5 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(161): CGridView->renderItems()
+#6 [internal function]: CBaseListView->renderSection(Array)
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(144): preg_replace_callback('/{(\w+)}/', Array, '{items}')
+#8 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(129): CBaseListView->renderContent()
+#9 /home/zhaorui/public_html/ctnet/protected/views/storeType/index.php(22): CBaseListView->run()
+#10 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#11 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#14 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(135): CController->render('index', Array)
+#15 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#18 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#19 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#20 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#21 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#22 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#23 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#25 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('StoreType')
+#26 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#27 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/StoreType
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/storeType/admin
+---
+2013/06/03 16:34:43 [error] [exception.CException] exception 'CException' with message 'Unknown type "numeric".' in /home/zhaorui/public_html/yii/framework/utils/CFormatter.php:116
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CDataColumn.php(135): CFormatter->format('1', 'numeric')
+#1 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridColumn.php(145): CDataColumn->renderDataCellContent(0, Object(StoreType))
+#2 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(546): CGridColumn->renderDataCell(0)
+#3 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(630): CGridView->renderTableRow(0)
+#4 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(427): EDataTables->renderTableBody()
+#5 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(161): CGridView->renderItems()
+#6 [internal function]: CBaseListView->renderSection(Array)
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(144): preg_replace_callback('/{(\w+)}/', Array, '{items}')
+#8 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(129): CBaseListView->renderContent()
+#9 /home/zhaorui/public_html/ctnet/protected/views/storeType/index.php(22): CBaseListView->run()
+#10 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(127): require('/home/zhaorui/p...')
+#11 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/zhaorui/p...', Array, true)
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/zhaorui/p...', Array, true)
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#14 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(135): CController->render('index', Array)
+#15 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#16 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#18 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#19 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#20 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#21 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#22 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#23 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#25 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('StoreType')
+#26 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#27 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/StoreType
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/storeType/admin
+---
+2013/06/03 16:39:41 [error] [php] Undefined variable: sortableColumnNamesArray (/home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php:132)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): StoreTypeController->runAction()
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): UserGroupsAccessControl->filter()
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): StoreTypeController->filterUserGroupsAccessControl()
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): StoreTypeController->runActionWithFilters()
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): StoreTypeController->run()
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/StoreType
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (132)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/06/03 16:40:37 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%ga%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2.
+in /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php (117)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (148)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 16:40:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%ga%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2' in /home/zhaorui/public_html/yii/framework/db/CDbCommand.php:528
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(1540): CDbCommand->queryScalar()
+#2 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
+#8 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(117): CGridView->init()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(148): EDataTables->init()
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(148): CBaseController->createWidget('ext.EDataTables...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('index')
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('storeType/index')
+#22 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/~zhaorui/ctnet/storeType/index?sEcho=16&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=25&sSearch=ga&iSortCol_0=0&sSortDir_0=asc&iSortingCols=1&ajax=storeType&visibleColumns=0%2C1%2C2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/StoreType
+---
+2013/06/03 16:40:42 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%g%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2.
+in /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php (117)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (148)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 16:40:42 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%g%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2' in /home/zhaorui/public_html/yii/framework/db/CDbCommand.php:528
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(1540): CDbCommand->queryScalar()
+#2 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
+#8 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(117): CGridView->init()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(148): EDataTables->init()
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(148): CBaseController->createWidget('ext.EDataTables...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('index')
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('storeType/index')
+#22 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/~zhaorui/ctnet/storeType/index?sEcho=17&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=25&sSearch=g&iSortCol_0=0&sSortDir_0=asc&iSortingCols=1&ajax=storeType&visibleColumns=0%2C1%2C2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/StoreType
+---
+2013/06/03 16:42:40 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2.
+in /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php (117)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (148)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 16:42:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2' in /home/zhaorui/public_html/yii/framework/db/CDbCommand.php:528
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(1540): CDbCommand->queryScalar()
+#2 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
+#8 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(117): CGridView->init()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(148): EDataTables->init()
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(148): CBaseController->createWidget('ext.EDataTables...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('index')
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('storeType/index')
+#22 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/~zhaorui/ctnet/storeType/index?sEcho=2&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=25&sSearch=5&iSortingCols=0&ajax=storeType&visibleColumns=0%2C1%2C2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/StoreType
+---
+2013/06/03 16:43:02 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%n%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE name ILIKE :ycp2.
+in /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php (117)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (148)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 16:43:02 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%n%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE name ILIKE :ycp2' in /home/zhaorui/public_html/yii/framework/db/CDbCommand.php:528
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(1540): CDbCommand->queryScalar()
+#2 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
+#8 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(117): CGridView->init()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(148): EDataTables->init()
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(148): CBaseController->createWidget('ext.EDataTables...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('index')
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('storeType/index')
+#22 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/~zhaorui/ctnet/storeType/index?sEcho=2&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=25&sSearch=n&iSortingCols=0&ajax=storeType&visibleColumns=0%2C1%2C2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/StoreType
+---
+2013/06/03 16:43:20 [error] [php] Array to string conversion (/home/zhaorui/public_html/yii/framework/db/schema/CDbCriteria.php:233)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): StoreTypeController->runAction()
+#2 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): UserGroupsAccessControl->filter()
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): StoreTypeController->filterUserGroupsAccessControl()
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(266): StoreTypeController->runActionWithFilters()
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): StoreTypeController->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#10 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/storeType/index?sEcho=2&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=25&sSearch=5&iSortingCols=0&ajax=storeType&visibleColumns=0%2C1%2C2
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (129)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/06/03 16:44:04 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'textColumn' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn LIKE :ycp2.
+in /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php (117)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (148)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 16:44:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'textColumn' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn LIKE :ycp2' in /home/zhaorui/public_html/yii/framework/db/CDbCommand.php:528
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(1540): CDbCommand->queryScalar()
+#2 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
+#8 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(117): CGridView->init()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(148): EDataTables->init()
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(148): CBaseController->createWidget('ext.EDataTables...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('index')
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('storeType/index')
+#22 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/~zhaorui/ctnet/storeType/index?sEcho=2&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=25&sSearch=5&iSortingCols=0&ajax=storeType&visibleColumns=0%2C1%2C2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/StoreType
+---
+2013/06/03 16:54:11 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2.
+in /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php (117)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (148)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 16:54:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2' in /home/zhaorui/public_html/yii/framework/db/CDbCommand.php:528
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(1540): CDbCommand->queryScalar()
+#2 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
+#8 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(117): CGridView->init()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(148): EDataTables->init()
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(148): CBaseController->createWidget('ext.EDataTables...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('index')
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('storeType/index')
+#22 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/~zhaorui/ctnet/storeType/index?sEcho=2&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=25&sSearch=5&iSortingCols=0&ajax=storeType&visibleColumns=0%2C1%2C2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/StoreType
+---
+2013/06/03 16:54:51 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%1%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2.
+in /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php (117)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (148)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 16:54:51 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%1%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2' in /home/zhaorui/public_html/yii/framework/db/CDbCommand.php:528
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(1540): CDbCommand->queryScalar()
+#2 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
+#8 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(117): CGridView->init()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(148): EDataTables->init()
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(148): CBaseController->createWidget('ext.EDataTables...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('index')
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('storeType/index')
+#22 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/~zhaorui/ctnet/storeType/index?sEcho=2&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=25&sSearch=1&iSortingCols=0&ajax=storeType&visibleColumns=0%2C1%2C2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/StoreType
+---
+2013/06/03 16:55:24 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2.
+in /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php (117)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (148)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 16:55:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2' in /home/zhaorui/public_html/yii/framework/db/CDbCommand.php:528
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(1540): CDbCommand->queryScalar()
+#2 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
+#8 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(117): CGridView->init()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(148): EDataTables->init()
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(148): CBaseController->createWidget('ext.EDataTables...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('index')
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('storeType/index')
+#22 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/~zhaorui/ctnet/storeType/index?sEcho=2&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=25&sSearch=5&iSortingCols=0&ajax=storeType&visibleColumns=0%2C1%2C2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/StoreType
+---
+2013/06/03 16:59:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "null".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('null')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/null?sEcho=2&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=25&sSearch=&iSortCol_0=1&sSortDir_0=asc&iSortingCols=1&ajax=storeType&visibleColumns=0%2C1%2C2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/StoreType
+---
+2013/06/03 16:59:26 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2.
+in /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php (117)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (148)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 16:59:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2' in /home/zhaorui/public_html/yii/framework/db/CDbCommand.php:528
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(1540): CDbCommand->queryScalar()
+#2 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
+#8 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(117): CGridView->init()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(148): EDataTables->init()
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(148): CBaseController->createWidget('ext.EDataTables...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('storeType')
+#22 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/~zhaorui/ctnet/storeType/?sEcho=9&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=25&sSearch=5&iSortCol_0=2&sSortDir_0=asc&iSortingCols=1&ajax=storeType&visibleColumns=0%2C1%2C2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/StoreType
+---
+2013/06/03 16:59:29 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2.
+in /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php (117)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (148)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 16:59:29 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2' in /home/zhaorui/public_html/yii/framework/db/CDbCommand.php:528
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(1540): CDbCommand->queryScalar()
+#2 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
+#8 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(117): CGridView->init()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(148): EDataTables->init()
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(148): CBaseController->createWidget('ext.EDataTables...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('storeType')
+#22 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/~zhaorui/ctnet/storeType/?sEcho=10&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=10&sSearch=5&iSortCol_0=2&sSortDir_0=asc&iSortingCols=1&ajax=storeType&visibleColumns=0%2C1%2C2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/StoreType
+---
+2013/06/03 17:08:46 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2.
+in /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php (117)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (148)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 17:08:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2' in /home/zhaorui/public_html/yii/framework/db/CDbCommand.php:528
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(1540): CDbCommand->queryScalar()
+#2 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
+#8 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(117): CGridView->init()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(148): EDataTables->init()
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(148): CBaseController->createWidget('ext.EDataTables...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('index')
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('storeType/index')
+#22 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/~zhaorui/ctnet/storeType/index?sEcho=2&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=25&sSearch=5&iSortingCols=0&ajax=storeType&visibleColumns=0%2C1%2C2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/StoreType
+---
+2013/06/03 17:08:49 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2.
+in /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php (117)
+in /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php (148)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/03 17:08:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%5%'' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `store_type` `t` WHERE textColumn ILIKE :ycp2' in /home/zhaorui/public_html/yii/framework/db/CDbCommand.php:528
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(1540): CDbCommand->queryScalar()
+#2 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 /home/zhaorui/public_html/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 /home/zhaorui/public_html/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 /home/zhaorui/public_html/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
+#7 /home/zhaorui/public_html/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
+#8 /home/zhaorui/public_html/ctnet/protected/extensions/EDataTables/EDataTables.php(117): CGridView->init()
+#9 /home/zhaorui/public_html/yii/framework/web/CBaseController.php(148): EDataTables->init()
+#10 /home/zhaorui/public_html/ctnet/protected/controllers/StoreTypeController.php(148): CBaseController->createWidget('ext.EDataTables...', Array)
+#11 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): StoreTypeController->actionIndex()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#16 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#17 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('index')
+#21 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('storeType/index')
+#22 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/~zhaorui/ctnet/storeType/index?sEcho=3&sColumns=id%2Cname%2Cdescription&iDisplayStart=0&iDisplayLength=10&sSearch=5&iSortingCols=0&ajax=storeType&visibleColumns=0%2C1%2C2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/StoreType
+---
+2013/06/05 10:38:56 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /home/zhaorui/public_html/yii/framework/gii/GiiModule.php:169
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(264): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#2 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gii')
+#3 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~zhaorui/ctnet/gii
+---
+2013/06/05 10:40:04 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /home/zhaorui/public_html/yii/framework/gii/GiiModule.php:169
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(264): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#2 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gii')
+#3 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~zhaorui/ctnet/gii
+---
+2013/06/05 10:40:05 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /home/zhaorui/public_html/yii/framework/gii/GiiModule.php:169
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(264): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#2 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gii')
+#3 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~zhaorui/ctnet/gii
+---
+2013/06/05 10:40:06 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /home/zhaorui/public_html/yii/framework/gii/GiiModule.php:169
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(264): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#2 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gii')
+#3 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~zhaorui/ctnet/gii
+---
+2013/06/05 10:40:06 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /home/zhaorui/public_html/yii/framework/gii/GiiModule.php:169
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(264): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#2 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gii')
+#3 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~zhaorui/ctnet/gii
+---
+2013/06/05 10:58:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "pcrservice".' in /home/zhaorui/public_html/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pcrservice')
+#1 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pcrservice
+---
+2013/06/05 11:14:07 [error] [exception.CException] exception 'CException' with message 'Property "PCRServiceController._customer" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php(66): CComponent->__get('_customer')
+#1 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PCRServiceController->actionCreate()
+#2 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#11 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pCRService/crea...')
+#12 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pCRService/create
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/PCRService
+---
+2013/06/05 11:14:27 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Must specify a customer before performing this action.' in /home/zhaorui/public_html/ctnet/protected/controllers/VisitController.php:203
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): VisitController->filterCustomerContext(Object(CFilterChain))
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('visit/create')
+#10 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/visit/create
+---
+2013/06/05 11:15:40 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Must specify a customer before performing this action.' in /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php:201
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PCRServiceController->filterCustomerContext(Object(CFilterChain))
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pCRService/crea...')
+#10 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pCRService/create
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/PCRService
+---
+2013/06/05 11:15:48 [error] [exception.CException] exception 'CException' with message 'Property "PCRServiceController._customer" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php(178): CComponent->__get('_customer')
+#1 /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php(199): PCRServiceController->loadCustomer('1')
+#2 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PCRServiceController->filterCustomerContext(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#11 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('PCRService/crea...')
+#12 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/PCRService/create?customer_id=1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/customer/1
+---
+2013/06/05 11:17:44 [error] [exception.CException] exception 'CException' with message 'Property "PCRServiceController._customer" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php(178): CComponent->__get('_customer')
+#1 /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php(199): PCRServiceController->loadCustomer('1')
+#2 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PCRServiceController->filterCustomerContext(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#11 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('PCRService/crea...')
+#12 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/PCRService/create?customer_id=1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/customer/1
+---
+2013/06/05 11:18:26 [error] [exception.CException] exception 'CException' with message 'Property "PCRServiceController._customer" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php(178): CComponent->__get('_customer')
+#1 /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php(199): PCRServiceController->loadCustomer('1')
+#2 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PCRServiceController->filterCustomerContext(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#11 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('PCRService/crea...')
+#12 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/PCRService/create?customer_id=1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/customer/1
+---
+2013/06/05 11:18:27 [error] [exception.CException] exception 'CException' with message 'Property "PCRServiceController._customer" is not defined.' in /home/zhaorui/public_html/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php(178): CComponent->__get('_customer')
+#1 /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php(199): PCRServiceController->loadCustomer('1')
+#2 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PCRServiceController->filterCustomerContext(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#9 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#11 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('PCRService/crea...')
+#12 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/PCRService/create?customer_id=1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/customer/1
+---
+2013/06/05 11:28:05 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('admin')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pCRService/admi...')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pCRService/admin
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/PCRService
+---
+2013/06/05 11:33:09 [error] [php] Undefined variable: serviceDataProvider (/home/zhaorui/public_html/ctnet/protected/views/customer/view.php:60)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(870): CustomerController->renderFile()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(783): CustomerController->renderPartial()
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/CustomerController.php(89): CustomerController->render()
+#3 unknown(0): CustomerController->actionView()
+#4 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#5 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#7 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CustomerController->runAction()
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): UserGroupsAccessControl->filter()
+#10 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CustomerController->filterUserGroupsAccessControl()
+#11 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#12 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CustomerController->runActionWithFilters()
+#14 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CustomerController->run()
+#15 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#16 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/customer/1
+in /home/zhaorui/public_html/ctnet/protected/views/customer/view.php (60)
+in /home/zhaorui/public_html/ctnet/protected/controllers/CustomerController.php (89)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+2013/06/05 11:53:55 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('delete')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pCRSample/delet...')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pCRSample/delete/1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/pCRSample/1
+---
+2013/06/05 11:57:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Must specify a customer before performing this action.' in /home/zhaorui/public_html/ctnet/protected/controllers/PCRSampleController.php:68
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PCRSampleController->actionCreate()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#2 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('PCRSample/creat...')
+#11 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/PCRSample/create?service_id=1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/pCRService/1
+---
+2013/06/05 11:57:37 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Must specify a customer before performing this action.' in /home/zhaorui/public_html/ctnet/protected/controllers/PCRSampleController.php:68
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PCRSampleController->actionCreate()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#2 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('PCRSample/creat...')
+#11 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/PCRSample/create?service_id=1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/pCRService/1
+---
+2013/06/05 11:57:42 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Must specify a customer before performing this action.' in /home/zhaorui/public_html/ctnet/protected/controllers/PCRSampleController.php:68
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PCRSampleController->actionCreate()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#2 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('PCRSample/creat...')
+#11 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/PCRSample/create?service_id=1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/pCRService/1
+---
+2013/06/05 11:57:57 [error] [php] Creating default object from empty value (/home/zhaorui/public_html/ctnet/protected/controllers/PCRSampleController.php:66)
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): PCRSampleController->runAction()
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): PCRSampleController->filterAccessControl()
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): PCRSampleController->runActionWithFilters()
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): PCRSampleController->run()
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CWebApplication->run()
+REQUEST_URI=/~zhaorui/ctnet/index.php/PCRSample/create?service_id=1
+in /home/zhaorui/public_html/ctnet/protected/controllers/PCRSampleController.php (66)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/06/05 14:14:46 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('delete')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pCRSample/delet...')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pCRSample/delete/2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/pCRSample/2
+---
+2013/06/05 14:14:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php:170
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php(67): PCRServiceController->loadModel('2')
+#1 [internal function]: PCRServiceController->actionView('2')
+#2 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(PCRServiceController), Array)
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(PCRServiceController), Object(ReflectionMethod), Array)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pCRService/view')
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pCRService/2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/pCRService/1
+---
+2013/06/05 14:15:15 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('delete')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pCRSample/delet...')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pCRSample/delete/1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/pCRSample/1
+---
+2013/06/05 14:16:14 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('delete')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pCRSample/delet...')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pCRSample/delete/1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/pCRSample/1
+---
+2013/06/05 14:16:53 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/UserGroupsAccessControl.php:97
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): UserGroupsAccessControl->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('delete')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pCRSample/delet...')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pCRSample/delete/1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/pCRSample/1
+---
+2013/06/05 14:17:03 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/UserGroupsAccessControl.php:97
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): UserGroupsAccessControl->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('delete')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pCRSample/delet...')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pCRSample/delete/1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/pCRSample/1
+---
+2013/06/05 14:18:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php:170
+Stack trace:
+#0 /home/zhaorui/public_html/ctnet/protected/controllers/PCRServiceController.php(67): PCRServiceController->loadModel('2')
+#1 [internal function]: PCRServiceController->actionView('2')
+#2 /home/zhaorui/public_html/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(PCRServiceController), Array)
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(PCRServiceController), Object(ReflectionMethod), Array)
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('view')
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pCRService/view')
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pCRService/2
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/pCRService/1
+---
+2013/06/05 14:18:24 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/UserGroupsAccessControl.php:97
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): UserGroupsAccessControl->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('delete')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pCRSample/delet...')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pCRSample/delete/1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/pCRSample/1
+---
+2013/06/05 14:33:36 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/UserGroupsAccessControl.php:97
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): UserGroupsAccessControl->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('PCRService')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/PCRService
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/PCRSample
+---
+2013/06/06 08:52:52 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/UserGroupsAccessControl.php:97
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): UserGroupsAccessControl->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('PCRService')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/PCRService
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/PCRSample
+---
+2013/06/06 10:45:36 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/zhaorui/public_html/ctnet/protected/modules/userGroups/components/UserGroupsAccessControl.php:97
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/auth/CAccessControlFilter.php(133): UserGroupsAccessControl->accessDenied(Object(WebUserGroups), 'You are not aut...')
+#1 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#4 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#8 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('PCRService')
+#9 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/PCRService
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/PCRSample
+---
+2013/06/06 16:22:55 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /home/zhaorui/public_html/yii/framework/gii/GiiModule.php:169
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(264): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#2 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gii')
+#3 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/gii
+---
+2013/06/06 16:25:06 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /home/zhaorui/public_html/yii/framework/gii/GiiModule.php:169
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/CController.php(264): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('')
+#2 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gii')
+#3 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/gii
+---
+2013/06/06 16:37:43 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`ctnet`.`PCR_sample`, CONSTRAINT `fk_PCR_sample_1` FOREIGN KEY (`species_id`) REFERENCES `species` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `PCR_sample` (`service_id`, `name`, `type`, `species_id`, `note`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4).
+in /home/zhaorui/public_html/ctnet/protected/controllers/PCRSampleController.php (77)
+in /home/zhaorui/public_html/ctnet/protected/components/Controller.php (43)
+in /home/zhaorui/public_html/ctnet/index.php (13)
+2013/06/06 16:37:43 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`ctnet`.`PCR_sample`, CONSTRAINT `fk_PCR_sample_1` FOREIGN KEY (`species_id`) REFERENCES `species` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `PCR_sample` (`service_id`, `name`, `type`, `species_id`, `note`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4)' in /home/zhaorui/public_html/yii/framework/db/CDbCommand.php:354
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(1017): CDbCommand->execute()
+#1 /home/zhaorui/public_html/yii/framework/db/ar/CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 /home/zhaorui/public_html/ctnet/protected/controllers/PCRSampleController.php(77): CActiveRecord->save()
+#3 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PCRSampleController->actionCreate()
+#4 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#8 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#9 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#13 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('PCRSample/creat...')
+#14 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/PCRSample/create?service_id=1
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/PCRSample/create?service_id=1
+---
+2013/06/06 16:38:22 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Must specify a customer before performing this action.' in /home/zhaorui/public_html/ctnet/protected/controllers/PCRSampleController.php:69
+Stack trace:
+#0 /home/zhaorui/public_html/yii/framework/web/actions/CInlineAction.php(50): PCRSampleController->actionCreate()
+#1 /home/zhaorui/public_html/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#2 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#3 /home/zhaorui/public_html/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#4 /home/zhaorui/public_html/ctnet/protected/components/Controller.php(43): CFilter->filter(Object(CFilterChain))
+#5 /home/zhaorui/public_html/yii/framework/web/filters/CInlineFilter.php(59): Controller->filterUserGroupsAccessControl(Object(CFilterChain))
+#6 /home/zhaorui/public_html/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#7 /home/zhaorui/public_html/yii/framework/web/CController.php(292): CFilterChain->run()
+#8 /home/zhaorui/public_html/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(283): CController->run('create')
+#10 /home/zhaorui/public_html/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('pCRSample/creat...')
+#11 /home/zhaorui/public_html/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /home/zhaorui/public_html/ctnet/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/~zhaorui/ctnet/index.php/pCRSample/create
+HTTP_REFERER=http://192.168.1.178/~zhaorui/ctnet/index.php/PCRSample
+---

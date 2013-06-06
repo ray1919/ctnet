@@ -10,7 +10,7 @@
 	<?php echo CHtml::link(
                 "<b>".CHtml::encode($data->getAttributeLabel('customer_id')).": </b>".
                 CHtml::encode($data->customer->title),
-                array('view', 'id'=>$data->id)); ?>
+                array('customer/view', 'id'=>$data->customer->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('price')); ?>:</b>

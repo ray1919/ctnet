@@ -1,12 +1,14 @@
 <?php
 
-class CustomerController extends Controller
+class PCRServiceController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+	private $_customer = null; 
+        public $customer_title = "";
 
 	/**
 	 * @return array action filters
@@ -16,6 +18,7 @@ class CustomerController extends Controller
 		return array(
 			'userGroupsAccessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
+                        'customerContext + create', //check to ensure valid customer context // index admin
 		);
 	}
 
@@ -51,32 +54,10 @@ class CustomerController extends Controller
 	 */
 	public function actionView($id)
 	{
-            // display visit and order information on customer page
-		$visitDataProvider=new CActiveDataProvider('Visit', array(
+		$sampleDataProvider=new CActiveDataProvider('PCRSample', array(
 			'criteria'=>array(
-				'condition'=>'customer_id=:customerId',
-				'params'=>array(':customerId'=>$id),
-                                'order'=>'time DESC',
-			),
-			'pagination'=>array(
-				'pageSize'=>3,
-			),
-		));
-		$orderDataProvider=new CActiveDataProvider('CustomerOrder', array(
-			'criteria'=>array(
-				'condition'=>'customer_id=:customerId',
-				'params'=>array(':customerId'=>$id),
-                                'order'=>'date DESC',
-			),
-			'pagination'=>array(
-				'pageSize'=>2,
-			),
-		));
-		$serviceDataProvider=new CActiveDataProvider('PCRService', array(
-			'criteria'=>array(
-				'condition'=>'customer_id=:customerId',
-				'params'=>array(':customerId'=>$id),
-                                'order'=>'date DESC',
+				'condition'=>'service_id=:serviceId',
+				'params'=>array(':serviceId'=>$id),
 			),
 			'pagination'=>array(
 				'pageSize'=>1,
@@ -84,9 +65,7 @@ class CustomerController extends Controller
 		));
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
-                        'visitDataProvider'=>$visitDataProvider,
-                        'orderDataProvider'=>$orderDataProvider,
-                        'serviceDataProvider'=>$serviceDataProvider,
+                        'sampleDataProvider'=>$sampleDataProvider,
 		));
 	}
 
@@ -96,14 +75,16 @@ class CustomerController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Customer;
+		$model=new PCRService;
+                $model->customer_id = $this->_customer->id;
+                $this->customer_title = $this->_customer->title;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Customer']))
+		if(isset($_POST['PCRService']))
 		{
-			$model->attributes=$_POST['Customer'];
+			$model->attributes=$_POST['PCRService'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -125,9 +106,9 @@ class CustomerController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Customer']))
+		if(isset($_POST['PCRService']))
 		{
-			$model->attributes=$_POST['Customer'];
+			$model->attributes=$_POST['PCRService'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -156,18 +137,9 @@ class CustomerController extends Controller
 	 */
 	public function actionIndex()
 	{
-                $sql = "select customer_id, GROUP_CONCAT(DISTINCT time SEPARATOR ', ') date from visit GROUP BY customer_id";
-                $command = Yii::app()->db->createCommand($sql); 
-                $rows = $command->queryAll();
-                foreach ($rows as $key => $value) {
-                    if(isset($rows[$key]['customer_id']))
-                        unset($rows[$key]);
-                    $rows[$value['customer_id']] = $value['date'];                    
-                }
-		$dataProvider=new CActiveDataProvider('Customer');
+		$dataProvider=new CActiveDataProvider('PCRService');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-                        'times'=>$rows,
 		));
 	}
 
@@ -176,10 +148,10 @@ class CustomerController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Customer('search');
+		$model=new PCRService('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Customer']))
-			$model->attributes=$_GET['Customer'];
+		if(isset($_GET['PCRService']))
+			$model->attributes=$_GET['PCRService'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -193,7 +165,7 @@ class CustomerController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Customer::model()->findByPk($id);
+		$model=PCRService::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -205,10 +177,43 @@ class CustomerController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='customer-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='pcrservice-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
+        
+	protected function loadCustomer($customerId)	 
+	{
+		//if the project property is null, create it based on input id
+		if($this->_customer===null)
+		{
+			$this->_customer= Customer::model()->findByPk($customerId);
+			if($this->_customer===null)
+	        {
+				throw new CHttpException(404,'The requested project does not exist.'); 
+			}
+		}
+
+		return $this->_customer; 
+	} 
+	
+	/**
+	 * In-class defined filter method, configured for use in the above filters() method
+	 * It is called before the actionCreate() action method is run in order to ensure a proper project context
+	 */
+	public function filterCustomerContext($filterChain)
+	{   
+		//set the project identifier based on either the GET input 
+	    //request variables   
+		if(isset($_GET['customer_id']))
+			$this->loadCustomer($_GET['customer_id']);   
+		else
+			throw new CHttpException(403,'Must specify a customer before performing this action.');
+			
+		//complete the running of other filters and execute the requested action
+		$filterChain->run(); 
+	}
+        
 }
