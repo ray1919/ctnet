@@ -35,7 +35,8 @@ class WebUserGroups extends CWebUser
 	    $this->setGroupName($groupName);
 	    $this->setLevel($level);
 	    $this->setAccessRules($accessRules);
-	    $this->returnUrl = Yii::app()->baseUrl . ($home === NULL ? '/userGroups' : $home);
+            // redirect to former url after login
+	    //$this->returnUrl = Yii::app()->baseUrl . ($home === NULL ? '/userGroups' : $home);
 	    $this->setRecovery($recovery);
 	    $this->setProfile($profile);
 	    $this->loadIdentityStates($states);

@@ -14,6 +14,7 @@
  * @property integer $service_id
  * @property string $pos
  * @property string $plate_type
+ * @property string $array_name
  * @property string $status
  * @property integer $sample_id
  *
@@ -25,6 +26,8 @@
  */
 class PCRExperiment extends CActiveRecord
 {
+        public $ctfile;
+        public $tmfile;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -51,13 +54,17 @@ class PCRExperiment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('ctfile, tmfile', 'file', 'safe'=>true, 'types' => 'txt',
+                            'allowEmpty' => false,'maxSize' => (1024 * 300), // 300 Kb
+                            'tooLarge' => 'File no larger than 300Kb.',
+                            'wrongType'=>'Only txt allowed.'),
 			array('gene_id, primer_fk, service_id, sample_id', 'numerical', 'integerOnly'=>true),
 			array('ct, tm1, tm2', 'numerical'),
-			array('primer_id, pos, plate_type', 'length', 'max'=>45),
+			array('primer_id, pos, plate_type, array_name', 'length', 'max'=>45),
 			array('status', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, gene_id, primer_id, primer_fk, ct, tm1, tm2, service_id, pos, plate_type, status, sample_id', 'safe', 'on'=>'search'),
+			array('id, gene_id, primer_id, primer_fk, ct, tm1, tm2, service_id, pos, plate_type, status, sample_id, array_name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -84,7 +91,7 @@ class PCRExperiment extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'gene_id' => 'Gene',
-			'primer_id' => 'Primer',
+			'primer_id' => 'Primer ID',
 			'primer_fk' => 'Primer Fk',
 			'ct' => 'Ct',
 			'tm1' => 'Tm1',
@@ -94,6 +101,9 @@ class PCRExperiment extends CActiveRecord
 			'plate_type' => 'Plate Type',
 			'status' => 'Status',
 			'sample_id' => 'Sample',
+                        'array_name' => 'Array Name',
+                        'ctfile' => 'Ct File',
+                        'tmfile' => 'Tm File',
 		);
 	}
 
@@ -120,9 +130,18 @@ class PCRExperiment extends CActiveRecord
 		$criteria->compare('plate_type',$this->plate_type,true);
 		$criteria->compare('status',$this->status,true);
 		$criteria->compare('sample_id',$this->sample_id);
+		$criteria->compare('array_name',$this->array_name);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'pagination'=>array('pageSize'=>96),
 		));
 	}
+
+        public function getPlateOptions() {
+            return array(
+                "96-well"=>"96-well",
+                "384-well"=>"384-well",
+                );
+        }        
 }

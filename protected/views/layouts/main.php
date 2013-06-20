@@ -72,7 +72,7 @@
 
 	<div id="footer">
 		Copyright &copy; <?php echo date('Y'); ?> by CT Bioscience.<br/>
-		All Rights Reserved.<br/>
+		All Rights Reserved.<br/><?php echo Yii::app()->user->returnUrl; ?>
 	</div><!-- footer -->
 
 </div><!-- page -->

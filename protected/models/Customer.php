@@ -122,4 +122,13 @@ class Customer extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+        public function getSourceOptions() {
+            return array(
+                "邮件广告"=>"邮件广告",
+                "主动拜访"=>"主动拜访",
+                "老客户介绍"=>"老客户介绍",
+                "网上搜索"=>"网上搜索",
+                "未知"=>"未知",
+                );
+        }        
 }

@@ -128,7 +128,11 @@ class VisitController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Visit');
+		$dataProvider=new CActiveDataProvider('Visit', array(
+			'criteria'=>array(
+                                'order'=>'time DESC',
+			),
+                ));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

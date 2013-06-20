@@ -71,7 +71,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'source'); ?>
-		<?php echo $form->textArea($model,'source',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->dropDownList($model,'source',$model->getSourceOptions()); ?>
 		<?php echo $form->error($model,'source'); ?>
 	</div>
 

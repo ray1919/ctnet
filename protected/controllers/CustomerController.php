@@ -164,7 +164,11 @@ class CustomerController extends Controller
                         unset($rows[$key]);
                     $rows[$value['customer_id']] = $value['date'];                    
                 }
-		$dataProvider=new CActiveDataProvider('Customer');
+		$dataProvider=new CActiveDataProvider('Customer', array(
+			'criteria'=>array(
+                                'order'=>'add_date DESC',
+			),
+                ));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
                         'times'=>$rows,

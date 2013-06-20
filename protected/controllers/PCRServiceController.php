@@ -63,9 +63,26 @@ class PCRServiceController extends Controller
 				'pageSize'=>1,
 			),
 		));
-		$this->render('view',array(
+		$expDataProvider=new CActiveDataProvider('PCRExperiment', array(
+			'criteria'=>array(
+				'condition'=>'service_id=:serviceId',
+				'params'=>array(':serviceId'=>$id),
+			),
+			'pagination'=>array(
+				'pageSize'=>96,
+			),
+		));
+                                
+		$expmodel=new PCRExperiment('search');
+		$expmodel->unsetAttributes();  // clear any default values
+		if(isset($_GET['PCRExperiment']))
+			$expmodel->attributes=$_GET['PCRExperiment'];
+
+                $this->render('view',array(
 			'model'=>$this->loadModel($id),
                         'sampleDataProvider'=>$sampleDataProvider,
+                        'expDataProvider'=>$expDataProvider,
+                        'expmodel'=>$expmodel,
 		));
 	}
 
@@ -216,4 +233,13 @@ class PCRServiceController extends Controller
 		$filterChain->run(); 
 	}
         
+	protected function loadPCRExperiment()	 
+	{
+		$model=new PCRExperiment('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['PCRExperiment']))
+			$model->attributes=$_GET['PCRExperiment'];
+		return $model;
+	} 
+	
 }
