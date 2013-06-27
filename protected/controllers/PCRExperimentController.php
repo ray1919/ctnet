@@ -51,8 +51,21 @@ class PCRExperimentController extends Controller
 	 */
 	public function actionView($id)
 	{
+            $model = $this->loadModel($id);
+            /*  select primer_id,group_concat(ct) cts
+                from PCR_experiment
+                where gene_id = 22800
+                group by primer_id;
+                */
+                $stats = Yii::app()->db->createCommand()
+                    ->select('primer_id,group_concat(ct) cts,group_concat(tm1) tm1s')
+                    ->from('PCR_experiment')
+                    ->where('gene_id=:id', array(':id'=>$model->gene_id))
+                    ->group('primer_id')
+                    ->queryAll();
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$model,
+                        'stats'=>$stats,
 		));
 	}
 

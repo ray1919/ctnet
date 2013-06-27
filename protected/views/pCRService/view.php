@@ -40,6 +40,50 @@ $this->menu=array(
 )); ?>
 
 <br />
+<?php
+if (!empty($ctdata)) {
+$categories = preg_split('/,/',$ctdata[0]['gs']);
+function str2float($v) {
+    if ($v==="") return '';
+    return floatval($v);
+}
+function ctdata($v) {
+    $a = array();
+    foreach ($v as $key => $value) {
+        $a[$key]['name'] = $v[$key]['name'];
+        $a[$key]['data'] = array_map("str2float",preg_split('/,/',$v[$key]['ct']));
+    }
+    return $a;
+}
+$this->Widget('ext.highcharts.HighchartsWidget', array(
+    'options'=>array(
+    'chart' => array(
+        'type' => 'scatter',
+        'inverted' => true,
+        'zoomType' => 'xy',
+        'height' => 100+sizeof($categories) * 10,
+    ),
+    'title' => array('text' => 'PCR Array Ct'),
+     'xAxis' => array(
+        'title' => array('text' => 'Gene symbol'),
+        'categories' => $categories,
+         'gridLineWidth' => 1,
+     ),
+    'yAxis' => array(
+        'title' => array('text' => 'Ct value'),
+    ),
+    'tooltip' => array(
+        "formatter" => "js:function() {         
+                            return this.series.name + '<br/>'
+                            + this.x + ': <b>' + this.y + '</b>';
+                        }",
+        "shared" => true,
+    ),
+    'series' => ctdata($ctdata),
+    )
+));
+}
+?>
 <h1>PCR Experiment</h1>
 
 <?php
@@ -62,14 +106,21 @@ $this->menu=array(
 		'tm1',
 		'tm2',
 		'sample_id',
-                'array_name',
+                //'array_name',
 		/*
 		'service_id',
 		'plate_type',
 		'status',
+		*/
 		array(
 			'class'=>'CButtonColumn',
+                        'template' => '{view}',
+                        'buttons'=>array(
+                                'view'=>array(
+                                    'label'=>'View Ct boxplot',
+                                    'url'=>'Yii::app()->createUrl("pCRExperiment/view", array("id"=>$data->id))',
+                                ),
+                        ),
 		),
-		*/
             ),
 )); ?>

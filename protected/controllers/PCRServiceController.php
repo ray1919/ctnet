@@ -63,16 +63,37 @@ class PCRServiceController extends Controller
 				'pageSize'=>1,
 			),
 		));
-		$expDataProvider=new CActiveDataProvider('PCRExperiment', array(
-			'criteria'=>array(
-				'condition'=>'service_id=:serviceId',
-				'params'=>array(':serviceId'=>$id),
-			),
-			'pagination'=>array(
-				'pageSize'=>96,
-			),
-		));
-                                
+		//$expDataProvider=new CActiveDataProvider('PCRExperiment', array(
+		//	'criteria'=>array(
+		//		'condition'=>'service_id=:serviceId',
+		//		'params'=>array(':serviceId'=>$id),
+		//	),
+		//	'pagination'=>array(
+		//		'pageSize'=>96,
+		//	),
+		//));
+                /*  get gene symbol array
+                 *  select name,
+                    concat("'",group_concat(IFNULL(gene_symbol, 'Unknow') order by e.id separator "', '"),"'") gs,
+                    concat("'",group_concat(IFNULL(ct, '') order by e.id separator "', '"),"'") ct
+                    from PCR_experiment e left join gene g
+                    on e.gene_id = g.gene_id
+                    left join PCR_sample s
+                    on e.sample_id = s.id
+                    group by sample_id
+                 */
+                $ctdata = Yii::app()->db->createCommand()
+                            ->select('name,
+                    group_concat(IFNULL(gene_symbol, "Unknow") order by e.id separator ",") gs,
+                    group_concat(IFNULL(ct, "") order by e.id separator ",") ct')
+                            ->from('PCR_experiment e')
+                            ->leftJoin('gene g','e.gene_id = g.gene_id')
+                            ->leftJoin('PCR_sample s','e.sample_id = s.id')
+                            ->group('sample_id')
+                            ->queryAll();
+                //print_r($ctdata);
+                //exit;
+
 		$expmodel=new PCRExperiment('search');
 		$expmodel->unsetAttributes();  // clear any default values
 		if(isset($_GET['PCRExperiment']))
@@ -81,8 +102,9 @@ class PCRServiceController extends Controller
                 $this->render('view',array(
 			'model'=>$this->loadModel($id),
                         'sampleDataProvider'=>$sampleDataProvider,
-                        'expDataProvider'=>$expDataProvider,
+                        //'expDataProvider'=>$expDataProvider,
                         'expmodel'=>$expmodel,
+                        'ctdata'=>$ctdata,
 		));
 	}
 
