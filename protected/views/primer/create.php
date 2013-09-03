@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'List Primer', 'url'=>array('index')),
 	array('label'=>'Manage Primer', 'url'=>array('admin')),
+	array('label'=>'Check Primer', 'url'=>array('check')),
 );
 ?>
 

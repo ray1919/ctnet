@@ -13,6 +13,7 @@ $this->menu=array(
 	array('label'=>'Create Primer', 'url'=>array('create')),
 	array('label'=>'View Primer', 'url'=>array('view', 'id'=>$model->id)),
 	array('label'=>'Manage Primer', 'url'=>array('admin')),
+	array('label'=>'Check Primer', 'url'=>array('check')),
 );
 ?>
 

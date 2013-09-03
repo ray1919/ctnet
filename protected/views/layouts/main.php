@@ -30,14 +30,15 @@
 		<?php $this->widget('application.extensions.mbmenu.MbMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'Primer', 'url'=>array('/primer'),
+				array('label'=>'Task', 'url'=>array('/task')),
+				array('label'=>'Primer', 'url'=>array('/primer/admin'),
                                   'items'=>array(
-                                    array('label'=>'Plate', 'url'=>array('/plate')),
-                                    array('label'=>'Store Type', 'url'=>array('/StoreType')),
-                                    array('label'=>'Position', 'url'=>array('/position')),
-                                    array('label'=>'Gene DB', 'url'=>array('/gene')),
-                                    array('label'=>'miRNA DB', 'url'=>array('/mirna')),
-                                    array('label'=>'Species', 'url'=>array('/species')),
+                                    array('label'=>'Plate', 'url'=>array('/plate/admin')),
+                                    array('label'=>'Store Type', 'url'=>array('/StoreType/admin')),
+                                    array('label'=>'Position', 'url'=>array('/position/admin')),
+                                    array('label'=>'Gene DB', 'url'=>array('/gene/admin')),
+                                    array('label'=>'miRNA DB', 'url'=>array('/mirna/admin')),
+                                    array('label'=>'Species', 'url'=>array('/species/admin')),
                                     ),
                                 ),
                                 array('label'=>'Contacts', 'url'=>array('/customer'),
@@ -52,6 +53,7 @@
                                     array('label'=>'PCR Sample', 'url'=>array('/PCRSample')),
                                     ),
                                 ),
+				array('label'=>'Files', 'url'=>array('/media')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact Us', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/userGroups'), 'visible'=>Yii::app()->user->isGuest),
@@ -67,12 +69,19 @@
 	<?php endif?>
 
 	<?php echo $content; ?>
-
 	<div class="clear"></div>
 
 	<div id="footer">
+                <?php Yii::app()->counter->refresh(); ?>
+                online: <?php echo Yii::app()->counter->getOnline(); ?>
+                today: <?php echo Yii::app()->counter->getToday(); ?>
+                yesterday: <?php echo Yii::app()->counter->getYesterday(); ?>
+                total: <?php echo Yii::app()->counter->getTotal(); ?>
+                maximum: <?php echo Yii::app()->counter->getMaximal(); ?>
+                date for maximum: <?php echo date('d.m.Y', Yii::app()->counter->getMaximalTime()); ?><br/>
+            
 		Copyright &copy; <?php echo date('Y'); ?> by CT Bioscience.<br/>
-		All Rights Reserved.<br/><?php echo Yii::app()->user->returnUrl; ?>
+		All Rights Reserved.<br/>
 	</div><!-- footer -->
 
 </div><!-- page -->

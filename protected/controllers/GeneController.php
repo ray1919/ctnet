@@ -28,7 +28,7 @@ class GeneController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'admin' and 'index' and 'view' actions
-				'actions'=>array('index','view','admin'),
+				'actions'=>array('index','view','admin','check'),
 				'pbac'=>array('read'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -54,6 +54,86 @@ class GeneController extends Controller
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
+	}
+	/**
+	 * Check gene.
+         * find gene id or symbol info using gene id or symbol
+	 */
+	public function actionCheck()
+	{
+                //$model=$this->loadModel($id);
+                function str2int($v) {
+                    if ($v==="") return '';
+                    return intval($v);
+                }
+
+		if(isset($_POST['Primer']) and $_POST['Primer']['content'] !== '')
+		{
+                    if ($_POST['Primer']['type'] === 'gene id') {
+                        $ids = array_map("str2int",preg_split("/\D+/",$_POST['Primer']['content']));
+                        $ids = array_filter($ids, "is_int");
+                        $ids = join(',',$ids);
+
+                        $count = Yii::app()->db->createCommand()
+                                ->select('count(*)')
+                                ->from('gene g')
+                                ->leftJoin('primer p','p.gene_fk = g.gene_id')
+                                ->leftJoin('position o','p.id = o.primer_id')
+                                ->leftJoin('plate l','o.plate_id = l.id')
+                                ->leftJoin('store_type s','o.store_type_id = s.id')
+                                ->where("g.gene_id in ($ids)")
+                                ->queryScalar();
+
+                        $sql = Yii::app()->db->createCommand()
+                                ->select('o.id, g.gene_id, g.gene_symbol, p.primer_id,
+                                    barcode, l.name plate, o.well, p.qc, s.name type,
+                                    CONCAT_WS("",p.comment, o.comment) note')
+                                ->from('gene g')
+                                ->leftJoin('primer p','p.gene_fk = g.gene_id')
+                                ->leftJoin('position o','p.id = o.primer_id')
+                                ->leftJoin('plate l','o.plate_id = l.id')
+                                ->leftJoin('store_type s','o.store_type_id = s.id')
+                                ->where("g.gene_id in ($ids)");
+                    }else{
+                        $ids = preg_split("/\s+/",$_POST['Primer']['content']);
+                        $ids = '"' . join('","',$ids) . '"';
+                        
+                        $count = Yii::app()->db->createCommand()
+                                ->select('count(*)')
+                                ->from('mirna m')
+                                ->leftJoin('primer p','p.gene_symbol = m.miRNA_id')
+                                ->leftJoin('position o','p.id = o.primer_id')
+                                ->leftJoin('plate l','o.plate_id = l.id')
+                                ->leftJoin('store_type s','o.store_type_id = s.id')
+                                ->where("m.miRNA_id in ($ids)")
+                                ->queryScalar();
+
+                        $sql = Yii::app()->db->createCommand()
+                                ->select('o.id, m.miRNA_id gene_id, p.primer_id,
+                                    barcode, l.name plate, o.well, p.qc, s.name type,
+                                    CONCAT_WS("",p.comment, o.comment) note')
+                                ->from('mirna m')
+                                ->leftJoin('primer p','p.gene_symbol = m.miRNA_id')
+                                ->leftJoin('position o','p.id = o.primer_id')
+                                ->leftJoin('plate l','o.plate_id = l.id')
+                                ->leftJoin('store_type s','o.store_type_id = s.id')
+                                ->where("m.miRNA_id in ($ids)");
+                        
+                    }
+                    $dataProvider=new CSqlDataProvider($sql, array(
+                        'totalItemCount'=>$count,
+                        'pagination'=>array(
+                            'pageSize'=>$count,
+                        ),
+                    ));
+                    
+                    $this->render('check',array(
+                        'dataProvider'=>$dataProvider,
+                    ));
+		
+                }else{
+                    $this->render('check');
+                }
 	}
 
 	/**

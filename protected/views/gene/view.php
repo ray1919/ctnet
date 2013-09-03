@@ -22,11 +22,12 @@ $this->menu=array(
 		'gene_symbol',
 		'gene_name',
 		'tax_id',
-    array(
-      'label' => 'Organism',
-      'value' => $model->tax->name,
-    ),
+                array(
+                  'label' => 'Organism',
+                  'value' => $model->tax->name,
+                ),
 		'synonyms',
 		'type_of_gene',
+                'modification_date',
 	),
 )); ?>

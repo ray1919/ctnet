@@ -17,7 +17,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'plate_id'); ?>
-    <?php echo $form->dropDownList($model,'plate_id', $model->getPlateName()); ?>
+                <?php echo $form->dropDownList($model,'plate_id', $model->getPlateName()); ?>
 		<?php echo $form->error($model,'plate_id'); ?>
 	</div>
 
@@ -29,13 +29,23 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'primer_id'); ?>
-		<?php echo $form->textField($model,'primer_id'); ?>
+		<?php
+                    if (isset($model->primer->gene_fk))
+                        echo $model->primer->geneFk->gene_symbol
+                        . ' - ' . $model->primer->primer_id;
+                ?>
 		<?php echo $form->error($model,'primer_id'); ?>
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'synthetic_name'); ?>
+		<?php echo $form->textField($model,'synthetic_name',array('size'=>10,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'synthetic_name'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'store_type_id'); ?>
-    <?php echo $form->dropDownList($model,'store_type_id', $model->getStoreType()); ?>
+                <?php echo $form->dropDownList($model,'store_type_id', $model->getStoreType()); ?>
 		<?php echo $form->error($model,'store_type_id'); ?>
 	</div>
 

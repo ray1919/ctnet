@@ -24,7 +24,12 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'date',
-		'customer_id',
+		//'customer_id',
+                array(
+                  'label'=>'Contact Title',
+                  'type'=>'raw',
+                  'value'=>CHtml::link($model->customer->title, array('customer/view', 'id'=>$model->customer_id)),
+                ),
 		'service_type',
 		'sample_arrival_date',
 		'report_date',
@@ -90,7 +95,7 @@ $this->Widget('ext.highcharts.HighchartsWidget', array(
     $pageSize=Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize']);
     $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'pcrexperiment-grid',
-        'dataProvider'=>$expmodel->search(),
+        'dataProvider'=>$expmodel->search($model->id),
         'filter'=>$expmodel,
         //'pager'=>array(
           //'class'=>'CLinkPager',
@@ -100,12 +105,17 @@ $this->Widget('ext.highcharts.HighchartsWidget', array(
 		//'id',
 		'pos',
 		'gene_id',
+                array('name'=>'gene_search', 'value'=>'isset($data->gene->gene_symbol) ? $data->gene->gene_symbol : ""'),
 		'primer_id',
 		//'primer_fk',
 		'ct',
 		'tm1',
 		'tm2',
-		'sample_id',
+		//'sample_id',
+                array(
+                    'name' => 'sample_search',
+                    'value' => '$data->sample->name',
+                ),
                 //'array_name',
 		/*
 		'service_id',
@@ -118,7 +128,9 @@ $this->Widget('ext.highcharts.HighchartsWidget', array(
                         'buttons'=>array(
                                 'view'=>array(
                                     'label'=>'View Ct boxplot',
-                                    'url'=>'Yii::app()->createUrl("pCRExperiment/view", array("id"=>$data->id))',
+                                    'url'=>'isset($data->gene->gene_symbol) // check the gene_id is set
+                                        ? Yii::app()->createUrl("pCRExperiment/view", array("id"=>$data->id))
+                                        : ""',
                                 ),
                         ),
 		),

@@ -47,7 +47,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'qc'); ?>
-                <?php echo $form->textField($model,'qc',array('size'=>10,'maxlength'=>4)); ?>
+                <?php echo $form->dropDownList($model,'qc', $model->getQcOptions()); ?>
 		<?php echo $form->error($model,'qc'); ?>
 	</div>
 

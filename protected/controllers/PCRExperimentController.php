@@ -95,8 +95,11 @@ class PCRExperimentController extends Controller
                                 $ctfile=fopen("/tmp/ctfile","r");
                                 $tmfile=fopen("/tmp/tmfile","r");
                                 $array_name = null;
-                                for ($i = 0; $i < 98; $i++) {
-                                  $ctline=fgets($ctfile);
+                                $i = -1;
+                                //for ($i = 0; $i < 98; $i++) {
+                                  //$ctline=fgets($ctfile);
+                                while($ctline=fgets($ctfile)) {
+                                  $i++;
                                   $tmline=fgets($tmfile);
                                   $ctcells = preg_split("/\t/", $ctline);
                                   $tmcells = preg_split("/\t/", $tmline);
@@ -105,28 +108,31 @@ class PCRExperimentController extends Controller
                                       continue;
                                   }
                                   if ($i == 1) continue;
-                                  $expmodel[$i-2] = new PCRExperiment;
-                                  $expmodel[$i-2]->service_id = $model->service_id;
-                                  $expmodel[$i-2]->plate_type = $model->plate_type;
-                                  $expmodel[$i-2]->array_name = $array_name;
-                                  $expmodel[$i-2]->gene_id = $ctcells[0];
-                                  $expmodel[$i-2]->primer_id = $ctcells[1];
-                                  if ($ctcells[1] !== '') {
-                                      $primer_fk = Yii::app()->db->createCommand()
-                                        ->select('id')
-                                        ->from('primer')
-                                        ->where('primer_id=:id', array(':id'=>$ctcells[1]))
-                                        ->queryRow();
-                                      $expmodel[$i-2]->primer_fk = $primer_fk['id'];
+                                  if ($ctcells[3] !== '') {
+                                      $expmodel[$i-2] = new PCRExperiment;
+                                      $expmodel[$i-2]->service_id = $model->service_id;
+                                      $expmodel[$i-2]->plate_type = $model->plate_type;
+                                      $expmodel[$i-2]->array_name = $array_name;
+                                      $expmodel[$i-2]->gene_id = $ctcells[0];
+                                      $expmodel[$i-2]->primer_id = $ctcells[1];
+                                      if ($ctcells[1] !== '') {
+                                          $primer_fk = Yii::app()->db->createCommand()
+                                            ->select('id')
+                                            ->from('primer')
+                                            ->where('primer_id=:id', array(':id'=>$ctcells[1]))
+                                            ->queryRow();
+                                          $expmodel[$i-2]->primer_fk = $primer_fk['id'];
+                                      }
+                                      $expmodel[$i-2]->ct = $ctcells[4];
+                                      // suppose poss were always sorted
+                                      $expmodel[$i-2]->pos = $ctcells[2];
+                                      $ctcells[7] = isset($ctcells[7]) ? $ctcells[7] : '';
+                                      $expmodel[$i-2]->status = $ctcells[7];
+                                      $expmodel[$i-2]->sample_id = $ctcells[3];
+                                      $expmodel[$i-2]->tm1 = $tmcells[4];
+                                      $expmodel[$i-2]->tm2 = $tmcells[5];
+                                      $expmodel[$i-2]->save();
                                   }
-                                  $expmodel[$i-2]->ct = $ctcells[4];
-                                  // suppose poss were always sorted
-                                  $expmodel[$i-2]->pos = $ctcells[2];
-                                  $expmodel[$i-2]->status = $ctcells[7];
-                                  $expmodel[$i-2]->sample_id = $ctcells[3];
-                                  $expmodel[$i-2]->tm1 = $tmcells[4];
-                                  $expmodel[$i-2]->tm2 = $tmcells[5];
-                                  $expmodel[$i-2]->save();
                                 }
                                 fclose($ctfile);
 				$this->redirect(array('pCRService/view','id'=>$model->service_id));

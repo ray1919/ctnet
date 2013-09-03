@@ -9,7 +9,6 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Position', 'url'=>array('index')),
-	array('label'=>'Create Position', 'url'=>array('create')),
 	array('label'=>'Update Position', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete Position', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Position', 'url'=>array('admin')),
@@ -23,28 +22,29 @@ $this->menu=array(
 	'attributes'=>array(
 		//'id',
 		//'plate_id',
-    array(
-      'label' => 'Plate',
-      'value' => $model->plate->name,
-    ),
-		'well',
-    array (
-      'label' => 'Gene Symbol',
-      'value' => $model->primer->gene_symbol,
-    ),
-    array (
-      'label' => 'Gene ID',
-      'value' => $model->primer->gene_id,
-    ),
-    array (
-      'label' => CHtml::link(CHtml::encode('Primer ID'), array('primer/view', 'id'=>$model->primer_id)),
-      'value' => $model->primer->primer_id,
-    ),
-		//'store_type_id',
-    array(
-      'label' => 'Store Type',
-      'value' => $model->storeType->name,
-    ),
+                array(
+                  // 'label' => 'Plate',
+                  'label' => CHtml::link(CHtml::encode('Plate'), array('plate/view', 'id'=>$model->plate->id)),
+                  'value' => $model->plate->name,
+                ),
+                            'well',
+                array (
+                  'label' => 'Gene Symbol',
+                  'value' => $model->primer->gene_symbol,
+                ),
+                array (
+                  'label' => 'Gene ID',
+                  'value' => $model->primer->gene_id,
+                ),
+                array (
+                  'label' => CHtml::link(CHtml::encode('Primer ID'), array('primer/view', 'id'=>$model->primer_id)),
+                  'value' => $model->primer->primer_id,
+                ),
+                'synthetic_name',
+                array(
+                  'label' => 'Store Type',
+                  'value' => $model->storeType->name,
+                ),
 		'comment',
 		'store_date',
 	),

@@ -32,7 +32,7 @@ class PrimerController extends Controller
 				'pbac'=>array('read'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','check'),
 				'pbac'=>array('write'),
 			),
 			array('allow', // allow admin user to perform 'delete' actions
@@ -51,15 +51,15 @@ class PrimerController extends Controller
 	 */
 	public function actionView($id)
 	{
-    $positionDataProvider=new CActiveDataProvider('Position', array(
-      'criteria'=>array(
-        'condition'=>'primer_id=:id',
-        'params'=>array(':id'=>$this->loadModel($id)->id),
-      ),
-      'pagination'=>array(
-        'pageSize'=>4,
-      ),
-    ));
+                $positionDataProvider=new CActiveDataProvider('Position', array(
+                  'criteria'=>array(
+                    'condition'=>'primer_id=:id',
+                    'params'=>array(':id'=>$this->loadModel($id)->id),
+                  ),
+                  'pagination'=>array(
+                    'pageSize'=>5,
+                  ),
+                ));
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
       'positionDataProvider'=>$positionDataProvider,
@@ -111,6 +111,187 @@ class PrimerController extends Controller
 		$this->render('update',array(
 			'model'=>$model,
 		));
+	}
+
+	/**
+	 * Check primer.
+         * find primer info using gene id or miRNA id
+	 */
+	public function actionCheck()
+	{
+                //$model=$this->loadModel($id);
+                function str2int($v) {
+                    if ($v==="") return '';
+                    return intval($v);
+                }
+
+		if(isset($_POST['Primer']) and $_POST['Primer']['content'] !== '')
+		{
+                    /*
+                     * gene
+                    'select o.id, g.gene_id, p.primer_id, barcode, g.gene_symbol,
+                    l.name plate, o.well, s.name type, CONCAT_WS("",p.comment, o.comment) note
+                    from plate l, store_type s, primer p
+                    left join gene g on g.gene_id = p.gene_fk
+                    right join position o on p.id = o.primer_id
+                    where p.gene_fk in (1032, 103, 93, 207)
+                    and o.plate_id = l.id
+                    and o.store_type_id = s.id';
+                     * gene null
+                    select o.id, g.gene_id, g.gene_symbol, p.primer_id,
+                    barcode, l.name plate, o.well, p.qc, s.name type,
+                    CONCAT_WS("",p.comment, o.comment) note
+                    from gene g
+                    left join primer p on p.gene_fk = g.gene_id
+                    left join position o on p.id = o.primer_id
+                    left join plate l on o.plate_id = l.id
+                    left join store_type s on o.store_type_id = s.id
+                    where g.gene_id in (10000,93,1)
+                    group by g.gene_id, g.gene_symbol, p.primer_id
+                    
+                     * miRNA
+                    select o.id, p.gene_symbol miRNA_id, p.primer_id, barcode,
+                    l.name plate, o.well, s.name type, CONCAT_WS("",p.comment, o.comment) note
+                    from plate l, store_type s, primer p
+                    right join position o on p.id = o.primer_id
+                    where p.gene_symbol in ('hsa-miR-214', 'hsa-miR-27a')
+                    and o.plate_id = l.id
+                    and o.store_type_id = s.id
+                    
+                    select o.id, m.miRNA_id gene_id, p.primer_id,
+                    barcode, l.name plate, o.well, p.qc, s.name type,
+                    CONCAT_WS("",p.comment, o.comment) note
+                    from mirna m
+                    left join primer p on p.gene_symbol = m.miRNA_id
+                    left join position o on p.id = o.primer_id
+                    left join plate l on o.plate_id = l.id
+                    left join store_type s on o.store_type_id = s.id
+                    where m.miRNA_id in ('hsa-miR-214', 'hsa-miR-27a', 'hsa-miR-17')
+                    */
+                    if ($_POST['Primer']['type'] === 'gene id') {
+                        $ids = array_map("str2int",preg_split("/\D+/",$_POST['Primer']['content']));
+                        $ids = array_filter($ids, "is_int");
+                        $ids = join(',',$ids);
+                        /*
+                        $count = Yii::app()->db->createCommand()
+                                ->select('count(*)')
+                                ->from('plate l, store_type s, primer p')
+                                ->leftJoin('gene g','g.gene_id = p.gene_fk')
+                                ->rightJoin('position o','p.id = o.primer_id')
+                                ->andWhere("p.gene_fk in ($ids)")
+                                ->andWhere('o.plate_id = l.id')
+                                ->andWhere('o.store_type_id = s.id')
+                                ->queryScalar();
+
+                        $sql = Yii::app()->db->createCommand()
+                                ->select('o.id, g.gene_id, g.gene_symbol, p.primer_id,
+                                    barcode, l.name plate, o.well, p.qc, s.name type,
+                                    CONCAT_WS("",p.comment, o.comment) note')
+                                ->from('plate l, store_type s, primer p')
+                                ->leftJoin('gene g','g.gene_id = p.gene_fk')
+                                ->rightJoin('position o','p.id = o.primer_id')
+                                ->andWhere("p.gene_fk in ($ids)")
+                                ->andWhere('o.plate_id = l.id')
+                                ->andWhere('o.store_type_id = s.id');
+                         * 
+                        $count = Yii::app()->db->createCommand()
+                                ->select('count(*)')
+                                ->from('gene g')
+                                ->leftJoin('primer p','p.gene_fk = g.gene_id')
+                                ->leftJoin('position o','p.id = o.primer_id')
+                                ->leftJoin('plate l','o.plate_id = l.id')
+                                ->leftJoin('store_type s','o.store_type_id = s.id')
+                                ->where("g.gene_id in ($ids)")
+                                ->queryScalar();
+
+                        $sql = Yii::app()->db->createCommand()
+                                ->select('o.id, g.gene_id, g.gene_symbol, p.primer_id,
+                                    barcode, l.name plate, o.well, p.qc, s.name type,
+                                    CONCAT_WS("",p.comment, o.comment) note')
+                                ->from('gene g')
+                                ->leftJoin('primer p','p.gene_fk = g.gene_id')
+                                ->leftJoin('position o','p.id = o.primer_id')
+                                ->leftJoin('plate l','o.plate_id = l.id')
+                                ->leftJoin('store_type s','o.store_type_id = s.id')
+                                ->where("g.gene_id in ($ids)");
+                         */
+                        $sql = "select o.id, g.gene_id, g.gene_symbol, p.primer_id,
+                            barcode, l.name plate, o.well, q.name qc, s.name type,
+                            CONCAT_WS(\"\",p.comment, o.comment) note
+                            from gene g
+                            left join primer p on p.gene_fk = g.gene_id
+                            left join position o on p.id = o.primer_id
+                            left join plate l on o.plate_id = l.id
+                            left join store_type s on o.store_type_id = s.id
+                            left join qc q on p.qc = q.id
+                            where g.gene_id in ($ids)
+                            group by g.gene_id, g.gene_symbol, p.primer_id";
+                        $count = Yii::app()->db->createCommand("
+                            SELECT COUNT(*) FROM ($sql) A
+                          ")->queryScalar();
+
+                        $sql = Yii::app()->db->createCommand("$sql");
+                    }else{
+                        $ids = preg_split("/\s+/",$_POST['Primer']['content']);
+                        $ids = '"' . join('","',$ids) . '"';
+                        /*
+                        $count = Yii::app()->db->createCommand()
+                                ->select('count(*)')
+                                ->from('plate l, store_type s, primer p')
+                                ->rightJoin('position o','p.id = o.primer_id')
+                                ->andWhere("p.gene_symbol in ($ids)")
+                                ->andWhere('o.plate_id = l.id')
+                                ->andWhere('o.store_type_id = s.id')
+                                ->queryScalar();
+
+                        $sql = Yii::app()->db->createCommand()
+                                ->select('o.id, p.gene_symbol gene_id, p.primer_id,
+                                    barcode, l.name plate, o.well, p.qc, s.name type,
+                                    CONCAT_WS("",p.comment, o.comment) note')
+                                ->from('plate l, store_type s, primer p')
+                                ->rightJoin('position o','p.id = o.primer_id')
+                                ->andWhere("p.gene_symbol in ($ids)")
+                                ->andWhere('o.plate_id = l.id')
+                                ->andWhere('o.store_type_id = s.id');
+                         * 
+                         */
+                        
+                        $count = Yii::app()->db->createCommand()
+                                ->select('count(*)')
+                                ->from('mirna m')
+                                ->leftJoin('primer p','p.gene_symbol = m.miRNA_id')
+                                ->leftJoin('position o','p.id = o.primer_id')
+                                ->leftJoin('plate l','o.plate_id = l.id')
+                                ->leftJoin('store_type s','o.store_type_id = s.id')
+                                ->where("m.miRNA_id in ($ids)")
+                                ->queryScalar();
+
+                        $sql = Yii::app()->db->createCommand()
+                                ->select('o.id, m.miRNA_id gene_id, p.primer_id,
+                                    barcode, l.name plate, o.well, p.qc, s.name type,
+                                    CONCAT_WS("",p.comment, o.comment) note')
+                                ->from('mirna m')
+                                ->leftJoin('primer p','p.gene_symbol = m.miRNA_id')
+                                ->leftJoin('position o','p.id = o.primer_id')
+                                ->leftJoin('plate l','o.plate_id = l.id')
+                                ->leftJoin('store_type s','o.store_type_id = s.id')
+                                ->where("m.miRNA_id in ($ids)");
+                        
+                    }
+                    $dataProvider=new CSqlDataProvider($sql, array(
+                        'totalItemCount'=>$count,
+                        'pagination'=>array(
+                            'pageSize'=>$count,
+                        ),
+                    ));
+                    
+                    $this->render('check',array(
+                        'dataProvider'=>$dataProvider,
+                    ));
+		
+                }else{
+                    $this->render('check');
+                }
 	}
 
 	/**
@@ -177,18 +358,6 @@ class PrimerController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
-	}
-
-	/**
-	 * Check primer.
-	 */
-	public function actionCheck($id)
-	{
-                $model=$this->loadModel($id);
-
-		$this->render('check',array(
-			'model'=>$model,
-		));
 	}
 
 }

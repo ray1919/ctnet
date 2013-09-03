@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create Primer', 'url'=>array('create')),
 	array('label'=>'Manage Primer', 'url'=>array('admin')),
+	array('label'=>'Check Primer', 'url'=>array('check')),
 );
 ?>
 

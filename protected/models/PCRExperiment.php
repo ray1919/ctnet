@@ -28,6 +28,8 @@ class PCRExperiment extends CActiveRecord
 {
         public $ctfile;
         public $tmfile;
+        public $gene_search;
+        public $sample_search;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -64,7 +66,10 @@ class PCRExperiment extends CActiveRecord
 			array('status', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, gene_id, primer_id, primer_fk, ct, tm1, tm2, service_id, pos, plate_type, status, sample_id, array_name', 'safe', 'on'=>'search'),
+			array('id, gene_id, primer_id, primer_fk, ct, tm1, tm2,
+                            service_id, pos, plate_type, status, sample_id, gene_search,
+                            sample_search, array_name',
+                            'safe', 'on'=>'search'),
 		);
 	}
 
@@ -90,7 +95,7 @@ class PCRExperiment extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'gene_id' => 'Gene',
+			'gene_id' => 'Gene ID',
 			'primer_id' => 'Primer ID',
 			'primer_fk' => 'Primer Fk',
 			'ct' => 'Ct',
@@ -104,6 +109,8 @@ class PCRExperiment extends CActiveRecord
                         'array_name' => 'Array Name',
                         'ctfile' => 'Ct File',
                         'tmfile' => 'Tm File',
+                        'gene_search' => 'Symbol',
+                        'sample_search' => 'Sample',
 		);
 	}
 
@@ -111,7 +118,7 @@ class PCRExperiment extends CActiveRecord
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($id)
 	{
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
@@ -132,8 +139,26 @@ class PCRExperiment extends CActiveRecord
 		$criteria->compare('sample_id',$this->sample_id);
 		$criteria->compare('array_name',$this->array_name);
 
+                $criteria->with = array('gene','sample');
+                $criteria->compare('gene.gene_symbol',$this->gene_search,true);
+                $criteria->compare('sample.name',$this->sample_search,true);
+
+                $criteria->addCondition("t.service_id=$id");
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'sort'=>array(
+                            'attributes'=>array(
+                                'gene_search'=>array(
+                                    'asc'=>'gene.gene_symbol',
+                                    'desc'=>'gene.gene_symbol DESC',
+                                ),
+                                'sample_search'=>array(
+                                    'asc'=>'sample.name',
+                                    'desc'=>'sample.name DESC',
+                                ),
+                                '*',
+                            ),
+                        ),
                         'pagination'=>array('pageSize'=>96),
 		));
 	}

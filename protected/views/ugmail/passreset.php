@@ -16,9 +16,11 @@
 You requested a password reset.<br/>
 Your account will be disabled until you set a new password.<br/>
 To reactivate your account and set the new password please click on this link:<br/>
-<?php echo $data['{full_link}']; ?><br/>
+<a href="<?php echo $data['{full_link}']; ?>"><?php echo $data['{full_link}']; ?></a>
+<br/>
 or you can go to this address<br/>
-<?php echo $data['{link}']; ?><br/>
+<a href="<?php echo $data['{link}']; ?>"><?php echo $data['{link}']; ?></a>
+<br/>
 and insert in the form the following data<br/>
 username: <b><?php echo $data['{username}']; ?></b><br/>
 activation code: <b><?php echo $data['{activation_code}']; ?></b>

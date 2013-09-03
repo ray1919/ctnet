@@ -80,6 +80,7 @@ class Gene extends CActiveRecord
 			'tax_id' => 'Taxomony ID',
 			'synonyms' => 'Synonyms',
 			'type_of_gene' => 'Type Of Gene',
+                        'modification_date' => 'Modification Date',
 		);
 	}
 

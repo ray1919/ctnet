@@ -9,7 +9,6 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Position', 'url'=>array('index')),
-	array('label'=>'Create Position', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -46,14 +45,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		//'id',
 		//'plate_id',
-    array( 'header'=>'Plate Name',  'name'=>'plate_search', 'value'=>'$data->plate->name' ),
+                array( 'header'=>'Plate Name',  'name'=>'plate_search', 'value'=>'$data->plate->name' ),
 		'well',
 		//'primer_id',
-    array( 'header'=>'Gene Symbol',  'name'=>'primer_search1', 'value'=>'$data->primer->gene_symbol' ),
-    array( 'header'=>'Gene ID',  'name'=>'primer_search2', 'value'=>'$data->primer->gene_id' ),
-    array( 'header'=>'Primer ID',  'name'=>'primer_search3', 'value'=>'$data->primer->primer_id' ),
-		//'store_type_id',
-    array( 'header'=>'Store Type',  'name'=>'st_search', 'value'=>'$data->storeType->name' ),
+                array( 'header'=>'Gene Symbol',  'name'=>'primer_search1', 'value'=>'$data->primer->gene_symbol' ),
+                array( 'header'=>'Gene ID',  'name'=>'primer_search2', 'value'=>'$data->primer->gene_id' ),
+                array( 'header'=>'Primer ID',  'name'=>'primer_search3', 'value'=>'$data->primer->primer_id' ),
+		'synthetic_name',
+                array( 'header'=>'Store Type',  'name'=>'st_search', 'value'=>'$data->storeType->name' ),
 		//'comment',
 		/*
 		'store_date',

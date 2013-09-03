@@ -14,9 +14,12 @@
  */
 ?>
 To Activate your account please click on this link:<br/>
-<?php echo $data['{full_link}']; ?>
+<a href="<?php echo $data['{full_link}']; ?>">
+<?php echo $data['{full_link}']; ?></a>
 <br/>or you can go to this address<br/>
-{link}<br/>
+<a href="<?php echo Yii::app()->request->baseUrl; ?>">
+<?php echo Yii::app()->request->baseUrl; ?></a>
+<br/>
 and insert in the form the following data<br/>
 username: <b><?php echo $data['{username}']; ?></b><br/>
 activation code: <b><?php echo $data['{activation_code}']; ?></b>

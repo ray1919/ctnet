@@ -9,7 +9,7 @@
  * @property string $executor
  * @property string $status
  * @property string $way
- * @property string $class
+ * @property integer $class
  * @property string $time
  * @property string $comment
  * @property integer $return_visit
@@ -24,6 +24,7 @@
 class Visit extends CActiveRecord
 {
         public $customer_search;
+        public $class_search;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -50,12 +51,15 @@ class Visit extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('customer_id, create_user_id, return_visit', 'numerical', 'integerOnly'=>true),
-			array('executor, status, way, class', 'length', 'max'=>45),
+			array('customer_id, create_user_id, return_visit, class', 'numerical', 'integerOnly'=>true),
+			array('executor, status, way', 'length', 'max'=>45),
 			array('time, comment, create_time, scheduled', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, customer_id, executor, status, way, class, time, comment, return_visit, scheduled, create_time, create_user_id, customer_search', 'safe', 'on'=>'search'),
+			array('id, customer_id, executor, status, way, class,
+                            time, comment, return_visit, scheduled, create_time,
+                            create_user_id, customer_search, class_search',
+                            'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,12 +69,13 @@ class Visit extends CActiveRecord
 	public function relations()
 	{
 		// NOTE: you may need to adjust the relation name and the related
-    // class name for the relations automatically generated below.
-    Yii::import('application.modules.userGroups.models.*');
+                // class name for the relations automatically generated below.
+                Yii::import('application.modules.userGroups.models.*');
 		return array(
 			'customer' => array(self::BELONGS_TO, 'Customer', 'customer_id'),
 			//'createUser' => array(self::BELONGS_TO, 'User', 'create_user_id'),
-      'createUser' => array(self::BELONGS_TO, 'UserGroupsUser', 'create_user_id'),
+                        'createUser' => array(self::BELONGS_TO, 'UserGroupsUser', 'create_user_id'),
+                        'communicationClass' => array(self::BELONGS_TO, 'CommunicationClass', 'class'),
 		);
 	}
 
@@ -119,8 +124,10 @@ class Visit extends CActiveRecord
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('create_user_id',$this->create_user_id);
 
-                $criteria->with = array( 'customer');
+                $criteria->with = array( 'customer','communicationClass');
                 $criteria->compare( 'customer.title', $this->customer_search, true );
+              
+                $criteria->compare( 'communicationClass.class', $this->class_search, true );
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
                         'sort'=>array(
@@ -128,6 +135,10 @@ class Visit extends CActiveRecord
                             'customer_search'=>array(
                                 'asc'=>'customer.title',
                                 'desc'=>'customer.title DESC',
+                            ),
+                            'class_search'=>array(
+                                'asc'=>'communicationClass.class',
+                                'desc'=>'communicationClass.class DESC',
                             ),
                             '*',
                         ),
@@ -148,15 +159,13 @@ class Visit extends CActiveRecord
         public function getWayOptions() {
             return array("去电"=>"去电","来电"=>"来电","邮件"=>"邮件","拜访"=>"拜访","其他"=>"其他");
         }        
-        public function getClassOptions() {
-            return array(
-                "售前（主动联系客户）"=>"售前（主动联系客户）",
-                "回复（客户有问题主动联系）"=>"回复（客户有问题主动联系）",
-                "正在跟踪（未成单）"=>"正在跟踪（未成单）",
-                "回访或售后（客户已完成服务，主动来咨询问题或者是我们主动回访）"=>"回访或售后（客户已完成服务，主动来咨询问题或者是我们主动回访）",
-                "其他"=>"其他",
-                );
+        
+        public function getClass()
+        {
+                $getClass = CHtml::listData(CommunicationClass::model()->findAll(array('order'=>'id')), 'id', 'class');
+                return $getClass;
         }
+  
         public function getReturnVisitOptions() {
             return array(0=>"不需要",1=>"已计划",2=>"已完成");
         }

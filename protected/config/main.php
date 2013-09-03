@@ -21,20 +21,28 @@ return array(
 	),
 
 	'modules'=>array(
-        'userGroups'=>array(
-        'accessCode'=>'demo',
+    'userGroups'=>array(
+                      'accessCode'=>'demo',
+                    ),
+    'media'=>array(
+      // Base dir for media browser (app/files):
+      'baseDir'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'files',
     ),
 		// uncomment the following to enable the Gii tool
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>false,
+			'password'=>'demo',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
+			'ipFilters'=>array('127.0.0.1','::1','192.168.1.178'),
 		),
 	),
 
 	// application components
 	'components'=>array(
+        // UserCounter
+        'counter' => array(
+            'class' => 'UserCounter',
+        ),
         'mail'=>array(  
             'class' => 'application.extensions.yii-mail.YiiMail',  
             'viewPath' => 'application.views.mail',  

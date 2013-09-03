@@ -22,10 +22,20 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'service_id',
+		//'service_id',
+                array(
+                  'label'=>'Service ID',
+                  'type'=>'raw',
+                  'value'=>CHtml::link($model->service_id, array('pCRService/view', 'id'=>$model->service_id)),
+                ),
 		'name',
 		'type',
-		'species_id',
+		//'species_id',
+                array(
+                  'label'=>'Species ID',
+                  'type'=>'raw',
+                  'value'=>CHtml::link($model->species->name, array('species/view', 'id'=>$model->species_id)),
+                ),
 		'note',
 	),
 )); ?>

@@ -63,6 +63,10 @@ class PositionController extends Controller
 	public function actionCreate()
 	{
 		$model=new Position;
+		if(isset($_GET['primer_id']))
+                        $model->primer_id = $_GET['primer_id'];
+		else
+			throw new CHttpException(403,'Must specify a primer before performing this action.');
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'List Primer', 'url'=>array('index')),
 	array('label'=>'Create Primer', 'url'=>array('create')),
+	array('label'=>'Check Primer', 'url'=>array('check')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -46,15 +47,16 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		//'id',
-		'gene_id',
+		//'gene_id',
+                array('header'=>'Gene ID', 'name'=>'gene_fk'),
 		'gene_symbol',
 		'primer_id',
 		'barcode',
 		//'tax_id',
-    array('name'=>'tax_search', 'value'=>'$data->tax->name'),
+                array('name'=>'tax_search', 'value'=>'$data->tax->name'),
 		'type_of_primer',
-                'qc',
-		'gene_fk',
+                array('name'=>'qc_search', 'value'=>'$data->qcFk->name'),
+		//'gene_fk',
 		/*
 		'mirna_fk',
 		'comment',
@@ -63,7 +65,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		*/
 		array(
 			'class'=>'CButtonColumn',
-      'template' => '{view} {delete}',
+                        'template' => '{view} {delete}',
 		),
 	),
 )); ?>

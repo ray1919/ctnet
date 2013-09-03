@@ -23,7 +23,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('species_id')); ?>:</b>
-	<?php echo CHtml::encode($data->species_id); ?>
+	<?php echo CHtml::encode($data->species->name . ' (' . $data->species->common . ')'); ?>
 	<br />
         </td>
     </tr>

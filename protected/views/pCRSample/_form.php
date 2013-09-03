@@ -29,13 +29,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'type'); ?>
-		<?php echo $form->textField($model,'type',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->dropDownList($model,'type', $model->getTypeOptions()); ?>
 		<?php echo $form->error($model,'type'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'species_id'); ?>
-		<?php echo $form->textField($model,'species_id'); ?>
+		<?php echo $form->dropDownList($model,'species_id', $model->getSpecies()); ?>
 		<?php echo $form->error($model,'species_id'); ?>
 	</div>
 

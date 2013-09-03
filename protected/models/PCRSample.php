@@ -74,7 +74,7 @@ class PCRSample extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'service_id' => 'Service',
+			'service_id' => 'Service ID',
 			'name' => 'Name',
 			'type' => 'Type',
 			'species_id' => 'Species',
@@ -104,4 +104,15 @@ class PCRSample extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+        public function getSpecies()
+        {
+            $getStoreType = CHtml::listData(Species::model()->findAll(), 'id', 'name');
+            return $getStoreType;
+        }
+
+        public function getTypeOptions() {
+            return array("RNA"=>"RNA","DNA"=>"DNA","cDNA"=>"cDNA","全血"=>"全血","细胞"=>"细胞","组织"=>"组织","其他"=>"其他");
+        }
+        
 }

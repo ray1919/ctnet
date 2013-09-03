@@ -80,15 +80,17 @@ class PCRServiceController extends Controller
                     on e.gene_id = g.gene_id
                     left join PCR_sample s
                     on e.sample_id = s.id
+                    where service_id = $id
                     group by sample_id
                  */
                 $ctdata = Yii::app()->db->createCommand()
                             ->select('name,
-                    group_concat(IFNULL(gene_symbol, "Unknow") order by e.id separator ",") gs,
-                    group_concat(IFNULL(ct, "") order by e.id separator ",") ct')
+                            group_concat(IFNULL(gene_symbol, "Unknow") order by e.id separator ",") gs,
+                            group_concat(IFNULL(ct, "") order by e.id separator ",") ct')
                             ->from('PCR_experiment e')
                             ->leftJoin('gene g','e.gene_id = g.gene_id')
                             ->leftJoin('PCR_sample s','e.sample_id = s.id')
+                            ->where("e.service_id = $id")
                             ->group('sample_id')
                             ->queryAll();
                 //print_r($ctdata);
@@ -176,7 +178,11 @@ class PCRServiceController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('PCRService');
+		$dataProvider=new CActiveDataProvider('PCRService', array(
+			'criteria'=>array(
+                                'order'=>'date DESC',
+			),
+                ));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

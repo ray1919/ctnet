@@ -47,11 +47,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		/*'id',*/
-		array( 'header'=>'Customer title',  'name'=>'customer_search', 'value'=>'$data->customer->title' ),
+		array( 'header'=>'Customer',  'name'=>'customer_search', 'value'=>'$data->customer->title' ),
 		/*'executor',*/
 		'status',
 		'way',
-		'class',
+		//'class',
+		array( 'header'=>'Class',  'name'=>'class_search', 'value'=>'$data->communicationClass->class' ),
 		'time',
 		/*
 		'comment',

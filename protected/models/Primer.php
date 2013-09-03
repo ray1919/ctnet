@@ -27,6 +27,7 @@
 class Primer extends CActiveRecord
 {
   public $tax_search;
+  public $qc_search;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -58,7 +59,10 @@ class Primer extends CActiveRecord
 			array('comment, create_date, update_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, gene_id, gene_symbol, primer_id, barcode, tax_id, type_of_primer, gene_fk, mirna_fk, comment, create_date, update_date, tax_search, qc', 'safe', 'on'=>'search'),
+			array('id, gene_id, gene_symbol, primer_id, barcode, tax_id,
+                            type_of_primer, gene_fk, mirna_fk, comment, create_date,
+                            update_date, tax_search, qc, qc_search',
+                            'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,6 +77,7 @@ class Primer extends CActiveRecord
 			'geneOrders' => array(self::HAS_MANY, 'GeneOrder', 'primer_id'),
 			'positions' => array(self::HAS_MANY, 'Position', 'primer_id'),
 			'tax' => array(self::BELONGS_TO, 'Species', 'tax_id'),
+			'qcFk' => array(self::BELONGS_TO, 'Qc', 'qc'),
 			'geneFk' => array(self::BELONGS_TO, 'Gene', 'gene_fk'),
 			'mirnaFk' => array(self::BELONGS_TO, 'Mirna', 'mirna_fk'),
 		);
@@ -97,7 +102,8 @@ class Primer extends CActiveRecord
 			'create_date' => 'Create Date',
 			'update_date' => 'Update Date',
 			'tax_search' => 'Organsim',
-                        'qc' => 'QC',
+                        'qc' => 'QC ID',
+                        'qc_search' => 'QC',
 		);
 	}
 
@@ -126,27 +132,38 @@ class Primer extends CActiveRecord
 		$criteria->compare('update_date',$this->update_date,true);
 		$criteria->compare('qc',$this->qc,true);
 
-    $criteria->with = array('tax');
-    $criteria->compare('tax.name',$this->tax_search,true);
+                $criteria->with = array('tax','qcFk');
+                $criteria->compare('tax.name',$this->tax_search,true);
+                $criteria->compare('qcFk.name',$this->qc_search,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
-    'sort'=>array(
-        'attributes'=>array(
-            'tax_search'=>array(
-                'asc'=>'tax.name',
-                'desc'=>'tax.name DESC',
-            ),
-            '*',
-        ),
-    ),
+                        'sort'=>array(
+                            'attributes'=>array(
+                                'tax_search'=>array(
+                                    'asc'=>'tax.name',
+                                    'desc'=>'tax.name DESC',
+                                ),
+                                'qc_search'=>array(
+                                    'asc'=>'qcFk.name',
+                                    'desc'=>'qcFk.name DESC',
+                                ),
+                                '*',
+                            ),
+                        ),
 		));
 	}
 
-  public function getSpecies()
-  {
-    $getStoreType = CHtml::listData(Species::model()->findAll(), 'id', 'name');
-    return $getStoreType;
-  }
+        public function getSpecies()
+        {
+            $getStoreType = CHtml::listData(Species::model()->findAll(), 'id', 'name');
+            return $getStoreType;
+        }
+
+        public function getQcOptions() {
+            //return array(1=>"合格",2=>"未测定",-1 => '被替换', 0=>"不合格",40=>'ct40');
+            $getStoreType = CHtml::listData(Qc::model()->findAll(), 'id', 'name');
+            return $getStoreType;
+        }
 
 }

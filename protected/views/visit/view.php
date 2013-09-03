@@ -30,7 +30,11 @@ $this->menu=array(
     'executor',
     'status',
     'way',
-    'class',
+    //'class',
+    array(
+      "label"=>'Class',
+      "value"=>$model->communicationClass->class,
+    ),
     'time',
     array(
       "name"=>'comment',
@@ -44,7 +48,7 @@ $this->menu=array(
     'scheduled',
     'create_time',
     array(
-      "label"=>'Create User',
+      "label"=>'Employee Id',
       "value"=>$model->createUser->username,
     ),
   ),

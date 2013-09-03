@@ -42,7 +42,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'class'); ?>
-		<?php echo $form->dropDownList($model,'class', $model->getClassOptions()); ?>
+		<?php echo $form->dropDownList($model,'class', $model->getClass()); ?>
 		<?php echo $form->error($model,'class'); ?>
 	</div>
 
