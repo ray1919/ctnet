@@ -30,7 +30,7 @@ class VisitController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'admin' and 'index' and 'view' actions
-				'actions'=>array('index','view','admin'),
+				'actions'=>array('index','view','admin','CalendarEvents'),
 				'pbac'=>array('read'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -208,6 +208,42 @@ class VisitController extends Controller
 			
 		//complete the running of other filters and execute the requested action
 		$filterChain->run(); 
-	} 
-
+	}
+        
+        public function actionCalendarEvents()
+        {
+            $colors = array("aqua", "lime", "silver", "black", "maroon", "teal", "blue",
+                "navy", "fuchsia", "olive", "yellow", "gray", "purple", "green", "red");
+            $burl = Yii::app()->request->baseUrl;
+          $sql1 = "select c.title, v.time start,
+                    'silver' as color,
+                    CONCAT('$burl/visit/',v.id) as url
+                    from visit v
+                    left join customer c on v.customer_id = c.id";
+          $sql2 = "select c.title, v.scheduled start,
+                    CASE v.customer_id%10
+                    WHEN 3 THEN 'black' 
+                    WHEN 4 THEN 'maroon' 
+                    WHEN 5 THEN 'teal' 
+                    WHEN 6 THEN 'blue' 
+                    WHEN 7 THEN 'navy' 
+                    WHEN 8 THEN 'fuchsia' 
+                    WHEN 9 THEN 'olive' 
+                    WHEN 1 THEN 'purple' 
+                    WHEN 2 THEN 'green' 
+                    WHEN 0 THEN 'red'
+                    END as color,
+                    CONCAT('$burl/visit/',v.id) as url
+                    from visit v
+                    left join customer c on v.customer_id = c.id
+                    where return_visit = 1";
+          $query1 = Yii::app()->db->createCommand($sql1)->queryAll();
+          $query2 = Yii::app()->db->createCommand($sql2)->queryAll();
+          $query = array_merge($query1,$query2);
+          //var_dump($query);
+          //exit;
+            echo CJSON::encode($query);
+            Yii::app()->end();
+        }
+        
 }

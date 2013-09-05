@@ -126,7 +126,7 @@ class Task extends CActiveRecord
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('type',$this->type,true);
-		$criteria->compare('status',$this->status,true);
+		$criteria->compare('t.status',$this->status,true);
 		$criteria->compare('owner_id',$this->owner_id,true);
 		$criteria->compare('requester_id',$this->requester_id,true);
 		$criteria->compare('acceptance_date',$this->acceptance_date,true);
@@ -139,8 +139,10 @@ class Task extends CActiveRecord
 
                 $criteria->with = array('owner');
                 $criteria->compare('owner.username',$this->owner_search,true);
-                $criteria->addCondition('owner_id=:user_id OR requester_id=:user_id OR create_user_id=:user_id');
-                $criteria->params =  array(':user_id' => Yii::app()->user->id);
+                $uid = Yii::app()->user->id;
+                $criteria->addCondition("owner_id=$uid OR requester_id=$uid OR create_user_id=$uid");
+                //$criteria->addCondition('owner_id=:user_id OR requester_id=:user_id OR create_user_id=:user_id');
+                //$criteria->params = array_merge($_POST,array(':user_id' => Yii::app()->user->id));
 
                 return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

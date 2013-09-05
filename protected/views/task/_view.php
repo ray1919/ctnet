@@ -13,11 +13,6 @@
 	<br />
 </td>
 <td>
-	<b><?php echo CHtml::encode($data->getAttributeLabel('type')); ?>:</b>
-	<?php echo CHtml::encode($data->type); ?>
-	<br />
-</td>
-<td>
 	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
 	<?php echo CHtml::encode($data->status); ?>
 	<br />
@@ -25,6 +20,11 @@
 <td>
 	<b><?php echo CHtml::encode($data->getAttributeLabel('owner_id')); ?>:</b>
 	<?php echo CHtml::encode($data->owner->username); ?>
+	<br />
+</td>
+<td>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('due_date')); ?>:</b>
+	<?php echo CHtml::encode($data->due_date); ?>
 	<br />
 </td>
 </tr>

@@ -119,7 +119,7 @@ class Primer extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('gene_id',$this->gene_id,true);
+		$criteria->compare('gene_id',$this->gene_id);
 		$criteria->compare('gene_symbol',$this->gene_symbol,true);
 		$criteria->compare('primer_id',$this->primer_id,true);
 		$criteria->compare('barcode',$this->barcode,true);
@@ -130,7 +130,7 @@ class Primer extends CActiveRecord
 		$criteria->compare('comment',$this->comment,true);
 		$criteria->compare('create_date',$this->create_date,true);
 		$criteria->compare('update_date',$this->update_date,true);
-		$criteria->compare('qc',$this->qc,true);
+		$criteria->compare('qc',$this->qc);
 
                 $criteria->with = array('tax','qcFk');
                 $criteria->compare('tax.name',$this->tax_search,true);

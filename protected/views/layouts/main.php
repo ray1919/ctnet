@@ -67,7 +67,6 @@
 			'links'=>$this->breadcrumbs,
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
-
 	<?php echo $content; ?>
 	<div class="clear"></div>
 

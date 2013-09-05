@@ -32,7 +32,7 @@ class TaskController extends Controller
 				'pbac'=>array('read'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','CalendarEvents'),
 				'pbac'=>array('write'),
 			),
 			array('allow', // allow admin user to perform 'delete' actions
@@ -176,4 +176,54 @@ class TaskController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+        public function actionCalendarEvents()
+        {
+            $colors = array("aqua", "lime", "silver", "black", "maroon", "teal", "blue",
+                "navy", "fuchsia", "olive", "yellow", "gray", "purple", "green", "red");
+            $uid = Yii::app()->user->id;
+            $burl = Yii::app()->request->baseUrl;
+          $sql = "select name title, acceptance_date start, due_date end,
+                    CASE create_time%11
+                    WHEN 2 THEN 'silver' 
+                    WHEN 3 THEN 'black' 
+                    WHEN 4 THEN 'maroon' 
+                    WHEN 5 THEN 'teal' 
+                    WHEN 6 THEN 'blue' 
+                    WHEN 7 THEN 'navy' 
+                    WHEN 8 THEN 'fuchsia' 
+                    WHEN 9 THEN 'olive' 
+                    WHEN 1 THEN 'purple' 
+                    WHEN 10 THEN 'green' 
+                    WHEN 0 THEN 'red'
+                    END as color,
+                    CONCAT('$burl/task/',id) as url
+                    from task where owner_id = $uid";
+          $query = Yii::app()->db->createCommand($sql)->queryAll();
+          //var_dump($query);
+          //exit;
+          // color: '#' . strtoupper(dechex(rand(0,10000000)));
+          /*
+            $items[]=array(
+                'title'=>'Meeting reminder',
+                'start'=>'2013-09-02',
+                'end'=>'2013-09-05',
+
+                // can pass unix timestamp too
+                // 'start'=>time()
+
+                'color'=>'blue',
+            );
+            $items[]=array(
+                'title'=>'Meeting',
+                'start'=>'2013-09-3',
+                'color'=>'#CC0000',
+                'allDay'=>true,
+                'url'=>'http://anyurl.com'
+            );
+            */
+            echo CJSON::encode($query);
+            Yii::app()->end();
+        }
+
 }
