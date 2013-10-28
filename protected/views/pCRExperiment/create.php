@@ -3,7 +3,7 @@
 /* @var $model PCRExperiment */
 
 $this->breadcrumbs=array(
-	'Pcrexperiments'=>array('index'),
+	'Pcrexperiments'=>array('pCRService/view',"id"=>$model->service_id),
 	'Create',
 );
 

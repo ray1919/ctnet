@@ -183,9 +183,14 @@ class TaskController extends Controller
                 "navy", "fuchsia", "olive", "yellow", "gray", "purple", "green", "red");
             $uid = Yii::app()->user->id;
             $burl = Yii::app()->request->baseUrl;
-          $sql = "select name title, acceptance_date start, due_date end,
+          $sql1 = "select name title, acceptance_date start, due_date end,
+                    'silver' as color,
+                    CONCAT('$burl/task/',id) as url
+                    from task
+                    where owner_id = $uid
+                    and status = '完成'";
+          $sql2 = "select name title, acceptance_date start, due_date end,
                     CASE create_time%11
-                    WHEN 2 THEN 'silver' 
                     WHEN 3 THEN 'black' 
                     WHEN 4 THEN 'maroon' 
                     WHEN 5 THEN 'teal' 
@@ -194,12 +199,16 @@ class TaskController extends Controller
                     WHEN 8 THEN 'fuchsia' 
                     WHEN 9 THEN 'olive' 
                     WHEN 1 THEN 'purple' 
-                    WHEN 10 THEN 'green' 
+                    WHEN 2 THEN 'green' 
                     WHEN 0 THEN 'red'
                     END as color,
                     CONCAT('$burl/task/',id) as url
-                    from task where owner_id = $uid";
-          $query = Yii::app()->db->createCommand($sql)->queryAll();
+                    from task where owner_id = $uid
+                    and status != '完成'";
+          //$query = Yii::app()->db->createCommand($sql)->queryAll();
+          $query1 = Yii::app()->db->createCommand($sql1)->queryAll();
+          $query2 = Yii::app()->db->createCommand($sql2)->queryAll();
+          $query = array_merge($query1,$query2);
           //var_dump($query);
           //exit;
           // color: '#' . strtoupper(dechex(rand(0,10000000)));

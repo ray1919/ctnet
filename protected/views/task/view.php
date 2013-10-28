@@ -23,7 +23,12 @@ $this->menu=array(
 	'attributes'=>array(
 		//'id',
 		'name',
-		'description',
+		//'description',
+    array(
+      "name"=>'description',
+      "value"=>"<pre>".$model->description."</pre>",
+      'type'=>'raw',
+    ),
 		'type',
 		'status',
                 array(

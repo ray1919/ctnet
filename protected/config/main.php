@@ -39,6 +39,10 @@ return array(
 
 	// application components
 	'components'=>array(
+       'session' => array(
+          'class' => 'CDbHttpSession',
+          'timeout' => 10000,
+       ),
         // UserCounter
         'counter' => array(
             'class' => 'UserCounter',

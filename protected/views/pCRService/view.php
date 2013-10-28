@@ -33,7 +33,12 @@ $this->menu=array(
 		'service_type',
 		'sample_arrival_date',
 		'report_date',
-		'note',
+		//'note',
+    array(
+      "name"=>'note',
+      "value"=>"<pre>".$model->note."</pre>",
+      'type'=>'raw',
+    ),
 	),
 )); ?>
 

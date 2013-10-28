@@ -108,18 +108,19 @@ class PCRExperimentController extends Controller
                                       continue;
                                   }
                                   if ($i == 1) continue;
-                                  if ($ctcells[3] !== '') {
+                                  if ($ctcells[3] !== '') { // valid sample id
                                       $expmodel[$i-2] = new PCRExperiment;
                                       $expmodel[$i-2]->service_id = $model->service_id;
                                       $expmodel[$i-2]->plate_type = $model->plate_type;
                                       $expmodel[$i-2]->array_name = $array_name;
                                       $expmodel[$i-2]->gene_id = $ctcells[0];
                                       $expmodel[$i-2]->primer_id = $ctcells[1];
-                                      if ($ctcells[1] !== '') {
+                                      if ($ctcells[1] !== '') { // valid primer id
                                           $primer_fk = Yii::app()->db->createCommand()
                                             ->select('id')
                                             ->from('primer')
                                             ->where('primer_id=:id', array(':id'=>$ctcells[1]))
+                                            ->order('id desc')
                                             ->queryRow();
                                           $expmodel[$i-2]->primer_fk = $primer_fk['id'];
                                       }
