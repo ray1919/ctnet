@@ -75,76 +75,171 @@ class PCRExperimentController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new PCRExperiment;
-		if(isset($_GET['service_id']))
-                        $model->service_id = $_GET['service_id'];
-		else
-			throw new CHttpException(403,'Must specify a customer before performing this action.');
+            $model=new PCRExperiment;
+            if(isset($_GET['service_id'])) {
+                $model->service_id = $_GET['service_id'];
+            } else {
+                throw new CHttpException(403,'Must specify a customer before performing this action.');
+            }
+            // Uncomment the following line if AJAX validation is needed
+            // $this->performAjaxValidation($model);
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['PCRExperiment']))
-		{
-			$model->attributes=$_POST['PCRExperiment'];
-                        $model->tmfile=CUploadedFile::getInstance($model,'tmfile');
-                        $model->ctfile=CUploadedFile::getInstance($model,'ctfile');
-			if($model->validate()){
-                                $model->tmfile->saveAs('/tmp/tmfile');
-                                $model->ctfile->saveAs('/tmp/ctfile');
-                                $ctfile=fopen("/tmp/ctfile","r");
-                                $tmfile=fopen("/tmp/tmfile","r");
-                                $array_name = null;
-                                $i = -1;
-                                //for ($i = 0; $i < 98; $i++) {
-                                  //$ctline=fgets($ctfile);
-                                while($ctline=fgets($ctfile)) {
-                                  $i++;
-                                  $tmline=fgets($tmfile);
-                                  $ctcells = preg_split("/\t/", $ctline);
-                                  $tmcells = preg_split("/\t/", $tmline);
-                                  if ($i == 0 && preg_match('/^Experiment: (.*) Selected Filter: /', $ctcells[0],$matches)) {
-                                      $array_name = $matches[1];
-                                      continue;
-                                  }
-                                  if ($i == 1) continue;
-                                  if ($ctcells[3] !== '') { // valid sample id
-                                      $expmodel[$i-2] = new PCRExperiment;
-                                      $expmodel[$i-2]->service_id = $model->service_id;
-                                      $expmodel[$i-2]->plate_type = $model->plate_type;
-                                      $expmodel[$i-2]->array_name = $array_name;
-                                      $expmodel[$i-2]->gene_id = $ctcells[0];
-                                      $expmodel[$i-2]->primer_id = $ctcells[1];
-                                      if ($ctcells[1] !== '') { // valid primer id
-                                          $primer_fk = Yii::app()->db->createCommand()
-                                            ->select('id')
-                                            ->from('primer')
-                                            ->where('primer_id=:id', array(':id'=>$ctcells[1]))
-                                            ->order('id desc')
-                                            ->queryRow();
-                                          $expmodel[$i-2]->primer_fk = $primer_fk['id'];
-                                      }
-                                      $expmodel[$i-2]->ct = $ctcells[4];
-                                      // suppose poss were always sorted
-                                      $expmodel[$i-2]->pos = $ctcells[2];
-                                      $ctcells[7] = isset($ctcells[7]) ? $ctcells[7] : '';
-                                      $expmodel[$i-2]->status = $ctcells[7];
-                                      $expmodel[$i-2]->sample_id = $ctcells[3];
-                                      $expmodel[$i-2]->tm1 = $tmcells[4];
-                                      $expmodel[$i-2]->tm2 = $tmcells[5];
-                                      $expmodel[$i-2]->save();
-                                  }
+            if(isset($_POST['PCRExperiment']))
+            {
+                $model->attributes=$_POST['PCRExperiment'];
+                $model->tmfile=CUploadedFile::getInstance($model,'tmfile');
+                $model->tm2file=CUploadedFile::getInstance($model,'tm2file');
+                $model->ctfile=CUploadedFile::getInstance($model,'ctfile');
+                if($model->validate()){
+                    $model->tmfile->saveAs('/tmp/tmfile');
+                    $model->ctfile->saveAs('/tmp/ctfile');
+                    if ($model->tm2file) {
+                      $model->tm2file->saveAs('/tmp/tm2file');
+                      $tm2file=fopen("/tmp/tm2file","r");
+                    }
+                    $ctfile=fopen("/tmp/ctfile","r");
+                    $tmfile=fopen("/tmp/tmfile","r");
+                    $array_name = null;
+                    $i = -1;
+                    
+                    // Total processes for process bar
+                    $total = intval(exec("wc -l /tmp/ctfile"));
+                    ob_start();
+                    echo '<div id="progress" style="width:500px;border:1px solid #ccc;"></div>
+                        <div id="information" style="width"></div>';
+                    
+                    while($ctline=fgets($ctfile)) {
+                        $i++;
+                        $tmline=fgets($tmfile);
+                        $ctline = rtrim($ctline,"\r\n");
+                        $tmline = rtrim($tmline,"\r\n");
+                        $ctcells = preg_split("/\t/", $ctline);
+                        $tmcells = preg_split("/\t/", $tmline);
+                        
+                        if ($model->file_type === 'roche') {
+                            # Roche format
+                            if ($i == 0 && preg_match('/^Experiment: (.*) Selected Filter: /', $ctcells[0],$matches)) {
+                                $array_name = $matches[1];
+                                continue;
+                            }
+                            if ($i == 1) continue;
+                            if ($ctcells[3] !== '') { // valid sample id
+                                $expmodel[$i-2] = new PCRExperiment;
+                                $expmodel[$i-2]->service_id = $model->service_id;
+                                $expmodel[$i-2]->plate_type = $model->plate_type;
+                                $expmodel[$i-2]->array_name = $array_name;
+                                $expmodel[$i-2]->gene_id = $ctcells[0];
+                                $expmodel[$i-2]->primer_id = $ctcells[1];
+                                if ($ctcells[1] !== '') { // valid primer id
+                                    $primer_fk = Yii::app()->db->createCommand()
+                                      ->select('id')
+                                      ->from('primer')
+                                      ->where('primer_id=:id', array(':id'=>$ctcells[1]))
+                                      ->order('id desc')
+                                      ->queryRow();
+                                    $expmodel[$i-2]->primer_fk = $primer_fk['id'];
                                 }
-                                fclose($ctfile);
-				$this->redirect(array('pCRService/view','id'=>$model->service_id));
+                                $expmodel[$i-2]->ct = $ctcells[4];
+                                // suppose poss were always sorted
+                                $expmodel[$i-2]->pos = $ctcells[2];
+                                $ctcells[7] = isset($ctcells[7]) ? $ctcells[7] : '';
+                                $expmodel[$i-2]->status = $ctcells[7];
+                                $expmodel[$i-2]->sample_id = $ctcells[3];
+                                $expmodel[$i-2]->tm1 = $tmcells[4];
+                                $expmodel[$i-2]->tm2 = $tmcells[5];
+                                $expmodel[$i-2]->save();
+                            }
                         }
-		}
+                        elseif ($model->file_type === 'exptxt') {
+                            # Expression profile format
+                            $tm2line=fgets($tm2file);
+                            $tm2line = rtrim($tm2line,"\r\n");
+                            $tm2cells = preg_split("/\t/", $tm2line);
+                            if ($i == 0) {
+                                array_splice($ctcells,0,3);
+                                $sample_ids = $ctcells;
+                                continue;
+                            }
+                            if ($ctcells[2] !== '') { // valid well
+                                $primer_id = $ctcells[1];
+                                if ( $primer_id === '' ) {
+                                    $primer_id = Yii::app()->db->createCommand()
+                                      ->select('primer_id')
+                                      ->from('primer')
+                                      ->where('gene_fk=:gk', array(':gk'=>$ctcells[0]))
+                                      ->order('id asc')
+                                      ->queryRow();                                    
+                                    $primer_id = $primer_id["primer_id"];
+                                }
+                                if ($primer_id !== '') { // valid primer id
+                                    $primer_fk = Yii::app()->db->createCommand()
+                                      ->select('id')
+                                      ->from('primer')
+                                      ->where('primer_id=:id', array(':id'=>$primer_id))
+                                      ->andwhere('gene_fk=:gk', array(':gk'=>$ctcells[0]))
+                                      ->queryRow();
+                                }
+                                foreach ($sample_ids as $idx=>$sample_id) {
+                                    $expmodel = new PCRExperiment;
+                                    $expmodel->service_id = $model->service_id;
+                                    $expmodel->plate_type = $model->plate_type;
+                                    $expmodel->array_name = $array_name;
+                                    $expmodel->gene_id = $ctcells[0];
+                                    $expmodel->primer_id = $primer_id;
+                                    $expmodel->ct = $ctcells[$idx+3];
+                                    $expmodel->primer_fk = $primer_fk['id'];
+                                    // suppose poss were always sorted
+                                    $expmodel->pos = $ctcells[2];
+                                    $expmodel->status = '';
+                                    $expmodel->sample_id = $sample_id;
+                                    $expmodel->tm1 = $tmcells[$idx+3];
+                                    if ( isset($tm2file) ) {
+                                      $expmodel->tm2 = $tm2cells[$idx+3];
+                                    } else {
+                                      $expmodel->tm2 = NULL;
+                                    }
+                                    $expmodel->save();
+                                }
+                            }
+                        }
+                                    
+                        // Calculate the percentation
+                        $percent = intval($i/$total * 100)."%";
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
+                        // Javascript for updating the progress bar and information
+                        echo '<script language="javascript">
+                        document.getElementById("progress").innerHTML="<div style=\"width:'.$percent.';background-color:#ddd;\">&nbsp;</div>";
+                        document.getElementById("information").innerHTML="'.$i.' rows processed. Please wait ...";
+                        </script>';
+
+                        // This is for the buffer achieve the minimum size in order to flush data
+                        echo str_repeat(' ', ini_get('output_buffering'));
+                        ob_flush();
+                        // Send output to browser immediately
+                        flush();                        
+                    }
+
+                    fclose($tmfile);
+                    fclose($ctfile);
+                    //$this->redirect(array('pCRService/view','id'=>$model->service_id));
+                    $this->js_redirect(Yii::app()->baseUrl.'/pCRService/view/'
+                        .$model->service_id);
+                }
+            }
+
+            $this->render('create',array(
+                    'model'=>$model,
+            ));
 	}
 
+        private function js_redirect($url)
+        {
+            $string = '<script type="text/javascript">';
+            $string .= 'window.location = "' . $url . '"';
+            $string .= '</script>';
+
+            echo $string;
+        }
         /**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.

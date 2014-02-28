@@ -40,9 +40,22 @@
 		<?php echo $form->error($model,'tmfile'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model, 'tm2file'); ?>
+		<?php echo $form->fileField($model,'tm2file'); ?>
+		<?php echo $form->error($model,'tm2file'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'file_type'); ?>
+		<?php echo $form->dropDownList($model,'file_type',$model->getFileTypes()); ?>
+		<?php echo $form->error($model,'file_type'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
+
 
 <?php $this->endWidget(); ?>
 

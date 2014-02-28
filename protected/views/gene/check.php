@@ -15,19 +15,16 @@ $this->breadcrumbs=array(
         'id'=>'gene-grid',
         'dataProvider'=>$dataProvider,
         'columns'=>array(
-                'gene_id',
                 'gene_symbol',
-                'Gene_id',
-                'barcode',
-                'plate',
-                'well',
-                'qc',
-                'type',
-                'note',
+                'gene_id',
+                'gene_name',
+                'tax_name',
+                'synonyms',
+                'type_of_gene',
                 ),
         ));
-        echo "-1 => 被替换, 0 => 不合格, 1=> 合格, 2 => 未测定, 40 => ct40";
     }
+    echo " * Blank lines represent symbols not found.";
 ?>
 
 <div class="form">
@@ -40,10 +37,15 @@ $this->breadcrumbs=array(
 <div class="row">
 <label for="Gene_type_of_input">Type Of Input</label>
 <select name="Gene[type]" id="Gene_type_of_Gene">
-<option value="gene id">gene id</option>
-<option value="miRNA id">miRNA id</option>
+<option value="gene_symbol">Gene Symbol => ID</option>
+<option value="gene_id">Gene ID => Symbol</option>
 </select>
 </div>
+
+	<div class="row">
+		<label>Species:</label>
+                <?php echo CHtml::dropDownList('Gene[tax_id]', 9606, $this->getSpecies()); ?>
+	</div>
 
 <div class="row">
 <label for="Gene_content">Content</label>

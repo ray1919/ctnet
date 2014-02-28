@@ -67,57 +67,53 @@ class GeneController extends Controller
                     return intval($v);
                 }
 
-		if(isset($_POST['Primer']) and $_POST['Primer']['content'] !== '')
+		if(isset($_POST['Gene']) and $_POST['Gene']['content'] !== '')
 		{
-                    if ($_POST['Primer']['type'] === 'gene id') {
-                        $ids = array_map("str2int",preg_split("/\D+/",$_POST['Primer']['content']));
+                    if ($_POST['Gene']['type'] === 'gene_id') {
+                        $ids = array_map("str2int",preg_split("/\D+/",$_POST['Gene']['content']));
                         $ids = array_filter($ids, "is_int");
                         $ids = join(',',$ids);
 
-                        $count = Yii::app()->db->createCommand()
-                                ->select('count(*)')
-                                ->from('gene g')
-                                ->leftJoin('primer p','p.gene_fk = g.gene_id')
-                                ->leftJoin('position o','p.id = o.primer_id')
-                                ->leftJoin('plate l','o.plate_id = l.id')
-                                ->leftJoin('store_type s','o.store_type_id = s.id')
-                                ->where("g.gene_id in ($ids)")
-                                ->queryScalar();
-
-                        $sql = Yii::app()->db->createCommand()
-                                ->select('o.id, g.gene_id, g.gene_symbol, p.primer_id,
-                                    barcode, l.name plate, o.well, p.qc, s.name type,
-                                    CONCAT_WS("",p.comment, o.comment) note')
-                                ->from('gene g')
-                                ->leftJoin('primer p','p.gene_fk = g.gene_id')
-                                ->leftJoin('position o','p.id = o.primer_id')
-                                ->leftJoin('plate l','o.plate_id = l.id')
-                                ->leftJoin('store_type s','o.store_type_id = s.id')
-                                ->where("g.gene_id in ($ids)");
-                    }else{
-                        $ids = preg_split("/\s+/",$_POST['Primer']['content']);
-                        $ids = '"' . join('","',$ids) . '"';
+                        $sql = "select gene_id id,gene_symbol,gene_id,gene_name,
+                                s.name tax_name,synonyms,type_of_gene from gene
+                                left join species s on tax_id = s.id
+                                where gene_id in ($ids)
+                                order by field(gene_id, $ids)";
+                        $count = Yii::app()->db->createCommand("
+                            SELECT COUNT(*) FROM ($sql) A
+                          ")->queryScalar();
                         
-                        $count = Yii::app()->db->createCommand()
-                                ->select('count(*)')
-                                ->from('mirna m')
-                                ->leftJoin('primer p','p.gene_symbol = m.miRNA_id')
-                                ->leftJoin('position o','p.id = o.primer_id')
-                                ->leftJoin('plate l','o.plate_id = l.id')
-                                ->leftJoin('store_type s','o.store_type_id = s.id')
-                                ->where("m.miRNA_id in ($ids)")
-                                ->queryScalar();
+                    }elseif ($_POST['Gene']['type'] === 'gene_symbol') {
+                        $ids = preg_split("/\s+/",$_POST['Gene']['content']);
+                        if (end($ids) == '') {array_pop($ids);}
+                        $symbols = '"' . join('","',$ids) . '"';
+                        $tax_id = $_POST['Gene']['tax_id'];
+                        $inss = '("' . join("\",$tax_id),(\"",$ids) . "\",$tax_id)";
+                        /*
+                        foreach ($ids as $id) {
+                             $sqls[] = "(select gene_id id,gene_symbol,gene_id,gene_name,
+                                s.name tax_name,synonyms,type_of_gene from gene
+                                left join species s on tax_id = s.id
+                                where tax_id = $tax_id
+                                and gene_symbol = '$id'
+                                or synonyms regexp '^$id\\\\||\\\\|$id$|^$id$'))"; 
+                        }
+                        $sql = join(" union ", $sqls);
+                        */
+                        Yii::app()->db->createCommand("insert IGNORE into tmp_varchar20"
+                            . " values $inss")->execute();
+                        $sql = "select gene_id id,gene_symbol,gene_id,gene_name,
+                                s.name tax_name,synonyms,type_of_gene
+                                from tmp_varchar20
+                                left join gene on (gene_symbol = string and `int` = tax_id)
+                                left join species s on tax_id = s.id
+                                where `int` = $tax_id
+                                and string in ($symbols)
+                                order by field(string, $symbols)";
 
-                        $sql = Yii::app()->db->createCommand()
-                                ->select('o.id, m.miRNA_id gene_id, p.primer_id,
-                                    barcode, l.name plate, o.well, p.qc, s.name type,
-                                    CONCAT_WS("",p.comment, o.comment) note')
-                                ->from('mirna m')
-                                ->leftJoin('primer p','p.gene_symbol = m.miRNA_id')
-                                ->leftJoin('position o','p.id = o.primer_id')
-                                ->leftJoin('plate l','o.plate_id = l.id')
-                                ->leftJoin('store_type s','o.store_type_id = s.id')
-                                ->where("m.miRNA_id in ($ids)");
+                        $count = Yii::app()->db->createCommand("
+                            SELECT COUNT(*) FROM ($sql) A
+                          ")->queryScalar();
                         
                     }
                     $dataProvider=new CSqlDataProvider($sql, array(
@@ -135,6 +131,12 @@ class GeneController extends Controller
                     $this->render('check');
                 }
 	}
+
+        public function getSpecies()
+        {
+            $getStoreType = CHtml::listData(Species::model()->findAll(), 'id', 'name');
+            return $getStoreType;
+        }
 
 	/**
 	 * Creates a new model.

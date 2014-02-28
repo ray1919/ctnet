@@ -18,6 +18,7 @@ return array(
 		'application.components.*',
                 'application.extensions.yii-mail.*',
                 'application.extensions.*',
+                'ext.EDataTables.*',
 	),
 
 	'modules'=>array(

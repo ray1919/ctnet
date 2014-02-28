@@ -79,7 +79,7 @@ class CustomerController extends Controller
                                 'order'=>'date DESC',
 			),
 			'pagination'=>array(
-				'pageSize'=>1,
+				'pageSize'=>2,
 			),
 		));
 		$this->render('view',array(

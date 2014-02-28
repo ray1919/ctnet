@@ -41,7 +41,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'tax_id'); ?>
-    <?php echo $form->dropDownList($model,'tax_id', $model->getSpecies()); ?>
+                <?php echo $form->dropDownList($model,'tax_id', $model->getSpecies()); ?>
 		<?php echo $form->error($model,'tax_id'); ?>
 	</div>
 

@@ -28,8 +28,10 @@ class PCRExperiment extends CActiveRecord
 {
         public $ctfile;
         public $tmfile;
+        public $tm2file;
         public $gene_search;
         public $sample_search;
+        public $file_type;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -60,9 +62,13 @@ class PCRExperiment extends CActiveRecord
                             'allowEmpty' => false,'maxSize' => (1024 * 300), // 300 Kb
                             'tooLarge' => 'File no larger than 300Kb.',
                             'wrongType'=>'Only txt allowed.'),
+			array('tm2file', 'file', 'safe'=>true, 'types' => 'txt',
+                            'allowEmpty' => true,'maxSize' => (1024 * 300), // 300 Kb
+                            'tooLarge' => 'File no larger than 300Kb.',
+                            'wrongType'=>'Only txt allowed.'),
 			array('gene_id, primer_fk, service_id, sample_id', 'numerical', 'integerOnly'=>true),
 			array('ct, tm1, tm2', 'numerical'),
-			array('primer_id, pos, plate_type, array_name', 'length', 'max'=>45),
+			array('primer_id, pos, plate_type, file_type, array_name', 'length', 'max'=>45),
 			array('status', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -109,8 +115,10 @@ class PCRExperiment extends CActiveRecord
                         'array_name' => 'Array Name',
                         'ctfile' => 'Ct File',
                         'tmfile' => 'Tm File',
+                        'tm2file' => 'Tm2 File',
                         'gene_search' => 'Symbol',
                         'sample_search' => 'Sample',
+                        'file_type' => 'Import File Format',
 		);
 	}
 
@@ -167,6 +175,13 @@ class PCRExperiment extends CActiveRecord
             return array(
                 "96-well"=>"96-well",
                 "384-well"=>"384-well",
+                );
+        }        
+
+        public function getFileTypes() {
+            return array(
+                "roche" => "Roche Export Format",
+                "exptxt"=>"Expression Profile Txt",
                 );
         }        
 }

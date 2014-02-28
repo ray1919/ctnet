@@ -112,7 +112,7 @@ class PCRSample extends CActiveRecord
         }
 
         public function getTypeOptions() {
-            return array("RNA"=>"RNA","DNA"=>"DNA","cDNA"=>"cDNA","全血"=>"全血","细胞"=>"细胞","组织"=>"组织","其他"=>"其他");
+            return array("组织"=>"组织","RNA"=>"RNA","DNA"=>"DNA","cDNA"=>"cDNA","全血"=>"全血","细胞"=>"细胞","其他"=>"其他");
         }
         
 }

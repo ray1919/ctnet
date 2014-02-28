@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Gene', 'url'=>array('index')),
+	array('label'=>'Check Gene', 'url'=>array('check')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

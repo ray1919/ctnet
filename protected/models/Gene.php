@@ -107,15 +107,15 @@ class Gene extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
-      'sort'=>array(
-          'attributes'=>array(
-              'tax_search'=>array(
-                  'asc'=>'tax.name',
-                  'desc'=>'tax.name DESC',
-              ),
-              '*',
-          ),
-      ),
+                        'sort'=>array(
+                            'attributes'=>array(
+                                'tax_search'=>array(
+                                    'asc'=>'tax.name',
+                                    'desc'=>'tax.name DESC',
+                                ),
+                                '*',
+                            ),
+                        ),
 		));
 	}
 }

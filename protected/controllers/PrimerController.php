@@ -193,7 +193,7 @@ class PrimerController extends Controller
                                 ->andWhere("p.gene_fk in ($ids)")
                                 ->andWhere('o.plate_id = l.id')
                                 ->andWhere('o.store_type_id = s.id');
-                         * 
+
                         $count = Yii::app()->db->createCommand()
                                 ->select('count(*)')
                                 ->from('gene g')
@@ -220,62 +220,56 @@ class PrimerController extends Controller
                             CONCAT_WS(\"\",p.comment, o.comment) note
                             from gene g
                             left join primer p on p.gene_fk = g.gene_id
-                            left join position o on p.id = o.primer_id
+                            left join (select * from position
+			    order by store_type_id desc, id desc) o on p.id = o.primer_id
                             left join plate l on o.plate_id = l.id
                             left join store_type s on o.store_type_id = s.id
                             left join qc q on p.qc = q.id
                             where g.gene_id in ($ids)
-                            group by g.gene_id, g.gene_symbol, p.primer_id";
+                            group by g.gene_id, g.gene_symbol, p.primer_id
+                            order by field(g.gene_id, $ids)";
                         $count = Yii::app()->db->createCommand("
                             SELECT COUNT(*) FROM ($sql) A
                           ")->queryScalar();
 
                         $sql = Yii::app()->db->createCommand("$sql");
+                    }elseif ($_POST['Primer']['type'] === 'miRNA acc') {
+                        $ids = preg_split("/\s+/",$_POST['Primer']['content']);
+                        $ids = '"' . join('","',$ids) . '"';
+                        $sql = "select o.id, m.miRNA_id gene_id, p.primer_id,
+                                barcode, l.name plate, o.well, q.name qc, s.name type,
+                                CONCAT_WS(\"\",p.comment, o.comment) note
+                                from mirna m
+                                left join primer p on p.mirna_fk = m.id
+                                left join position o on p.id = o.primer_id
+                                left join plate l on o.plate_id = l.id
+                                left join store_type s on o.store_type_id = s.id
+                                left join qc q on p.qc = q.id
+                                where m.accession in ($ids)
+                                group by m.miRNA_id, p.primer_id
+                                order by field(m.accession, $ids)";
+                        $count = Yii::app()->db->createCommand("
+                            SELECT COUNT(*) FROM ($sql) A
+                          ")->queryScalar();
                     }else{
                         $ids = preg_split("/\s+/",$_POST['Primer']['content']);
                         $ids = '"' . join('","',$ids) . '"';
-                        /*
-                        $count = Yii::app()->db->createCommand()
-                                ->select('count(*)')
-                                ->from('plate l, store_type s, primer p')
-                                ->rightJoin('position o','p.id = o.primer_id')
-                                ->andWhere("p.gene_symbol in ($ids)")
-                                ->andWhere('o.plate_id = l.id')
-                                ->andWhere('o.store_type_id = s.id')
-                                ->queryScalar();
-
-                        $sql = Yii::app()->db->createCommand()
-                                ->select('o.id, p.gene_symbol gene_id, p.primer_id,
-                                    barcode, l.name plate, o.well, p.qc, s.name type,
-                                    CONCAT_WS("",p.comment, o.comment) note')
-                                ->from('plate l, store_type s, primer p')
-                                ->rightJoin('position o','p.id = o.primer_id')
-                                ->andWhere("p.gene_symbol in ($ids)")
-                                ->andWhere('o.plate_id = l.id')
-                                ->andWhere('o.store_type_id = s.id');
-                         * 
-                         */
-                        
-                        $count = Yii::app()->db->createCommand()
-                                ->select('count(*)')
-                                ->from('mirna m')
-                                ->leftJoin('primer p','p.gene_symbol = m.miRNA_id')
-                                ->leftJoin('position o','p.id = o.primer_id')
-                                ->leftJoin('plate l','o.plate_id = l.id')
-                                ->leftJoin('store_type s','o.store_type_id = s.id')
-                                ->where("m.miRNA_id in ($ids)")
-                                ->queryScalar();
-
-                        $sql = Yii::app()->db->createCommand()
-                                ->select('o.id, m.miRNA_id gene_id, p.primer_id,
-                                    barcode, l.name plate, o.well, p.qc, s.name type,
-                                    CONCAT_WS("",p.comment, o.comment) note')
-                                ->from('mirna m')
-                                ->leftJoin('primer p','p.gene_symbol = m.miRNA_id')
-                                ->leftJoin('position o','p.id = o.primer_id')
-                                ->leftJoin('plate l','o.plate_id = l.id')
-                                ->leftJoin('store_type s','o.store_type_id = s.id')
-                                ->where("m.miRNA_id in ($ids)");
+                        $sql = "select o.id, m.miRNA_id gene_id, p.primer_id,
+                                barcode, l.name plate, o.well, q.name qc, s.name type,
+                                CONCAT_WS(\"\",p.comment, o.comment) note
+                                from mirna m
+                                left join primer p on p.mirna_fk = m.id
+                                left join position o on p.id = o.primer_id
+                                left join plate l on o.plate_id = l.id
+                                left join store_type s on o.store_type_id = s.id
+                                left join qc q on p.qc = q.id
+                                where m.miRNA_id in ($ids)
+                                or p.gene_symbol in ($ids)
+                                group by m.miRNA_id, p.primer_id
+                                order by field(m.miRNA_id, $ids)";
+                        $count = Yii::app()->db->createCommand("
+                            SELECT COUNT(*) FROM ($sql) A
+                          ")->queryScalar();
                         
                     }
                     $dataProvider=new CSqlDataProvider($sql, array(
