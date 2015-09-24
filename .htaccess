@@ -12,3 +12,5 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . index.php
 </IfModule>
+
+Options -Indexes

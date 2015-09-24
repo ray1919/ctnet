@@ -3,7 +3,7 @@
 /* @var $model Gene */
 
 $this->breadcrumbs=array(
-	'Genes'=>array('index'),
+	'Genes'=>array('admin'),
 	$model->gene_symbol,
 );
 

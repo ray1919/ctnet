@@ -53,6 +53,7 @@
                                     array('label'=>'PCR Sample', 'url'=>array('/PCRSample')),
                                     ),
                                 ),
+				array('label'=>'Reports', 'url'=>array('/report')),
 				array('label'=>'Files', 'url'=>array('/media')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact Us', 'url'=>array('/site/contact')),

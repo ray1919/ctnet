@@ -81,3 +81,117 @@ $this->menu=array(
   'itemView'=>'/position/_view',
 )); ?>
 
+<?php
+    function str2float($v) {
+        if ($v==="") return '';
+        return floatval($v);
+    }
+    foreach ($stats as $key => $value) {
+      // print_r($stats[$key]['tms']);exit;
+        $pid[] = 'Primer id: ' . $stats[$key]['primer_id'];
+        $ct_dot[] = array_map("str2float",preg_split('/,/',$stats[$key]['cts']));
+        $cts[] = new boxPlot($ct_dot[$key]);
+        foreach ($ct_dot[$key] as $i => $j) {
+            $ct_dots[] = array($key,$j);
+        }
+        $ctdata[$key] = $cts[$key]->box_para();
+
+        $tm1_dot[] = array_map("str2float",preg_split('/,/',$stats[$key]['tms']));
+        $tm1s[] = new boxPlot($tm1_dot[$key]);
+        foreach ($tm1_dot[$key] as $i => $j) {
+            $tm1_dots[] = array($key,$j);
+        }
+        $tm1data[$key] = $tm1s[$key]->box_para();
+    }
+    //print_r(!isset($stats[$key]['cts']));
+    // print_r(( $tm1_dots) );exit;
+
+if (isset($key))
+$this->Widget('ext.highcharts.HighchartsWidget', array(
+    'options'=>array(
+    'chart' => array(
+        'type' => 'boxplot',
+        'inverted' => true,
+        'height' => 150+count($ctdata)*50,
+    ),
+    'title' => array('text' => $model->gene_symbol . ' CT Boxplot'),
+     'xAxis' => array(
+        'categories' => $pid,
+     ),
+    'yAxis' => array(
+        'title' => array('text' => 'Ct'),
+        /*
+        'plotLines' => array(
+            array(
+            'color' => '#FF0000',
+            'width' => 2,
+            'value' => $model->ct,
+            'zIndex' => 5,
+            'label' => array(
+                'text' => $model->ct,
+                'align' => 'left',
+            ),
+            )
+        ),*/
+    ),
+    'series' => array(
+        array(
+            'name' => 'Ct',
+            'data' => $ctdata,
+        ),
+        array(
+            'name' => 'ct values',
+            'type' => 'scatter',
+            'data' => $ct_dots,
+        ),
+    ),
+    )
+));
+if (isset($key))
+$this->Widget('ext.highcharts.HighchartsWidget', array(
+    'options'=>array(
+    'chart' => array(
+        'type' => 'boxplot',
+        'inverted' => true,
+        'height' => 150+count($tm1data)*50,
+    ),
+    'title' => array('text' => $model->gene_symbol . ' TM Boxplot'),
+     'xAxis' => array(
+        'categories' => $pid,
+     ),
+    'tooltip' => array(
+        'valueSuffix' => '°C',
+    ),
+    'yAxis' => array(
+        'title' => array('text' => 'Tm (°C)'),
+        /*
+        'plotLines' => array(
+            array(
+            'color' => '#FF0000',
+            'width' => 2,
+            'value' => $model->tm1,
+            'zIndex' => 5,
+            'label' => array(
+                'text' => $model->tm1,
+                'align' => 'left',
+            ),
+            )
+        ),*/
+    ),
+    'series' => array(
+        array(
+            'name' => 'TM',
+            'data' => $tm1data,
+            'color' => 'DarkGreen',
+        ),
+        array(
+            'name' => 'TM values',
+            'type' => 'scatter',
+            'color' => 'DeepPink',
+            'data' => $tm1_dots,
+        ),
+    ),
+    )
+));
+?>
+
