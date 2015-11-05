@@ -122,4 +122,9 @@ class Report extends CActiveRecord
   public function getTypeOptions() {
     return array('服务' => '服务', '验证实验' => '验证实验', '体系开发' => '体系开发');
   }
+
+  public function getRunNames($id) {
+    $getRunNames = CHtml::listData(ReportRun::model()->findAll(array("condition"=>"report_id = $id")), 'id', 'name');
+    return $getRunNames;
+  }
 }

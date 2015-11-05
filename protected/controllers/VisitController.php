@@ -65,8 +65,8 @@ class VisitController extends Controller
 	public function actionCreate()
 	{
 		$model=new Visit;
-                $model->customer_id = $this->_customer->id;
-                $this->customer_title = $this->_customer->title;
+    $model->customer_id = $this->_customer->id;
+    $this->customer_title = $this->_customer->title;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

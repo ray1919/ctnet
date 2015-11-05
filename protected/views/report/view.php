@@ -13,6 +13,7 @@ $this->menu=array(
 	array('label'=>'Update Report', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete Report', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Report', 'url'=>array('admin')),
+	array('label'=>'Upload Data', 'url'=>array('upload','report_id'=>$model->id)),
 );
 ?>
 

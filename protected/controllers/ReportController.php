@@ -28,7 +28,7 @@ class ReportController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','admin'),
+				'actions'=>array('index','view','admin','upload'),
 				'pbac'=>array('read'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -143,6 +143,39 @@ class ReportController extends Controller
 			'model'=>$model,
 		));
 	}
+
+  public function actionUpload($report_id)
+  {
+    // $report_id = $_GET['report_id'];
+        /* @var $cs CClientScript */
+        $cs = Yii::app()->clientScript;
+        $cs->registerScript('rid',"var report_id = $report_id;",CClientScript::POS_HEAD);
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.min.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery-ui.min.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/tmpl.min.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/load-image.all.min.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/canvas-to-blob.min.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.blueimp-gallery.min.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.iframe-transport.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-process.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-image.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-audio.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-video.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-validate.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-ui.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-jquery-ui.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/main.js' );
+        $cs->registerCssFile( Yii::app()->getBaseUrl() . '/css/fileupload/blueimp-gallery.min.css');
+        $cs->registerCssFile( Yii::app()->getBaseUrl() . '/css/fileupload/jquery-ui.css');
+        $cs->registerCssFile( Yii::app()->getBaseUrl() . '/css/fileupload/demo.css');
+        $cs->registerCssFile( Yii::app()->getBaseUrl() . '/css/fileupload/jquery.fileupload.css');
+        $cs->registerCssFile( Yii::app()->getBaseUrl() . '/css/fileupload/jquery.fileupload-ui.css');
+
+    $this->render('upload',array(
+      'model'=>$this->loadModel($report_id),
+    ));
+  }
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
