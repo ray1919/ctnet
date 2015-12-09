@@ -32,27 +32,32 @@
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Task', 'url'=>array('/task')),
 				array('label'=>'Primer', 'url'=>array('/primer/admin'),
-                                  'items'=>array(
-                                    array('label'=>'Plate', 'url'=>array('/plate/admin')),
-                                    array('label'=>'Store Type', 'url'=>array('/StoreType/admin')),
-                                    array('label'=>'Position', 'url'=>array('/position/admin')),
-                                    array('label'=>'Gene DB', 'url'=>array('/gene/admin')),
-                                    array('label'=>'miRNA DB', 'url'=>array('/mirna/admin')),
-                                    array('label'=>'Species', 'url'=>array('/species/admin')),
-                                    ),
-                                ),
-                                array('label'=>'Contacts', 'url'=>array('/customer'),
-                                  'items'=>array(
-                                    array('label'=>'Communication', 'url'=>array('/visit')),
-                                    array('label'=>'Order', 'url'=>array('/CustomerOrder')),
-                                    /*array('label'=>'Gene Order', 'url'=>array('/GeneOrder')),*/
-                                    ),
-                                ),
-                                array('label'=>'PCR Service', 'url'=>array('/PCRService'),
-                                  'items'=>array(
-                                    array('label'=>'PCR Sample', 'url'=>array('/PCRSample')),
-                                    ),
-                                ),
+         'items'=>array(
+         array('label'=>'Plate', 'url'=>array('/plate/admin')),
+         array('label'=>'Store Type', 'url'=>array('/StoreType/admin')),
+         array('label'=>'Position', 'url'=>array('/position/admin')),
+         array('label'=>'Gene DB', 'url'=>array('/gene/admin')),
+         array('label'=>'miRNA DB', 'url'=>array('/mirna/admin')),
+         array('label'=>'Species', 'url'=>array('/species/admin')),
+         ),
+        ),
+        array('label'=>'Contacts', 'url'=>array('/customer'),
+         'items'=>array(
+         array('label'=>'Communication', 'url'=>array('/visit')),
+         array('label'=>'Order', 'url'=>array('/CustomerOrder')),
+         /*array('label'=>'Gene Order', 'url'=>array('/GeneOrder')),*/
+         ),
+        ),
+        array('label'=>'Samples', 'url'=>array('/sample'),
+         'items'=>array(
+         array('label'=>'Sample Usage Record', 'url'=>array('/SampleUsageRecord')),
+         ),
+        ),
+        array('label'=>'PCR Service', 'url'=>array('/PCRService'),
+         'items'=>array(
+         array('label'=>'PCR Sample', 'url'=>array('/PCRSample')),
+         ),
+        ),
 				array('label'=>'Reports', 'url'=>array('/report')),
 				array('label'=>'Files', 'url'=>array('/media')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),

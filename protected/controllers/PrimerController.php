@@ -28,11 +28,11 @@ class PrimerController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'admin' and 'index' and 'view' actions
-				'actions'=>array('index','view','admin'),
+				'actions'=>array('index','view'),
 				'pbac'=>array('read'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','check'),
+				'actions'=>array('create','update','admin','check'),
 				'pbac'=>array('write'),
 			),
 			array('allow', // allow admin user to perform 'delete' actions

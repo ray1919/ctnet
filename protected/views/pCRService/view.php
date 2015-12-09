@@ -12,8 +12,8 @@ $this->menu=array(
 	array('label'=>'Update PCRService', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete PCRService', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage PCRService', 'url'=>array('admin')),
-        array('label'=>'Add PCR Sample', 'url'=>array('PCRSample/create', 'service_id'=>$model->id)),
-        array('label'=>'Add PCR Experiment', 'url'=>array('PCRExperiment/create', 'service_id'=>$model->id)),
+  array('label'=>'Add PCR Sample', 'url'=>array('PCRSample/create', 'service_id'=>$model->id)),
+  array('label'=>'Add PCR Experiment', 'url'=>array('PCRExperiment/create', 'service_id'=>$model->id)),
 );
 ?>
 

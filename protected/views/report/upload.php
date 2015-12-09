@@ -179,6 +179,7 @@ $this->menu=array(
           <li>在创建并填写保存完实验报告后，在实验报告页面右侧点击&ldquo;Upload Data&rdquo;&lsquo;；</li>
           <li>PCR服务实验报告需要上传所有PCR实验（罗氏LC480）导出的CT文件、TM文件和实验原始数据(Experiment Data)，及PCR服务信息（填写参考Excel模板，<a href="/~zhaorui/ctnet/scripts/fileupload/server/files/PCR_Layout_Template.xlsx">点击此处下载</a>）；</li>
           <li>验证实验及体系开发只需要上传所有PCR实验（罗氏LC480）导出的CT文件、TM文件和实验原始数据；</li>
+          <li>导出的CT文件、TM文件孔位对应，文件命名没有要求，每张芯片仅能有1个CT文件和1个TM文件；</li>
           <li>正确上传后点击下方&ldquo;分析PCR服务（实验）数据&rdquo;，分析开始。右侧分析记录逐行显示运行记录，直至运行完毕；</li>
           <li>若分析过程出错，分析记录显示红色错误提示，分析停止，需要找到错误原因，重新分析；</li>
           <li>成功完成分析后，刷新页面，分析记录任然保留，文件列表中新增&ldquo;workbook.xlsx&rdquo;文件，点击下载；</li>

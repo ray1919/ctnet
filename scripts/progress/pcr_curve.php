@@ -39,7 +39,7 @@ function pcr_curve($name,$wd,$run_id,$poss, $report_id) {
   $stdout = preg_replace('/\[1\] "(.*)"/','$1',$stdout);
   if (!$return_code) {
     $nocache = rand();
-    echo '<script type="text/javascript">window.parent.document.getElementById("imageBox").innerHTML = "<img src=\'' . "/~zhaorui/ctnet/scripts/fileupload/server/files/$report_id/cycle.png?$nocache" . '\'>";</script>';
+    echo '<script type="text/javascript">window.parent.document.getElementById("imageBox").innerHTML = "<img src=\'' . "/~zhaorui/ctnet/scripts/fileupload/server/files/$report_id/$name.png?$nocache" . '\'>";</script>';
   } else {
     $message = "<span class='isa_success'>$stdout</span> <span class='isa_error'> $stderr </span> <span class='isa_info'>server time: " . date("H:i:s Ymd", time()) . "</span>";
     $message = preg_replace('/\"/', "'", $message);
