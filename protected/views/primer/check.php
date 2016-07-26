@@ -49,6 +49,9 @@ $this->breadcrumbs=array(
 <option value="gene store">Gene ID (存储浓度)</option>
 <option value="miRNA id store">miRNA ID (存储浓度)</option>
 <option value="miRNA acc store">miRNA Acc/Primer ID (存储浓度)</option>
+<option value="gene solid">Gene ID (干粉)</option>
+<option value="miRNA id solid">miRNA ID (干粉)</option>
+<option value="miRNA acc solid">miRNA Acc/Primer ID (干粉)</option>
 </select>
 </div>
     <p>Example of Input (separate by space or new line):</p>

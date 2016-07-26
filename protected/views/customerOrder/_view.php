@@ -30,7 +30,7 @@
        </td>
         <td style="vertical-align: top;">
 	<b><?php echo CHtml::encode($data->getAttributeLabel('comment')); ?>:</b>
-	<?php echo CHtml::encode(substr($data->comment,0,400)."......"); ?>
+	<?php echo CHtml::encode(substr($data->comment,0,380)."......"); ?>
         </td>
     </tr>
 </table>

@@ -20,7 +20,9 @@ load(".RData")
 con <- dbConnect(RMySQL::MySQL(), user = 'ctnet',
                  password='ctnet', host='localhost',db='ctnet')
 
-if (array_type == "gene") {
+if (is_miR_ary) {
+  # geneTbl <- null
+} else {
   # retrive gene table list
   geneTbl <- data.frame(Well=character(),Symbol=character(),"Gene ID"=numeric(),
                         "Gene Name"=character(), "Species"=character(),
@@ -37,53 +39,38 @@ if (array_type == "gene") {
     well <- schema1[schema1$Symbol == as.character(res[1]),"Well"]
     geneTbl[i,] <- c(well, unlist(res))
   }
-  print("Gene table sheet created.")
 }
+print("Gene table sheet created.")
 
 sort_col <- function(df) {
   return(df[,c("symbol",naturalsort(colnames(df[,-1])))])
 }
 
+# Assay QC
+assayQC <- aggregate(opt.tm ~ symbol, data=dataTbl, sd, na.rm=T)
+assayQC <- merge(assayQC, aggregate(ct ~ symbol, data=dataTbl,
+                                    function(x){length(x)/length(all_samples)}))
+assayQC <- merge(assayQC, aggregate(isdoublepeak ~ symbol, data=dataTbl,
+                                    function(x){sum(as.logical(x))}))
+assayQC <- merge(assayQC, aggregate(qual ~ symbol, data=dataTbl,sum))
 is.outlier <- function(x) {
   iqr <- IQR(x,na.rm = T)
   y <- quantile(x,3/4,na.rm = T) + 1.5*iqr
   x > y
 }
-
-# Assay QC
-assayQC <- aggregate(opt.tm ~ symbol, data=dataTbl, sd, na.rm=T)
-assayQC <- merge(x = assayQC, by="symbol", all=T,
-                 y = aggregate(ct ~ symbol, data=dataTbl,
-                               function(x){length(x[x<35])}))
-assayQC <- merge(x = assayQC, by="symbol", all=T,
-                 y = aggregate(ct ~ symbol, data=dataTbl,
-                               function(x){length(x[x>=35])}))
-assayQC <- merge(x = assayQC, by="symbol", all=T,
-                 y = aggregate(ct ~ symbol, data=dataTbl,
-                               function(x){length(all_samples) - length(x)}))
-assayQC <- merge(assayQC, aggregate(isdoublepeak ~ symbol, data=dataTbl,
-                          function(x){sum(as.logical(x))}), all=T)
-assayQC <- merge(assayQC, aggregate(qual ~ symbol, data=dataTbl,sum), all=T)
 assayQC$is.qc.outlier <- is.outlier(assayQC$qual)
-colnames(assayQC) <- c("SYMBOL", "TM SD", "CT<35","CT>=35","CT NULL","DOUBLE PEAKS","QUAL","IS_OUTLIER")
-assayQC$`CT NULL`[is.na(assayQC$`CT NULL`)] <- length(all_samples)
 if (length(assayQC$symbol[assayQC$is.qc.outlier]) > 0) {
   print(paste(assayQC$symbol[assayQC$is.qc.outlier],"failed the QC test."))
 }
 
 # Sample QC
 sampleQC <- aggregate(ct ~ sample, data=dataTbl, function(x){length(x[x<35])})
-sampleQC <- merge(x = sampleQC, by="sample", all=T,
-                  y = aggregate(ct ~ sample, data=dataTbl,
-                                function(x){length(x[x>=35])}))
-sampleQC <- merge(x = sampleQC, by="sample", all=T,
-                  y = aggregate(ct ~ sample, data=dataTbl,
-                                function(x){length(symbolList) - length(x)}))
+sampleQC <- merge(sampleQC, aggregate(ct ~ sample, data=dataTbl,
+                                      function(x){length(x)/length(symbolList)}),by="sample")
 sampleQC <- merge(sampleQC, aggregate(isdoublepeak ~ sample, data=dataTbl,
-                            function(x){sum(as.logical(x))}), all=T)
-sampleQC <- merge(sampleQC, aggregate(qual ~ sample, data=dataTbl,sum), all=T)
+                                      function(x){sum(as.logical(x))}))
+sampleQC <- merge(sampleQC, aggregate(qual ~ sample, data=dataTbl,sum))
 sampleQC$is.qc.outlier <- is.outlier(sampleQC$qual)
-colnames(sampleQC) <- c("SYMBOL", "CT<35","CT>=35","CT NULL","DOUBLE PEAKS","QUAL","IS_OUTLIER")
 if (length(sampleQC$sample[sampleQC$is.qc.outlier]) > 0) {
   print(paste(sampleQC$sample[sampleQC$is.qc.outlier],"failed the QC test."))
   sample_analysis[match(sampleQC$sample[sampleQC$is.qc.outlier], all_samples)] <- FALSE
@@ -130,44 +117,32 @@ if (all(grepl(pattern = "-\\d$", x = all_samples))) {
 
 # delta-delta CT result sheet
 # check HK
-if (normalization.method == "HK") {
-  hks_valid <- array()
-  for (hks in schema2$Housekeeping.Gene.Symbol) {
-    if (is_tech_rep) {
-      is_valid <- TRUE
-      for (s in unique(sreps[,1])) {
-        reps <- sreps[sreps[,1]==s,2]
-        z <- dataTbl[dataTbl$symbol == hks & dataTbl$sample %in% reps,"qual"] < qc_cutoff
-        if (is.na(table(z)["TRUE"])) {
-          is_valid <- FALSE
-          break
-        }
+hks_valid <- array()
+for (hks in schema2$Housekeeping.Gene.Symbol) {
+  if (is_tech_rep) {
+    is_valid <- TRUE
+    for (s in unique(sreps[,1])) {
+      reps <- sreps[sreps[,1]==s,2]
+      z <- dataTbl[dataTbl$symbol == hks & dataTbl$sample %in% reps,"qual"] < qc_cutoff
+      if (is.na(table(z)["TRUE"])) {
+        is_valid <- FALSE
+        break
       }
-      if (is_valid)
-        hks_valid <- c(hks_valid,hks)
-    } else { 
-      if (all(dataTbl[dataTbl$symbol == hks &
-            dataTbl$sample %in% all_samples[sample_analysis],"qual"] < qc_cutoff))
     }
-    hks_valid <- c(hks_valid,hks)
-  }
-  if (length(hks_valid) == 1)
-    stop("ERROR 4: All HK genes failed QC checking.")
-} else if (normalization.method == "median") {
-  # use median normalization when no HK gene provided
-  valid_symbol <- intersect(na.omit(rawCt)$symbol, na.omit(rawTm)$symbol)
-  median_ct <- apply(rawCt[rawCt$symbol %in% valid_symbol,-1],MARGIN = 2,median)
-  names(median_ct) <- colnames(rawCt[,-1])
+    if (is_valid)
+      hks_valid <- c(hks_valid,hks)
+  } else 
+    if (all(dataTbl[dataTbl$symbol == hks &
+          dataTbl$sample %in% all_samples[sample_analysis],"qual"] < qc_cutoff))
+      hks_valid <- c(hks_valid,hks)
 }
+if (length(hks_valid) == 1)
+  stop("ERROR 4: All HK genes failed QC checking.")
 
 # calculate delta CT for each sample
 deltaCt <- data.frame(symbol=character(),sample=character(),delta_ct=numeric())
 for (k in all_samples[sample_analysis] ) {
-  if (normalization.method == "HK") {
-    hks_avg_ct <- mean(rawCtQc10[rawCtQc10$symbol %in% hks_valid,k],na.rm=T)
-  } else if (normalization.method == "median") {
-    hks_avg_ct <- median_ct[k]
-  }
+  hks_avg_ct <- mean(rawCtQc10[rawCtQc10$symbol %in% hks_valid,k],na.rm=T)
   for (j in schema1$Symbol ) {
     # skip HK genes
     if (j %in% schema2$Housekeeping.Gene.Symbol)
@@ -182,7 +157,6 @@ for (k in all_samples[sample_analysis] ) {
     deltaCt <- rbind(deltaCt, data.frame(symbol=j,sample=k,delta_ct))
   }
 }
-rownames(deltaCt) <- NULL
 deltaCtCasted <- sort_col(cast(deltaCt, symbol~sample,value = "delta_ct"))
 
 print("HK gene QC checked.")

@@ -29,8 +29,6 @@ wb <- createWorkbook(creator="CT Bioscience")
 options("openxlsx.borderColour" = "#4F80BD")
 options("openxlsx.borderStyle" = "thin")
 modifyBaseFont(wb, fontSize = 10, fontName = "Arial Narrow")
-headSty <- createStyle(fgFill="#DCE6F1", halign="center",
-                       border = "TopBottomLeftRight")
 
 
 # raw data sheet
@@ -40,17 +38,19 @@ freezePane(wb, sheet = 1, firstRow = TRUE, firstCol = TRUE)
 writeDataTable(wb, sheet = 1, x = dataTbl, colNames = TRUE,
                rowNames = FALSE, tableStyle = "TableStyleLight9")
 
-if (array_type == "gene") {
-  # gene sheet
-  addWorksheet(wb, sheetName = "Gene Table", gridLines = FALSE, zoom = 150)
-  freezePane(wb, sheet = "Gene Table", firstRow = TRUE,
-             firstCol = F) ## freeze first row and column
-  setColWidths(wb, sheet = 2, cols = "D", widths = 50)
-  setColWidths(wb, sheet = 2, cols = "F", widths = 20)
-  setColWidths(wb, sheet = 2, cols = "G", widths = 13)
-  writeData(wb, sheetName = "Gene Table", x = geneTbl, startCol = "A", startRow=1,
-            borders="rows", headerStyle = headSty)
-}
+
+# gene sheet
+addWorksheet(wb, sheetName = "Gene Table", gridLines = FALSE, zoom = 150)
+freezePane(wb, sheet = "Gene Table", firstRow = TRUE,
+           firstCol = F) ## freeze first row and column
+setColWidths(wb, sheet = 2, cols = "D", widths = 50)
+setColWidths(wb, sheet = 2, cols = "F", widths = 20)
+setColWidths(wb, sheet = 2, cols = "G", widths = 13)
+headSty <- createStyle(fgFill="#DCE6F1", halign="center",
+                       border = "TopBottomLeftRight")
+writeData(wb, sheetName = "Gene Table", x = geneTbl, startCol = "A", startRow=1,
+          borders="rows", headerStyle = headSty)
+
 
 # raw sheet
 addWorksheet(wb, sheetName = "Data Table", gridLines = FALSE, zoom = 150)
@@ -65,12 +65,10 @@ s1 <- createStyle(fontSize=14, textDecoration=c("bold", "italic"))
 addStyle(wb, "Data Table", style = s1, rows=c(1,1,1), cols=(0:2) * sum(schema3[,9]) + 4)
 
 addWorksheet(wb, sheetName = "Assay QC", gridLines = FALSE, zoom = 150)
-freezePane(wb, sheet = "Assay QC", firstRow = T, firstCol = F)
 writeData(wb, sheet = "Assay QC", x = assayQC, startCol = "A", startRow=1,
           borders="rows", headerStyle = headSty)
 
 addWorksheet(wb, sheetName = "Sample QC", gridLines = FALSE, zoom = 150)
-freezePane(wb, sheet = "Sample QC", firstRow = T, firstCol = F)
 writeData(wb, sheet = "Sample QC", x = sampleQC, startCol = "A", startRow=1,
           borders="rows", headerStyle = headSty)
 
@@ -87,13 +85,32 @@ for (i in 1:nrow(schema4)) {
   UpStyle <- createStyle(textDecoration = "bold", fontColour = "#9C0006")
   DownStyle <- createStyle(textDecoration = "bold", fontColour = "#006100")
   
-  # deltaTbl <- data.frame(symbol=character(),sample=character(),deltaCt=numeric())
+  deltaTbl <- data.frame(symbol=character(),sample=character(),deltaCt=numeric())
   plotxy <- data.frame()
   
   if (A %in% all_samples[sample_analysis] & B %in% all_samples[sample_analysis]) {
     print("sample compare")
-    deltaTbl <- deltaCt[deltaCt$sample %in% c(A,B), ]
-    ddCt <- cast(deltaTbl, symbol~sample,value = "delta_ct")
+    for (k in c(A,B) ) {
+      # hks_avg_ct <- mean(rawCt[rawCt$symbol %in% hks_valid,k], na.rm=T)
+      hks_avg_ct <- mean(rawCtQc10[rawCtQc10$symbol %in% hks_valid,k],na.rm=T)
+      for (j in schema1$Symbol ) {
+      # for (j in geneTbl$Symbol ) {
+        # skip HK genes
+        if (j %in% schema2$Housekeeping.Gene.Symbol)
+          next
+        if (j %in% c("GDC","PPC","RTC","PPC1","RTC1","PPC2","RTC2","PPC3","RTC3") )
+          next
+        # skip QC failed genes
+        # if (any(dataTbl[dataTbl$symbol == j,"qual"] >= qc_cutoff) )
+        #   next
+        #ct_raw <- rawCt[rawCt$symbol == j,k]
+        ct_raw <- rawCtQc10[rawCtQc10$symbol == j, k]
+        delta_ct <- ct_raw - hks_avg_ct
+        deltaTbl <- insertRow(deltaTbl, c(j,k,delta_ct))
+      }
+    }
+    deltaTbl$deltaCt <- as.numeric(deltaTbl$deltaCt)
+    ddCt <- cast(deltaTbl, symbol~sample,value = "deltaCt")
     ddCt$delta.delta.Ct <- NA
     for ( t in 1:nrow(ddCt) ) {
       ddCt[t,"delta.delta.Ct"] = ddCt[t, A] - ddCt[t, B]
@@ -113,8 +130,31 @@ for (i in 1:nrow(schema4)) {
     sA <- all_samples[all_groups==A & sample_analysis]
     sB <- all_samples[all_groups==B & sample_analysis]
 
-    deltaTbl <- deltaCt[deltaCt$sample %in% c(sA,sB), ]
-    ddCt <- cast(deltaTbl, symbol~sample,value = "delta_ct")
+    for (k in c(sA,sB) ) {
+      hks_avg_ct <- mean(rawCtQc10[rawCtQc10$symbol %in% hks_valid,k],na.rm=T)
+      for (j in schema1$Symbol ) {
+      # for (j in geneTbl$Symbol ) {
+          # skip HK genes
+        if (j %in% schema2$Housekeeping.Gene.Symbol)
+          next
+        if (j %in% c("GDC","PPC","RTC","PPC1","RTC1","PPC2","RTC2","PPC3","RTC3",
+                     "NEG1","NEG2","NEG3","NEG4") )
+          next
+        # 这一步改到前置的rawCtQc10里了，不需要再过滤了。
+        # skip QC failed genes
+        # if (any(dataTbl[dataTbl$symbol == j,"qual"] >= qc_cutoff) )
+        #   next
+        ct_raw <- rawCtQc10[rawCtQc10$symbol == j, k]
+        if (length(ct_raw) == 0)
+          next
+        delta_ct <- ct_raw - hks_avg_ct
+        # deltaTbl <- insertRow(deltaTbl, c(j,k,delta_ct))
+        deltaTbl <- rbind(deltaTbl,c(j,k,delta_ct))
+      }
+    }
+    colnames(deltaTbl) <- c('symbol','sample','deltaCt')
+    deltaTbl$deltaCt <- as.numeric(deltaTbl$deltaCt)
+    ddCt <- cast(deltaTbl, symbol~sample,value = "deltaCt")
     # 样本名自然排序
     ddCt <- ddCt[,c("symbol",naturalsort(colnames(ddCt[,-1])))]
     print("calculate delta Ct")
@@ -156,56 +196,19 @@ for (i in 1:nrow(schema4)) {
   setColWidths(wb, sheet = sheet_name, cols = 1:ncol(ddCt), widths = 10)
   writeData(wb, sheet_name, x = ddCt[,1:ncol(ddCt)], startCol = "A", startRow=1,
             borders="rows", headerStyle = headSty)
-  
   print("make scatter plot.")
-  d <- qplot(data=plotxy, x = B, y= A, xlab=B,ylab=A,colour= C,size=0.8)
-  p <- ggplot(plotxy, aes(B, A,color = plotxy$C)) +
-    geom_point( size = 1) +
-    geom_abline(intercept = 1, color="firebrick1") +
-    geom_abline(intercept = -1, color="limegreen") +
-    xlab(B) + ylab(A) +
-    scale_colour_gradient2("log2 ratio", midpoint = 0,#, limits=c(-2, 2)
+  d <- qplot(data=plotxy, x = B, y= A, xlab=B,ylab=A,colour= C)
+  p <- d + scale_colour_gradient2("log2 ratio", midpoint = 0,#, limits=c(-2, 2)
           low = muted("green"), mid = "snow3", high = muted("red")) +
           theme_bw()
   pngfile = paste(A,B,".png",sep="")
-  png(filename = pngfile,width=6,height=5,units="in",res=300)
+  png(filename = pngfile,width=5,height=4,units="in",res=300)
   print(p)
   dev.off()
   # insertPlot(wb, sheet = 3+i, startCol = ncol(ddCt) + 2)
   insertImage(wb = wb, sheet = sheet_name, file = pngfile, width = 6, 
-              height = 5, startRow = 2, startCol = ncol(ddCt) + 1, 
+              height = 5, startRow = 1, startCol = ncol(ddCt) + 1, 
               units = "in", dpi = 300)
-  
-  if (length(symbolList) >= 384) {
-    # make volcano plot
-    dat1 <- data.frame(x=as.numeric(ddCt$`log ratio`), y=-log10(ddCt$`p value`), ID=ddCt$symbol)
-    dat2 <- na.omit(dat1)
-    if (array_type == "miRNA") {
-      dat2$ID <- sub(pattern = "^...-", replacement = "", x = dat2$ID,perl = T)
-    }
-    mask <-  with(dat2, y>-log10(0.05) & abs(x)>1)
-    cols <- ifelse(mask, "firebrick1", "grey")
-    p2 <- ggplot(dat2, aes(x, y, label= ID)) +
-      geom_point(color = cols, size = 0.8) +
-      geom_vline(xintercept = 1, color = "dodgerblue", linetype="longdash") + #add vertical line
-      geom_vline(xintercept = -1, color = "dodgerblue", linetype="longdash") + #add vertical line
-      geom_hline(yintercept = -log10(0.05), color = "deeppink", linetype="longdash") +  #add vertical line
-      labs(x="log2(Fold-change)", y="-log10(P.Value)") + 
-      scale_x_continuous("log2(Fold-change)") +
-      scale_y_continuous("-log10(P.Value)", limits = range(0,max(dat2$y)+0.2)) +
-      annotate("text", x=dat2$x[mask], y=dat2$y[mask], 
-               label=dat2$ID[mask], size=dat2$y[mask], 
-               vjust=-0.1, hjust=-0.1, color="lightsteelblue4") +
-      theme_bw()
-    pngfile2 = paste(A,B,".vp.png",sep="")
-    png(filename = pngfile2,width=5,height=5,units="in",res=300)
-    print(p2)
-    dev.off()
-    # insertPlot(wb, sheet = 3+i, startCol = ncol(ddCt) + 2)
-    insertImage(wb = wb, sheet = sheet_name, file = pngfile2, width = 5, 
-                height = 5, startRow = 30, startCol = ncol(ddCt) + 1, 
-                units = "in", dpi = 300)
-  }
   # conditional formatting
   log_col = colIndex(ddCt, "log ratio")
   fc_cf_col = colIndex(ddCt, "fold change")
@@ -233,7 +236,8 @@ for (i in 1:nrow(schema4)) {
 print("Add note sheet.")
 
 addWorksheet(wb, sheetName = "QC Plot", gridLines = FALSE, zoom = 150)
-writeData(wb, sheet = "QC Plot", x = c("QC quality (sum of following conditions):",
+writeData(wb, sheet = "QC Plot", c("Valid house-keeping gene:",na.omit(hks_valid),
+                                "QC quality (sum of following conditions):",
                                 "1  TM outlier compare to archive data",
                                 "2  none GDC CT > 35 or GDC CT < 35",
                                 "4  Double Peak",
@@ -281,9 +285,7 @@ insertImage(wb = wb, sheet = "CT BOXPLOT", file = boxpngfile,
 
 # Heatmap
 addWorksheet(wb, sheetName = "HEATMAP PLOT", gridLines = FALSE, zoom = 150)
-if (normalization.method == "HK") {
-  writeData(wb, sheet = "HEATMAP PLOT", c("Valid house-keeping gene:",na.omit(hks_valid)))
-}
+writeData(wb, sheet = "HEATMAP PLOT", c("Valid house-keeping gene:",na.omit(hks_valid)))
 deltaCt$sample <- factor(deltaCt$sample, levels = naturalsort(unique(deltaCt$sample)))
 p3 <- ggplot(deltaCt[order(deltaCt$symbol),], aes(sample, symbol, fill = delta_ct)) +
   geom_tile( colour = "white") +

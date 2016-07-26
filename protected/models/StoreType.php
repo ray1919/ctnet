@@ -39,12 +39,13 @@ class StoreType extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name', 'required'),
+			array('name, type', 'required'),
 			array('name', 'length', 'max'=>45),
+			array('type', 'length', 'max'=>45),
 			array('description', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, description', 'safe', 'on'=>'search'),
+			array('id, name, type, description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,6 +69,7 @@ class StoreType extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'name' => 'Name',
+			'type' => 'Type',
 			'description' => 'Description',
 		);
 	}
@@ -85,6 +87,7 @@ class StoreType extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
+		$criteria->compare('type',$this->type,true);
 		$criteria->compare('description',$this->description,true);
 
 		return new CActiveDataProvider($this, array(

@@ -51,23 +51,22 @@ for (i in 1:nrow(schema3)) {
 
 # check compare name
 
-# 假设出现两版或以上的情况，样本对应均一致。
-samples_per_array <- sapply(schema3[schema3[,6]==1,1], strsplit,split=',')
+samples_per_array <- sapply(schema3[,1], strsplit,split=',')
 if (is.na(schema3[1,4])) {
   groups_per_array  <- list()
 } else {
-  groups_per_array  <- sapply(schema3[schema3[,6]==1,4], strsplit,split=',')
+  groups_per_array  <- sapply(schema3[,4], strsplit,split=',')
   # 组内不满指定命名个数的，用最后一命名代替空白命名
   # Update: 2016-03-14
   for (i in 1:length(groups_per_array) ) {
-    if (length(groups_per_array[[i]]) < schema3[i,10] ) {
+    if (length(groups_per_array[[i]]) < schema3[i,9] ) {
       groups_per_array[[i]] <- c(groups_per_array[[i]],
         rep(groups_per_array[[i]][length(groups_per_array[[i]])],
-            times = schema3[i,10] - length(groups_per_array[[i]])) )
+            times = schema3[i,9] - length(groups_per_array[[i]])) )
     }
   }
 }
-all_samples <- unique(unlist(samples_per_array))
+all_samples <- unlist(samples_per_array)
 all_groups <- unlist(groups_per_array)
 names(all_samples) <- NULL
 names(all_groups) <- all_samples
@@ -88,15 +87,7 @@ for (i in unique(unlist(schema4[,1:2])) ) {
 }
 
 # 判断是否是miRNA芯片
-if ( any(grepl("\\w\\w\\w-\\w\\w\\w-\\d",schema1$Symbol,perl=T)) ) {
-  array_type = "miRNA"
-} else {
-  array_type = "gene"
-}
-if (nrow(schema2) > 0) {
-  normalization.method <- "HK"
-} else {
-  normalization.method <- "median"
-}
+is_miR_ary <- any(grepl("\\w\\w\\w-\\w\\w\\w-\\d",schema1$Symbol,perl=T))
+
 print("File check finish.")
 print("Start to import CT, TM data...")

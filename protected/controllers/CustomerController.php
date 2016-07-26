@@ -82,6 +82,31 @@ class CustomerController extends Controller
 				'pageSize'=>2,
 			),
 		));
+
+        $cs = Yii::app()->clientScript;
+        $cs->registerScript('rid',"var report_id = $id;",CClientScript::POS_HEAD);
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.min.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery-ui.min.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/tmpl.min.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/load-image.all.min.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/canvas-to-blob.min.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.blueimp-gallery.min.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.iframe-transport.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-process.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-image.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-audio.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-video.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-validate.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-ui.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/jquery.fileupload-jquery-ui.js' );
+        $cs->registerScriptFile( Yii::app()->getBaseUrl() . '/scripts/fileupload/mainC.js' );
+        $cs->registerCssFile( Yii::app()->getBaseUrl() . '/css/fileupload/blueimp-gallery.min.css');
+        $cs->registerCssFile( Yii::app()->getBaseUrl() . '/css/fileupload/jquery-ui.css');
+        $cs->registerCssFile( Yii::app()->getBaseUrl() . '/css/fileupload/demo.css');
+        $cs->registerCssFile( Yii::app()->getBaseUrl() . '/css/fileupload/jquery.fileupload.css');
+        $cs->registerCssFile( Yii::app()->getBaseUrl() . '/css/fileupload/jquery.fileupload-ui.css');
+
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
                         'visitDataProvider'=>$visitDataProvider,

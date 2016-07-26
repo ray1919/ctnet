@@ -3,7 +3,7 @@
 /* @var $model StoreType */
 
 $this->breadcrumbs=array(
-	'Store Types'=>array('index'),
+	'Store Types'=>array('admin'),
 	'Manage',
 );
 
@@ -37,13 +37,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'id'=>'store-type-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
-        'enablePagination' => false,
+        'enablePagination' => true,
 	'columns'=>array(
 		'id',
 		'name',
+    'type',
 		'description',
-		//array(
-		//	'class'=>'CButtonColumn',
-		//),
+		array(
+			'class'=>'CButtonColumn',
+		),
 	),
 )); ?>

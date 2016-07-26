@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Mirna', 'url'=>array('index')),
+	array('label'=>'Check Mirna', 'url'=>array('check')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

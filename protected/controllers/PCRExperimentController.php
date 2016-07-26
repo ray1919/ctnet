@@ -90,7 +90,7 @@ class PCRExperimentController extends Controller
                 $model->tmfile=CUploadedFile::getInstance($model,'tmfile');
                 $model->tm2file=CUploadedFile::getInstance($model,'tm2file');
                 $model->ctfile=CUploadedFile::getInstance($model,'ctfile');
-                if($model->validate()){
+                if ( $model->validate() ) {
                     $model->tmfile->saveAs('/tmp/tmfile');
                     $model->ctfile->saveAs('/tmp/ctfile');
                     if ($model->tm2file) {

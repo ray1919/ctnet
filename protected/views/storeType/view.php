@@ -3,7 +3,7 @@
 /* @var $model StoreType */
 
 $this->breadcrumbs=array(
-	'Store Types'=>array('index'),
+	'Store Types'=>array('admin'),
 	$model->name,
 );
 
@@ -21,8 +21,9 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		//'id',
+		'id',
 		'name',
+    'type',
 		'description',
 	),
 )); ?>

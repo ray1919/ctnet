@@ -185,6 +185,7 @@ class PrimerController extends Controller
                     where m.miRNA_id in ('hsa-miR-214', 'hsa-miR-27a', 'hsa-miR-17')
                     */
                     if ($_POST['Primer']['type'] === 'gene id') {
+                      # 基因使用浓度
                         $ids = array_map("str2int",preg_split("/\D+/",$_POST['Primer']['content']));
                         $ids = array_filter($ids, "is_int");
                         $ids = join(',',$ids);
@@ -251,50 +252,8 @@ class PrimerController extends Controller
                           ")->queryScalar();
 
                         $sql = Yii::app()->db->createCommand("$sql");
-                    }elseif ($_POST['Primer']['type'] === 'miRNA acc') {
-                        $ids = preg_split("/\s+/",$_POST['Primer']['content']);
-                        $ids = '"' . join('","',$ids) . '"';
-                        $sql = "select o.id, m.miRNA_id gene_id, p.primer_id,
-                                barcode, l.name plate, o.well, q.name qc, s.name type,
-                                CONCAT_WS(\"\",p.comment, o.comment) note
-                                from mirna m
-                                left join primer p on p.mirna_fk = m.id
-                                left join (select * from position
-                                  where store_type_id = 8) o
-                                  on p.id = o.primer_id
-                                left join plate l on o.plate_id = l.id
-                                left join store_type s on o.store_type_id = s.id
-                                left join qc q on p.qc = q.id
-                                where m.accession in ($ids)
-                                group by m.miRNA_id, p.primer_id,
-                                  l.name, o.well
-                                order by field(m.accession, $ids)";
-                        $count = Yii::app()->db->createCommand("
-                            SELECT COUNT(*) FROM ($sql) A
-                          ")->queryScalar();
-                    }elseif ($_POST['Primer']['type'] === 'miRNA id') {
-                        $ids = preg_split("/\s+/",$_POST['Primer']['content']);
-                        $ids = '"' . join('","',$ids) . '"';
-                        $sql = "select o.id, m.miRNA_id gene_id, p.primer_id,
-                                barcode, l.name plate, o.well, q.name qc, s.name type,
-                                CONCAT_WS(\"\",p.comment, o.comment) note
-                                from mirna m
-                                left join primer p on p.mirna_fk = m.id
-                                left join (select * from position
-                                  where store_type_id = 8) o
-                                on p.id = o.primer_id
-                                left join plate l on o.plate_id = l.id
-                                left join store_type s on o.store_type_id = s.id
-                                left join qc q on p.qc = q.id
-                                where m.miRNA_id in ($ids)
-                                or p.gene_symbol in ($ids)
-                                group by m.miRNA_id, p.primer_id,
-                                  l.name, o.well
-                                order by field(m.miRNA_id, $ids)";
-                        $count = Yii::app()->db->createCommand("
-                            SELECT COUNT(*) FROM ($sql) A
-                          ")->queryScalar();
                     }elseif ($_POST['Primer']['type'] === 'gene store') {
+                      # 基因存储浓度
                         $ids = array_map("str2int",preg_split("/\D+/",$_POST['Primer']['content']));
                         $ids = array_filter($ids, "is_int");
                         $ids = join(',',$ids);
@@ -318,7 +277,55 @@ class PrimerController extends Controller
                           ")->queryScalar();
 
                         $sql = Yii::app()->db->createCommand("$sql");
+                    }elseif ($_POST['Primer']['type'] === 'gene solid') {
+                      # 基因干粉浓度
+                        $ids = array_map("str2int",preg_split("/\D+/",$_POST['Primer']['content']));
+                        $ids = array_filter($ids, "is_int");
+                        $ids = join(',',$ids);
+                        $sql = "select o.id, g.gene_id, g.gene_symbol, p.primer_id,
+                            barcode, l.name plate, o.well, q.name qc, s.name type,
+                            CONCAT_WS(\"\",p.comment, o.comment) note
+                            from gene g
+                            left join primer p on p.gene_fk = g.gene_id
+                            left join (select * from position
+                             where store_type_id = 2 or store_type_id = 1 ) o
+                            on p.id = o.primer_id
+                            left join plate l on o.plate_id = l.id
+                            left join store_type s on o.store_type_id = s.id
+                            left join qc q on p.qc = q.id
+                            where g.gene_id in ($ids)
+                            group by g.gene_id, g.gene_symbol, p.primer_id,
+                              l.name, o.well
+                            order by field(g.gene_id, $ids)";
+                        $count = Yii::app()->db->createCommand("
+                            SELECT COUNT(*) FROM ($sql) A
+                          ")->queryScalar();
+
+                        $sql = Yii::app()->db->createCommand("$sql");
+                    }elseif ($_POST['Primer']['type'] === 'miRNA acc') {
+                      # miRNA使用浓度, acc
+                        $ids = preg_split("/\s+/",$_POST['Primer']['content']);
+                        $ids = '"' . join('","',$ids) . '"';
+                        $sql = "select o.id, m.miRNA_id gene_id, p.primer_id,
+                                barcode, l.name plate, o.well, q.name qc, s.name type,
+                                CONCAT_WS(\"\",p.comment, o.comment) note
+                                from mirna m
+                                left join primer p on p.mirna_fk = m.id
+                                left join (select * from position
+                                  where store_type_id = 8) o
+                                  on p.id = o.primer_id
+                                left join plate l on o.plate_id = l.id
+                                left join store_type s on o.store_type_id = s.id
+                                left join qc q on p.qc = q.id
+                                where m.accession in ($ids)
+                                group by m.miRNA_id, p.primer_id,
+                                  l.name, o.well
+                                order by field(m.accession, $ids)";
+                        $count = Yii::app()->db->createCommand("
+                            SELECT COUNT(*) FROM ($sql) A
+                          ")->queryScalar();
                     }elseif ($_POST['Primer']['type'] === 'miRNA acc store') {
+                      # miRNA干粉
                         $ids = preg_split("/\s+/",$_POST['Primer']['content']);
                         $ids = '"' . join('","',$ids) . '"';
                         $sql = "select o.id, m.miRNA_id gene_id, p.primer_id,
@@ -339,7 +346,53 @@ class PrimerController extends Controller
                         $count = Yii::app()->db->createCommand("
                             SELECT COUNT(*) FROM ($sql) A
                           ")->queryScalar();
+                    }elseif ($_POST['Primer']['type'] === 'miRNA acc solid') {
+                      # miRNA存储浓度
+                        $ids = preg_split("/\s+/",$_POST['Primer']['content']);
+                        $ids = '"' . join('","',$ids) . '"';
+                        $sql = "select o.id, m.miRNA_id gene_id, p.primer_id,
+                                barcode, l.name plate, o.well, q.name qc, s.name type,
+                                CONCAT_WS(\"\",p.comment, o.comment) note
+                                from mirna m
+                                left join primer p on p.mirna_fk = m.id
+                                left join (select * from position
+                                  where store_type_id = 6) o
+                                  on p.id = o.primer_id
+                                left join plate l on o.plate_id = l.id
+                                left join store_type s on o.store_type_id = s.id
+                                left join qc q on p.qc = q.id
+                                where m.accession in ($ids)
+                                group by m.miRNA_id, p.primer_id,
+                                  l.name, o.well
+                                order by field(m.accession, $ids)";
+                        $count = Yii::app()->db->createCommand("
+                            SELECT COUNT(*) FROM ($sql) A
+                          ")->queryScalar();
+                    }elseif ($_POST['Primer']['type'] === 'miRNA id') {
+                      # miRNA使用浓度, id
+                        $ids = preg_split("/\s+/",$_POST['Primer']['content']);
+                        $ids = '"' . join('","',$ids) . '"';
+                        $sql = "select o.id, m.miRNA_id gene_id, p.primer_id,
+                                barcode, l.name plate, o.well, q.name qc, s.name type,
+                                CONCAT_WS(\"\",p.comment, o.comment) note
+                                from mirna m
+                                left join primer p on p.mirna_fk = m.id
+                                left join (select * from position
+                                  where store_type_id = 8) o
+                                on p.id = o.primer_id
+                                left join plate l on o.plate_id = l.id
+                                left join store_type s on o.store_type_id = s.id
+                                left join qc q on p.qc = q.id
+                                where m.miRNA_id in ($ids)
+                                or p.gene_symbol in ($ids)
+                                group by m.miRNA_id, p.primer_id,
+                                  l.name, o.well
+                                order by field(m.miRNA_id, $ids)";
+                        $count = Yii::app()->db->createCommand("
+                            SELECT COUNT(*) FROM ($sql) A
+                          ")->queryScalar();
                     }elseif ($_POST['Primer']['type'] === 'miRNA id store') {
+                      # miRNA存储浓度
                         $ids = preg_split("/\s+/",$_POST['Primer']['content']);
                         $ids = '"' . join('","',$ids) . '"';
                         $sql = "select o.id, m.miRNA_id gene_id, p.primer_id,
@@ -349,6 +402,29 @@ class PrimerController extends Controller
                                 left join primer p on p.mirna_fk = m.id
                                 left join (select * from position
                                   where store_type_id = 7) o
+                                on p.id = o.primer_id
+                                left join plate l on o.plate_id = l.id
+                                left join store_type s on o.store_type_id = s.id
+                                left join qc q on p.qc = q.id
+                                where m.miRNA_id in ($ids)
+                                or p.gene_symbol in ($ids)
+                                group by m.miRNA_id, p.primer_id,
+                                  l.name, o.well
+                                order by field(m.miRNA_id, $ids)";
+                        $count = Yii::app()->db->createCommand("
+                            SELECT COUNT(*) FROM ($sql) A
+                          ")->queryScalar();
+                    }elseif ($_POST['Primer']['type'] === 'miRNA id solid') {
+                      # miRNA干粉
+                        $ids = preg_split("/\s+/",$_POST['Primer']['content']);
+                        $ids = '"' . join('","',$ids) . '"';
+                        $sql = "select o.id, m.miRNA_id gene_id, p.primer_id,
+                                barcode, l.name plate, o.well, q.name qc, s.name type,
+                                CONCAT_WS(\"\",p.comment, o.comment) note
+                                from mirna m
+                                left join primer p on p.mirna_fk = m.id
+                                left join (select * from position
+                                  where store_type_id = 6) o
                                 on p.id = o.primer_id
                                 left join plate l on o.plate_id = l.id
                                 left join store_type s on o.store_type_id = s.id
