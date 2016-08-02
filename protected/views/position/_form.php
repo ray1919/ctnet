@@ -26,7 +26,7 @@
 		<?php echo $form->textField($model,'well',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'well'); ?>
 	</div>
-
+<?php /*
 	<div class="row">
 		<?php echo $form->labelEx($model,'primer_id'); ?>
 		<?php
@@ -36,7 +36,8 @@
                 ?>
 		<?php echo $form->error($model,'primer_id'); ?>
 	</div>
-
+ */
+?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'synthetic_name'); ?>
 		<?php echo $form->textField($model,'synthetic_name',array('size'=>10,'maxlength'=>45)); ?>

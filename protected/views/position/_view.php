@@ -14,14 +14,17 @@
 	<?php echo CHtml::encode($data->well); ?>
 </td>
 <td>
-	<?php echo CHtml::encode($data->primer->gene_symbol); ?>
+  <?php /*echo CHtml::encode($data->primer->gene_symbol); */?>
+	<?php echo CHtml::encode($data->getPrimerColumn($data->id, 'gene_symbol')); ?>
 </td>
 
 <td>
-	<?php echo CHtml::encode($data->primer->gene_id); ?>
+  <?php /* echo CHtml::encode($data->primer->gene_id); */ ?>
+	<?php echo CHtml::encode($data->getPrimerColumn($data->id, 'gene_id')); ?>
 </td>
 <td>
-	<?php echo CHtml::encode($data->primer->primer_id); ?>
+  <?php /* echo CHtml::encode($data->primer->primer_id); */ ?>
+	<?php echo CHtml::encode($data->getPrimerColumn($data->id, 'primer_id')); ?>
 </td>
 
 <td>

@@ -74,6 +74,7 @@ class Position extends CActiveRecord
 			'plate' => array(self::BELONGS_TO, 'Plate', 'plate_id'),
 			'primer' => array(self::BELONGS_TO, 'Primer', 'primer_id'),
 			'storeType' => array(self::BELONGS_TO, 'StoreType', 'store_type_id'),
+      'primerPositions' => array(self::HAS_MANY, 'PrimerPosition', 'position_id'),
 		);
 	}
 
@@ -165,7 +166,33 @@ class Position extends CActiveRecord
 
   public function getPrimerId()
   {
-    $plate_name = Primer::model()->id;
-    return $plate_name;
+    $primer_id = Primer::model()->id;
+    return $primer_id;
+  }
+
+  public function getGeneSymbol($position_id)
+  {
+    $symbols = Yii::app()->db->createCommand("
+      SELECT group_concat(gene_symbol) name
+      FROM primer p, position o, primer_position pp
+      WHERE pp.primer_id = p.id
+      AND pp.position_id = o.id
+      AND o.id = $position_id
+      GROUP BY o.id
+      ")->queryScalar();
+    return $symbols;
+  }
+
+  public function getPrimerColumn($position_id, $column)
+  {
+    $symbols = Yii::app()->db->createCommand("
+      SELECT group_concat(p.$column SEPARATOR ', ')
+      FROM primer p, position o, primer_position pp
+      WHERE pp.primer_id = p.id
+      AND pp.position_id = o.id
+      AND o.id = $position_id
+      GROUP BY o.id
+      ")->queryScalar();
+    return $symbols;
   }
 }

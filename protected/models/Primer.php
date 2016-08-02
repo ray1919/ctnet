@@ -74,12 +74,13 @@ class Primer extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'geneOrders' => array(self::HAS_MANY, 'GeneOrder', 'primer_id'),
+			'pCRExperiments' => array(self::HAS_MANY, 'pCRExperiment', 'primer_fk'),
 			'positions' => array(self::HAS_MANY, 'Position', 'primer_id'),
 			'tax' => array(self::BELONGS_TO, 'Species', 'tax_id'),
 			'qcFk' => array(self::BELONGS_TO, 'Qc', 'qc'),
 			'geneFk' => array(self::BELONGS_TO, 'Gene', 'gene_fk'),
 			'mirnaFk' => array(self::BELONGS_TO, 'Mirna', 'mirna_fk'),
+      'primerPositions' => array(self::HAS_MANY, 'PrimerPosition', 'primer_id'),
 		);
 	}
 
@@ -133,7 +134,8 @@ class Primer extends CActiveRecord
 		$criteria->compare('qc',$this->qc);
 
                 $criteria->with = array('tax','qcFk');
-                $criteria->compare('tax.name',$this->tax_search,true);
+                // $criteria->compare('tax.name',$this->tax_search,true);
+                $criteria->compare('tax.common',$this->tax_search,true);
                 $criteria->compare('qcFk.name',$this->qc_search,true);
 
 		return new CActiveDataProvider($this, array(
@@ -141,8 +143,10 @@ class Primer extends CActiveRecord
                         'sort'=>array(
                             'attributes'=>array(
                                 'tax_search'=>array(
-                                    'asc'=>'tax.name',
-                                    'desc'=>'tax.name DESC',
+                                    // 'asc'=>'tax.name',
+                                    // 'desc'=>'tax.name DESC',
+                                    'asc'=>'tax.common',
+                                    'desc'=>'tax.common DESC',
                                 ),
                                 'qc_search'=>array(
                                     'asc'=>'qcFk.name',

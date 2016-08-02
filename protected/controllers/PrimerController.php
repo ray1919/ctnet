@@ -54,8 +54,12 @@ class PrimerController extends Controller
     $model = $this->loadModel($id);
                 $positionDataProvider=new CActiveDataProvider('Position', array(
                   'criteria'=>array(
-                    'condition'=>'primer_id=:id',
+                    'with'=>array(
+                        'primerPositions' => array('alias' => 'pp')
+                    ),
+                    'condition'=>'pp.primer_id=:id',
                     'params'=>array(':id'=>$this->loadModel($id)->id),
+                    'together'=>true,
                   ),
                   'pagination'=>array(
                     'pageSize'=>5,
@@ -189,56 +193,14 @@ class PrimerController extends Controller
                         $ids = array_map("str2int",preg_split("/\D+/",$_POST['Primer']['content']));
                         $ids = array_filter($ids, "is_int");
                         $ids = join(',',$ids);
-                        /*
-                        $count = Yii::app()->db->createCommand()
-                                ->select('count(*)')
-                                ->from('plate l, store_type s, primer p')
-                                ->leftJoin('gene g','g.gene_id = p.gene_fk')
-                                ->rightJoin('position o','p.id = o.primer_id')
-                                ->andWhere("p.gene_fk in ($ids)")
-                                ->andWhere('o.plate_id = l.id')
-                                ->andWhere('o.store_type_id = s.id')
-                                ->queryScalar();
-
-                        $sql = Yii::app()->db->createCommand()
-                                ->select('o.id, g.gene_id, g.gene_symbol, p.primer_id,
-                                    barcode, l.name plate, o.well, p.qc, s.name type,
-                                    CONCAT_WS("",p.comment, o.comment) note')
-                                ->from('plate l, store_type s, primer p')
-                                ->leftJoin('gene g','g.gene_id = p.gene_fk')
-                                ->rightJoin('position o','p.id = o.primer_id')
-                                ->andWhere("p.gene_fk in ($ids)")
-                                ->andWhere('o.plate_id = l.id')
-                                ->andWhere('o.store_type_id = s.id');
-
-                        $count = Yii::app()->db->createCommand()
-                                ->select('count(*)')
-                                ->from('gene g')
-                                ->leftJoin('primer p','p.gene_fk = g.gene_id')
-                                ->leftJoin('position o','p.id = o.primer_id')
-                                ->leftJoin('plate l','o.plate_id = l.id')
-                                ->leftJoin('store_type s','o.store_type_id = s.id')
-                                ->where("g.gene_id in ($ids)")
-                                ->queryScalar();
-
-                        $sql = Yii::app()->db->createCommand()
-                                ->select('o.id, g.gene_id, g.gene_symbol, p.primer_id,
-                                    barcode, l.name plate, o.well, p.qc, s.name type,
-                                    CONCAT_WS("",p.comment, o.comment) note')
-                                ->from('gene g')
-                                ->leftJoin('primer p','p.gene_fk = g.gene_id')
-                                ->leftJoin('position o','p.id = o.primer_id')
-                                ->leftJoin('plate l','o.plate_id = l.id')
-                                ->leftJoin('store_type s','o.store_type_id = s.id')
-                                ->where("g.gene_id in ($ids)");
-                         */
                         $sql = "select o.id, g.gene_id, g.gene_symbol, p.primer_id,
                             barcode, l.name plate, o.well, q.name qc, s.name type,
                             CONCAT_WS(\"\",p.comment, o.comment) note
                             from gene g
                             left join primer p on p.gene_fk = g.gene_id
-                            left join (select * from position
-                              where store_type_id = 5) o
+                            left join (select p.* from position p
+                              left join store_type s on p.store_type_id = s.id
+                              where s.type = \"使用浓度\") o
                               on p.id = o.primer_id
                             left join plate l on o.plate_id = l.id
                             left join store_type s on o.store_type_id = s.id
@@ -262,9 +224,10 @@ class PrimerController extends Controller
                             CONCAT_WS(\"\",p.comment, o.comment) note
                             from gene g
                             left join primer p on p.gene_fk = g.gene_id
-                            left join (select * from position
-                             where store_type_id < 5 and store_type_id > 2 ) o
-                            on p.id = o.primer_id
+                            left join (select p.* from position p
+                              left join store_type s on p.store_type_id = s.id
+                              where s.type = \"储液\") o
+                              on p.id = o.primer_id
                             left join plate l on o.plate_id = l.id
                             left join store_type s on o.store_type_id = s.id
                             left join qc q on p.qc = q.id
@@ -287,8 +250,9 @@ class PrimerController extends Controller
                             CONCAT_WS(\"\",p.comment, o.comment) note
                             from gene g
                             left join primer p on p.gene_fk = g.gene_id
-                            left join (select * from position
-                             where store_type_id = 2 or store_type_id = 1 ) o
+                            left join (select p.* from position p
+                              left join store_type s on p.store_type_id = s.id
+                              where s.type = \"干粉\") o
                             on p.id = o.primer_id
                             left join plate l on o.plate_id = l.id
                             left join store_type s on o.store_type_id = s.id
@@ -311,8 +275,9 @@ class PrimerController extends Controller
                                 CONCAT_WS(\"\",p.comment, o.comment) note
                                 from mirna m
                                 left join primer p on p.mirna_fk = m.id
-                                left join (select * from position
-                                  where store_type_id = 8) o
+                                left join (select p.* from position p
+                                    left join store_type s on p.store_type_id = s.id
+                                    where s.type = \"使用浓度\") o
                                   on p.id = o.primer_id
                                 left join plate l on o.plate_id = l.id
                                 left join store_type s on o.store_type_id = s.id
@@ -325,7 +290,7 @@ class PrimerController extends Controller
                             SELECT COUNT(*) FROM ($sql) A
                           ")->queryScalar();
                     }elseif ($_POST['Primer']['type'] === 'miRNA acc store') {
-                      # miRNA干粉
+                      # miRNA存储浓度
                         $ids = preg_split("/\s+/",$_POST['Primer']['content']);
                         $ids = '"' . join('","',$ids) . '"';
                         $sql = "select o.id, m.miRNA_id gene_id, p.primer_id,
@@ -333,8 +298,9 @@ class PrimerController extends Controller
                                 CONCAT_WS(\"\",p.comment, o.comment) note
                                 from mirna m
                                 left join primer p on p.mirna_fk = m.id
-                                left join (select * from position
-                                  where store_type_id = 7) o
+                                left join (select p.* from position p
+                                    left join store_type s on p.store_type_id = s.id
+                                    where s.type = \"储液\") o
                                   on p.id = o.primer_id
                                 left join plate l on o.plate_id = l.id
                                 left join store_type s on o.store_type_id = s.id
@@ -347,7 +313,7 @@ class PrimerController extends Controller
                             SELECT COUNT(*) FROM ($sql) A
                           ")->queryScalar();
                     }elseif ($_POST['Primer']['type'] === 'miRNA acc solid') {
-                      # miRNA存储浓度
+                      # miRNA干粉
                         $ids = preg_split("/\s+/",$_POST['Primer']['content']);
                         $ids = '"' . join('","',$ids) . '"';
                         $sql = "select o.id, m.miRNA_id gene_id, p.primer_id,
@@ -355,8 +321,9 @@ class PrimerController extends Controller
                                 CONCAT_WS(\"\",p.comment, o.comment) note
                                 from mirna m
                                 left join primer p on p.mirna_fk = m.id
-                                left join (select * from position
-                                  where store_type_id = 6) o
+                                left join (select p.* from position p
+                                    left join store_type s on p.store_type_id = s.id
+                                    where s.type = \"干粉\") o
                                   on p.id = o.primer_id
                                 left join plate l on o.plate_id = l.id
                                 left join store_type s on o.store_type_id = s.id
@@ -377,8 +344,9 @@ class PrimerController extends Controller
                                 CONCAT_WS(\"\",p.comment, o.comment) note
                                 from mirna m
                                 left join primer p on p.mirna_fk = m.id
-                                left join (select * from position
-                                  where store_type_id = 8) o
+                                left join (select p.* from position p
+                                    left join store_type s on p.store_type_id = s.id
+                                    where s.type = \"使用浓度\") o
                                 on p.id = o.primer_id
                                 left join plate l on o.plate_id = l.id
                                 left join store_type s on o.store_type_id = s.id
@@ -400,8 +368,9 @@ class PrimerController extends Controller
                                 CONCAT_WS(\"\",p.comment, o.comment) note
                                 from mirna m
                                 left join primer p on p.mirna_fk = m.id
-                                left join (select * from position
-                                  where store_type_id = 7) o
+                                left join (select p.* from position p
+                                    left join store_type s on p.store_type_id = s.id
+                                    where s.type = \"储液\") o
                                 on p.id = o.primer_id
                                 left join plate l on o.plate_id = l.id
                                 left join store_type s on o.store_type_id = s.id
@@ -423,8 +392,9 @@ class PrimerController extends Controller
                                 CONCAT_WS(\"\",p.comment, o.comment) note
                                 from mirna m
                                 left join primer p on p.mirna_fk = m.id
-                                left join (select * from position
-                                  where store_type_id = 6) o
+                                left join (select p.* from position p
+                                    left join store_type s on p.store_type_id = s.id
+                                    where s.type = \"干粉\") o
                                 on p.id = o.primer_id
                                 left join plate l on o.plate_id = l.id
                                 left join store_type s on o.store_type_id = s.id

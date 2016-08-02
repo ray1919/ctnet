@@ -1,7 +1,6 @@
 <?php
 /* @var $this PositionController */
 /* @var $model Position */
-
 $this->breadcrumbs=array(
 	'Positions'=>array('index'),
 	$model->id,
@@ -29,16 +28,19 @@ $this->menu=array(
                 ),
                             'well',
                 array (
-                  'label' => 'Gene Symbol',
-                  'value' => $model->primer->gene_symbol,
+                  'label' => 'Gene Symbol / miRNA ID',
+                  // 'value' => $model->primer->gene_symbol,
+                  'value' => $model->getPrimerColumn($model->id, 'gene_symbol'),
                 ),
                 array (
-                  'label' => 'Gene ID',
-                  'value' => $model->primer->gene_id,
+                  'label' => 'Gene ID / miRNA Accession',
+                  // 'value' => $model->primer->gene_id,
+                  'value' => $model->getPrimerColumn($model->id, 'gene_id'),
                 ),
                 array (
-                  'label' => CHtml::link(CHtml::encode('Primer ID'), array('primer/view', 'id'=>$model->primer_id)),
-                  'value' => $model->primer->primer_id,
+                  'label' => CHtml::link(CHtml::encode('Primer ID'), array('primer/view', 'id'=>$model->getPrimerColumn($model->id, 'id'))),
+                  // 'value' => $model->primer->primer_id,
+                  'value' => $model->getPrimerColumn($model->id, 'primer_id'),
                 ),
                 'synthetic_name',
                 array(

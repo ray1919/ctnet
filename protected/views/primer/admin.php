@@ -3,26 +3,26 @@
 /* @var $model Primer */
 
 $this->breadcrumbs=array(
-	'Primers'=>array('index'),
-	'Manage',
+  'Primers'=>array('index'),
+  'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List Primer', 'url'=>array('index')),
-	array('label'=>'Create Primer', 'url'=>array('create')),
-	array('label'=>'Check Primer', 'url'=>array('check')),
+  array('label'=>'List Primer', 'url'=>array('index')),
+  array('label'=>'Create Primer', 'url'=>array('create')),
+  array('label'=>'Check Primer', 'url'=>array('check')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
-	$('.search-form').toggle();
-	return false;
+  $('.search-form').toggle();
+  return false;
 });
 $('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('primer-grid', {
-		data: $(this).serialize()
-	});
-	return false;
+  $.fn.yiiGridView.update('primer-grid', {
+    data: $(this).serialize()
+  });
+  return false;
 });
 ");
 ?>
@@ -37,35 +37,36 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 <?php //echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
-	'model'=>$model,
+  'model'=>$model,
 )); ?>
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'primer-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		//'id',
-		//'gene_id',
+  'id'=>'primer-grid',
+  'dataProvider'=>$model->search(),
+  'filter'=>$model,
+  'columns'=>array(
+    //'id',
+    //'gene_id',
                 array('header'=>'Gene ID', 'name'=>'gene_fk'),
-		'gene_symbol',
-		'primer_id',
-		'barcode',
-		//'tax_id',
-                array('name'=>'tax_search', 'value'=>'$data->tax->name'),
-		'type_of_primer',
-                array('name'=>'qc_search', 'value'=>'$data->qcFk->name'),
-		//'gene_fk',
-		/*
-		'mirna_fk',
-		'comment',
-		'create_date',
-		'update_date',
-		*/
-		array(
-			'class'=>'CButtonColumn',
+    'gene_symbol',
+    'primer_id',
+    'barcode',
+    //'tax_id',
+    // array('name'=>'tax_search', 'value'=>'$data->tax->name'),
+    array('name'=>'tax_search', 'value'=>'$data->tax->common'),
+    'type_of_primer',
+    array('name'=>'qc_search', 'value'=>'$data->qcFk->name'),
+    //'gene_fk',
+    /*
+    'mirna_fk',
+    'comment',
+    'create_date',
+    'update_date',
+    */
+    array(
+      'class'=>'CButtonColumn',
                         'template' => '{view} {delete}',
-		),
-	),
+    ),
+  ),
 )); ?>

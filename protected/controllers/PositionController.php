@@ -32,7 +32,7 @@ class PositionController extends Controller
 				'pbac'=>array('read'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('update'),
 				'pbac'=>array('write'),
 			),
 			array('allow', // allow admin user to perform 'delete' actions
@@ -59,6 +59,9 @@ class PositionController extends Controller
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
+   * Update: 2016-07-27
+   * create 不可用，因为引物-位置关系多对多，这个页面有缺陷。
+   * 通过控制权限，不再打开这个页面
 	 */
 	public function actionCreate()
 	{
