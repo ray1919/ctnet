@@ -20,6 +20,7 @@ $this->menu=array(
 <tr>
 <td><b>Plate</b></td>
 <td><b>Well</b></td>
+<td><b>Synthetic Name</b></td>
 <td><b>Gene Symbol</b></td>
 <td><b>Gene ID</b></td>
 <td><b>Primer ID</b></td>

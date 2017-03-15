@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create Report', 'url'=>array('create')),
 	array('label'=>'Manage Report', 'url'=>array('admin')),
+  array('label'=>'PCR Data Online Processing App', 'url'=> Yii::app()->baseUrl . '/site/page?view=pdopa'),
 );
 ?>
 

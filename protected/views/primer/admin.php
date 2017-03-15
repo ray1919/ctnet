@@ -11,6 +11,7 @@ $this->menu=array(
   array('label'=>'List Primer', 'url'=>array('index')),
   array('label'=>'Create Primer', 'url'=>array('create')),
   array('label'=>'Check Primer', 'url'=>array('check')),
+  array('label'=>'Check Mirna(New!)', 'url'=> Yii::app()->baseUrl . '/site/page?view=mir_checklist')
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -47,8 +48,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
   'filter'=>$model,
   'columns'=>array(
     //'id',
-    //'gene_id',
-                array('header'=>'Gene ID', 'name'=>'gene_fk'),
+    'gene_id',
+    // array('header'=>'Gene ID', 'name'=>'gene_fk'),
     'gene_symbol',
     'primer_id',
     'barcode',

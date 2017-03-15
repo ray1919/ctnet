@@ -10,6 +10,7 @@ $this->menu=array(
 	array('label'=>'Create Mirna', 'url'=>array('create')),
 	array('label'=>'Manage Mirna', 'url'=>array('admin')),
 	array('label'=>'Check Mirna', 'url'=>array('check')),
+  array('label'=>'Check Mirna(New!)', 'url'=> Yii::app()->baseUrl . '/site/page?view=mir_checklist'),
 );
 ?>
 

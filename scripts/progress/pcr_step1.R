@@ -26,7 +26,7 @@ schema2 <- read.xlsx("PCR_Layout_Template.xlsx",sheet=2,colNames=T,
                      cols=1:2)
 # CT,TM files
 schema3 <- read.xlsx("PCR_Layout_Template.xlsx",sheet=3,colNames=T,
-                     cols=1:10)
+                     cols=1:11)
 # compare
 schema4 <- read.xlsx("PCR_Layout_Template.xlsx",sheet=4,colNames=T,
                      cols=2:4)
@@ -67,10 +67,14 @@ if (is.na(schema3[1,4])) {
     }
   }
 }
-all_samples <- unique(unlist(samples_per_array))
+
+# all_samples <- unique(unlist(samples_per_array))
+all_samples <- as.character(unlist(samples_per_array))
+
 all_groups <- unlist(groups_per_array)
 names(all_samples) <- NULL
-names(all_groups) <- all_samples
+if (!is.null(all_groups))
+  names(all_groups) <- all_samples
 
 # 确定需要进行数据分析的样本。不进行数据分析的样本，在进行看家基因选择时不考虑
 sample_analysis <- rep(F,length(all_samples))

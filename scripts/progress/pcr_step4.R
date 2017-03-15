@@ -1,7 +1,7 @@
 # Author: Zhao
 # Date: 2015-10-21
 # Purpose: automate the process of PCR data analysis
-.libPaths(c("/home/zhaorui/R/x86_64-pc-linux-gnu-library/3.2",.libPaths()))
+.libPaths(c("/home/zhaorui/R/x86_64-pc-linux-gnu-library/3.3",.libPaths()))
 suppressPackageStartupMessages(library(DBI))
 suppressPackageStartupMessages(library(reshape))
 suppressPackageStartupMessages(library(plyr))
@@ -27,6 +27,7 @@ if (array_type == "gene") {
                         Synonyms=character(),"Type of Gene"=character())
   
   for (i in rownames(schema1[!is.na(schema1$Gene.ID),])) {
+    if (!schema1[i,"Symbol"] %in% symbolList) next
     if (is.na(schema1[i,"Gene.ID"])) next
     sth <- dbSendQuery(con, paste("SELECT gene_symbol, gene_id,
                       gene_name,common,synonyms,type_of_gene FROM gene
@@ -34,7 +35,7 @@ if (array_type == "gene") {
                       WHERE gene_id = ",schema1[i,"Gene.ID"],sep=""))
     res <- dbFetch(sth)
     dbClearResult(sth)
-    well <- schema1[schema1$Symbol == as.character(res[1]),"Well"]
+    well <- schema1[schema1$Symbol == res[[1]],"Well"]
     geneTbl[i,] <- c(well, unlist(res))
   }
   print("Gene table sheet created.")
@@ -46,7 +47,10 @@ sort_col <- function(df) {
 
 is.outlier <- function(x) {
   iqr <- IQR(x,na.rm = T)
-  y <- quantile(x,3/4,na.rm = T) + 1.5*iqr
+  y <- quantile(x,3/4,na.rm = T) + 1.5*iqr # 理论是1.5倍
+  ## meam gene qc >= 2* qc_cutoff
+  # y2 <- 2 * qc_cutoff * length(symbolList)
+  # x > min(c(y, y2))
   x > y
 }
 
@@ -67,8 +71,10 @@ assayQC <- merge(assayQC, aggregate(qual ~ symbol, data=dataTbl,sum), all=T)
 assayQC$is.qc.outlier <- is.outlier(assayQC$qual)
 colnames(assayQC) <- c("SYMBOL", "TM SD", "CT<35","CT>=35","CT NULL","DOUBLE PEAKS","QUAL","IS_OUTLIER")
 assayQC$`CT NULL`[is.na(assayQC$`CT NULL`)] <- length(all_samples)
-if (length(assayQC$symbol[assayQC$is.qc.outlier]) > 0) {
-  print(paste(assayQC$symbol[assayQC$is.qc.outlier],"failed the QC test."))
+if (length(assayQC$SYMBOL[assayQC$IS_OUTLIER]) > 0) {
+  print(paste(
+    paste(assayQC$SYMBOL[assayQC$IS_OUTLIER], collapse = ", "),
+    "failed the QC test.", collapse = " "))
 }
 
 # Sample QC
@@ -82,11 +88,17 @@ sampleQC <- merge(x = sampleQC, by="sample", all=T,
 sampleQC <- merge(sampleQC, aggregate(isdoublepeak ~ sample, data=dataTbl,
                             function(x){sum(as.logical(x))}), all=T)
 sampleQC <- merge(sampleQC, aggregate(qual ~ sample, data=dataTbl,sum), all=T)
-sampleQC$is.qc.outlier <- is.outlier(sampleQC$qual)
-colnames(sampleQC) <- c("SYMBOL", "CT<35","CT>=35","CT NULL","DOUBLE PEAKS","QUAL","IS_OUTLIER")
-if (length(sampleQC$sample[sampleQC$is.qc.outlier]) > 0) {
-  print(paste(sampleQC$sample[sampleQC$is.qc.outlier],"failed the QC test."))
-  sample_analysis[match(sampleQC$sample[sampleQC$is.qc.outlier], all_samples)] <- FALSE
+colnames(sampleQC) <- c("sample", "CT<35","CT>=35","CT NULL","DOUBLE PEAKS","QUAL_SUM")
+sampleQC <- merge(sampleQC, aggregate(qual ~ sample, data=dataTbl,min), all=T)
+sampleQC$is.qc.outlier <- is.outlier(sampleQC$QUAL_SUM)
+colnames(sampleQC) <- c("SAMPLE", "CT<35","CT>=35","CT NULL","DOUBLE PEAKS","QUAL_SUM","QUAL_MIN", "IS_OUTLIER")
+## sample min qc >= qc_cutoff is set to be a outlier 2016-11-18
+sampleQC$IS_OUTLIER[sampleQC$QUAL_MIN >= qc_cutoff] <- TRUE
+if (length(sampleQC$SAMPLE[sampleQC$IS_OUTLIER]) > 0) {
+  print(paste(
+    paste(sampleQC$SAMPLE[sampleQC$IS_OUTLIER], collapse = ", "),
+    "failed the QC test.", collapse = " "))
+  sample_analysis[match(sampleQC$SAMPLE[sampleQC$IS_OUTLIER], all_samples)] <- FALSE
 }
 
 # Data Table & QC
@@ -110,7 +122,7 @@ rawCtQc10 <- cast(dataTblQc10, symbol~sample,value = "ct")
 # 找到类似-1 -2 -3标志的技术重复，先合并。去掉QC不合格的结果。
 # Update: 2016-03-14
 is_tech_rep <- FALSE
-if (all(grepl(pattern = "-\\d$", x = all_samples))) {
+if (all(grepl(pattern = "-\\d$", x = all_samples[sample_analysis]))) {
   is_tech_rep <- TRUE
   sreps <- matrix(unlist(strsplit(x = all_samples[sample_analysis], split = "-")),
                   ncol = 2, byrow = T)
@@ -119,11 +131,19 @@ if (all(grepl(pattern = "-\\d$", x = all_samples))) {
   }
   sreps <- cbind(sreps, all_groups[sample_analysis])
   sreps.uniq <- unique(sreps[,c(1,3)])
+  all_samples.ori <- all_samples
+  all_groups.ori <- all_groups
   all_samples <- c(all_samples, sreps.uniq[,1])
+  sample_analysis <- c(sample_analysis,
+                    setNames(rep(TRUE, length(sreps.uniq[,1])), sreps.uniq[,1]))
   all_groups <- c(rep("", times = length(all_groups)), sreps.uniq[,2])
   for (s in unique(sreps[,1])) {
     reps <- sreps[sreps[,1]==s,2]
-    rawCtQc10[,s] <- apply(rawCtQc10[,reps], MARGIN = 1, FUN = mean,na.rm=T)
+    if (length(reps) == 1) {
+      rawCtQc10[,s] <- rawCtQc10[,reps]
+    } else {
+      rawCtQc10[,s] <- apply(rawCtQc10[, colnames(rawCtQc10) %in% reps], MARGIN = 1, FUN = mean,na.rm=T)
+    }
   }
   
 }
@@ -145,11 +165,11 @@ if (normalization.method == "HK") {
       }
       if (is_valid)
         hks_valid <- c(hks_valid,hks)
-    } else { 
+    } else {
       if (all(dataTbl[dataTbl$symbol == hks &
             dataTbl$sample %in% all_samples[sample_analysis],"qual"] < qc_cutoff))
+        hks_valid <- c(hks_valid,hks)
     }
-    hks_valid <- c(hks_valid,hks)
   }
   if (length(hks_valid) == 1)
     stop("ERROR 4: All HK genes failed QC checking.")

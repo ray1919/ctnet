@@ -17,7 +17,7 @@ load(".RData")
 con <- dbConnect(RMySQL::MySQL(), user = 'ctnet',
                  password='ctnet', host='localhost',db='ctnet')
 
-pb <- txtProgressBar(max = nrow(dataTbl), style = 3)
+# pb <- txtProgressBar(max = nrow(dataTbl), style = 3)
 for (i in 1:nrow(dataTbl)) {
   istmoutlier1 <- NA
   istmoutlier2 <- NA
@@ -82,7 +82,7 @@ for (i in 1:nrow(dataTbl)) {
   dataTbl$tmlowerlimit[i] <- outlimit2[1]
   dataTbl$tmupperlimit[i] <- outlimit2[2]
   dataTbl$qual[i] <- dataTbl$qual[i] + qual
-  setTxtProgressBar(pb, i)
+  # setTxtProgressBar(pb, i)
 }
 dataTbl$sample <- as.character(dataTbl$sample)
 dataTbl$ct <- as.numeric(dataTbl$ct)

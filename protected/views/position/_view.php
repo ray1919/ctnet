@@ -14,6 +14,9 @@
 	<?php echo CHtml::encode($data->well); ?>
 </td>
 <td>
+	<?php echo CHtml::encode($data->synthetic_name); ?>
+</td>
+<td>
   <?php /*echo CHtml::encode($data->primer->gene_symbol); */?>
 	<?php echo CHtml::encode($data->getPrimerColumn($data->id, 'gene_symbol')); ?>
 </td>

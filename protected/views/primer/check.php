@@ -18,7 +18,7 @@ $this->breadcrumbs=array(
                 'gene_id',
                 'gene_symbol',
                 'primer_id',
-                'barcode',
+                'synthetic_name',
                 'plate',
                 'well',
                 'qc',

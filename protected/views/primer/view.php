@@ -15,6 +15,7 @@ $this->menu=array(
 	array('label'=>'Manage Primer', 'url'=>array('admin')),
 	array('label'=>'Check Primer', 'url'=>array('check')),
         array('label'=>'Add Primer Position', 'url'=>array('position/create', 'primer_id'=>$model->id)),
+  array('label'=>'Check Mirna(New!)', 'url'=> Yii::app()->baseUrl . '/site/page?view=mir_checklist'),
 );
 ?>
 
@@ -67,6 +68,7 @@ $this->menu=array(
 <tr>
 <td><b>Plate</b></td>
 <td><b>Well</b></td>
+<td><b>合成名称</b></td>
 <td><b>Gene Symbol</b></td>
 <td><b>Gene ID</b></td>
 <td><b>Primer ID</b></td>

@@ -48,7 +48,7 @@ if (array_type == "gene") {
   setColWidths(wb, sheet = 2, cols = "D", widths = 50)
   setColWidths(wb, sheet = 2, cols = "F", widths = 20)
   setColWidths(wb, sheet = 2, cols = "G", widths = 13)
-  writeData(wb, sheetName = "Gene Table", x = geneTbl, startCol = "A", startRow=1,
+  writeData(wb, sheet = "Gene Table", x = geneTbl, startCol = "A", startRow=1,
             borders="rows", headerStyle = headSty)
 }
 
@@ -59,8 +59,8 @@ freezePane(wb, sheet = "Data Table", firstActiveRow = 3,firstActiveCol = 'B')
 writeData(wb, "Data Table", x = rawTbl, startCol = "A", startRow=2, borders="rows",
           headerStyle = headSty)
 writeData(wb, "Data Table", x = "CT", startCol = 4, startRow = 1)
-writeData(wb, "Data Table", x = "TM", startCol = sum(schema3[,9]) + 4, startRow = 1)
-writeData(wb, "Data Table", x = "QC", startCol = 2*sum(schema3[,9]) + 4, startRow = 1)
+writeData(wb, "Data Table", x = "TM", startCol = sum(schema3[,10]) + 4, startRow = 1)
+writeData(wb, "Data Table", x = "QC", startCol = 2*sum(schema3[,10]) + 4, startRow = 1)
 s1 <- createStyle(fontSize=14, textDecoration=c("bold", "italic"))
 addStyle(wb, "Data Table", style = s1, rows=c(1,1,1), cols=(0:2) * sum(schema3[,9]) + 4)
 
@@ -100,8 +100,9 @@ for (i in 1:nrow(schema4)) {
       ddCt[t, "ratio"] = 2 ^ (-1 * ddCt[t,"delta.delta.Ct"])
       ddCt[t, "log ratio"] = -1 * ddCt[t,"delta.delta.Ct"]
       ddCt[t, "fold change"] = ddCt[t,"ratio"]
-      if (ddCt[t,"ratio"] < 1)
-        ddCt[t, "fold change"] = -1/ddCt[t,"ratio"]
+      if (!is.na(ddCt[t,"ratio"]))
+        if (ddCt[t,"ratio"] < 1)
+          ddCt[t, "fold change"] = -1/ddCt[t,"ratio"]
     }
     ddCt <- ddCt[,c("symbol",A,B,"delta.delta.Ct", "ratio","log ratio","fold change")]
     # plotxy <- data.frame(A = 2^-ddCt[, A], B = 2^-ddCt[, B], C = log2(2^-ddCt[, A] / 2^-ddCt[, B]))
@@ -265,7 +266,7 @@ insertImage(wb = wb, sheet = "QC Plot", file = qcpngfile,
 # Boxplot
 addWorksheet(wb, sheetName = "CT BOXPLOT", gridLines = FALSE, zoom = 150)
 p4 <- ggplot(dataTbl[order(dataTbl$symbol),], aes(x=sample, y=ct, fill=sample)) +
-  geom_boxplot(color="darkgray", alpha=0.1) +
+  geom_boxplot(color="darkgray", alpha=0.1,outlier.shape = NA) +
   geom_jitter(width = 0.5, color="lightcoral", alpha=0.7) +
   labs(x = "Sample", y = "CT Value") +
   theme_bw() + 
@@ -305,4 +306,4 @@ saveWorkbook(wb, "workbook.xlsx", overwrite = TRUE)
 unlink("*.png")
 
 print("Workbook saved as workbook.xlsx.")
-print(paste("Start to import experiment data. Estimated miniutes:", sum(schema3[,6] / 96) * 0.75))
+# print(paste("Start to import experiment data. Estimated miniutes:", sum(schema3[,6] / 96) * 0.75))

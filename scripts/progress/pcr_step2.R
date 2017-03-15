@@ -48,7 +48,7 @@ insertRow <- function(existingDF, newrow) {
 
 geneMaxNum <- 1L
 # read sample CT file
-pb <- txtProgressBar(max = nrow(schema3), style = 3)
+# pb <- txtProgressBar(max = nrow(schema3), style = 3)
 for (j in 1: nrow(schema3)) {
   # make pos => gene primer row index hash table
   # pos2idx <- hash()
@@ -75,10 +75,10 @@ for (j in 1: nrow(schema3)) {
     for ( t in 1:colNum ) { # col, 1 .. 12
       row.tmp <- data.frame(pos = paste(LETTERS[s],t,sep=""),
                       plate = schema3[j,6],
-                      sample = (s-1) %/% (rowNum/spc) * spr +
-                        (t-1) %/% (colNum/spr) + 1,
-                      idx = (s-1) %% (rowNum/spc) * (colNum/spr) +
-                        (t-1) %% (colNum/spr) +
+                      sample = (s-1) %/% (rowNum %/% spc) * spr +
+                        (t-1) %/% (colNum %/% spr) + 1,
+                      idx = (s-1) %% (rowNum %/% spc) * (colNum %/% spr) +
+                        (t-1) %% (colNum %/% spr) +
                         geneMaxNum[as.integer(schema3[j,6])])
       posmap <- rbind(posmap, row.tmp)
     }
@@ -100,7 +100,7 @@ for (j in 1: nrow(schema3)) {
     # geneIdx <- hash::values(pos2idx,keys=pos)
     geneIdx <- posmap$idx[posmap$pos == pos]
     symbol <- schema1$Symbol[geneIdx]
-    if (symbol == "[SKIP]")
+    if (!symbol %in% symbolList)
       next
     geneid <- schema1$Gene.ID[geneIdx]
     primerid <- schema1$Primer.ID[geneIdx]
@@ -131,8 +131,9 @@ for (j in 1: nrow(schema3)) {
     dataTbl <-  insertRow(dataTbl, c(symbol,sample_name,geneid,primerid,pos,ct,tm1,tm2,
                                      opt.tm,NA,NA,ishousekeeping,isdoublepeak,NA,NA,qual))
   }
-  setTxtProgressBar(pb, j)
+  # setTxtProgressBar(pb, j)
 }
+dataTbl <- dataTbl[!is.na(dataTbl$sample),]
 dataTbl$qual <- as.numeric(dataTbl$qual)
 dataTbl$tm1 <- as.numeric(dataTbl$tm1)
 dataTbl$tm2 <- as.numeric(dataTbl$tm2)

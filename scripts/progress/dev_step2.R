@@ -1,7 +1,7 @@
 # Author: Zhao
 # Date: 2015-10-21
 # Purpose: import pcr data into db and reformat PCR result
-.libPaths(c("/home/zhaorui/R/x86_64-unknown-linux-gnu-library/3.1",.libPaths()))
+.libPaths(c("/home/zhaorui/R/x86_64-pc-linux-gnu-library/3.2",.libPaths()))
 suppressPackageStartupMessages(library(DBI))
 options(stringsAsFactors = FALSE)
 # go to work dir
